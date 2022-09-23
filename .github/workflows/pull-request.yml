@@ -10,9 +10,9 @@ jobs:
   check:
     runs-on: ubuntu-latest
     env:
-      DATABASE_URL: test
+      DATABASE_URL: https://www.test.com/
       NEXTAUTH_SECRET: test
-      NEXTAUTH_URL: test
+      NEXTAUTH_URL: https://www.test.com/
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2

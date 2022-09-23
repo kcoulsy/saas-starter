@@ -4,9 +4,11 @@ import { loggerLink } from '@trpc/client/links/loggerLink';
 import { withTRPC } from '@trpc/next';
 import { SessionProvider } from 'next-auth/react';
 import { appWithTranslation } from 'next-i18next';
+import { DefaultSeo } from 'next-seo';
 import superjson from 'superjson';
 import type { AppType } from 'next/app';
 import type { Session } from 'next-auth';
+import defaultSeoConfig from '../config/seo';
 import type { AppRouter } from '../server/router';
 import '../styles/globals.css';
 
@@ -16,6 +18,7 @@ const MyApp: AppType<{
   _nextI18Next: any;
 }> = ({ Component, pageProps: { session, ...pageProps } }) => (
   <SessionProvider session={session}>
+    <DefaultSeo {...defaultSeoConfig} />
     <Component {...pageProps} />
   </SessionProvider>
 );
