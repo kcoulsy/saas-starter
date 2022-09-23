@@ -2,6 +2,7 @@
 /// <reference types="vite/client" />
 
 import { defineConfig } from 'vitest/config';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore - no types
 import react from '@vitejs/plugin-react';
 

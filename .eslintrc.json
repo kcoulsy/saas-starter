@@ -12,6 +12,8 @@
     "coverage/",
     "next.config.js",
     "next-i18next.config.js",
+    "commitlint.config.js",
+    "vitest.config.js",
     ".storybook",
     ".vscode",
     "**/*.test.ts",
