@@ -19,6 +19,13 @@ module.exports = {
         },
       },
     },
+    {
+      name: 'storybook-addon-turbo-build',
+      options: {
+        // Please refer below tables for available options
+        optimizationLevel: 2,
+      },
+    },
   ],
   framework: '@storybook/react',
   core: {
