@@ -1,5 +1,5 @@
 import NextBundleAnalyzer from '@next/bundle-analyzer';
-import withAxiom from 'next-axiom';
+import { withAxiom } from 'next-axiom';
 import nextI18n from './next-i18next.config.js';
 import { env } from './src/env/server.mjs';
 
