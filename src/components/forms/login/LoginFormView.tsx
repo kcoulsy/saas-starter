@@ -98,9 +98,9 @@ const LoginFormView = ({ registerEmail, registerPassword }: Props) => {
             <hr className="w-full bg-gray-400  " />
           </div>
           <div>
-            <label className="text-sm font-medium leading-none text-gray-800" htmlFor="email-input">
+            {/* <label className="text-sm font-medium leading-none text-gray-800" htmlFor="email-input">
               Email
-            </label>
+            </label> */}
             <input
               aria-label="enter email adress"
               id="email-input"
@@ -110,9 +110,9 @@ const LoginFormView = ({ registerEmail, registerPassword }: Props) => {
             />
           </div>
           <div className="mt-6  w-full">
-            <label className="text-sm font-medium leading-none text-gray-800" htmlFor="password-input">
+            {/* <label className="text-sm font-medium leading-none text-gray-800" htmlFor="password-input">
               Password
-            </label>
+            </label> */}
             <div className="relative flex items-center justify-center">
               <input
                 id="password-input"
