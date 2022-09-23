@@ -3,7 +3,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint", "prettier"],
+  "plugins": ["@typescript-eslint", "prettier", "plugin:storybook/recommended"],
   "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended", "airbnb", "prettier"],
   "ignorePatterns": ["node_modules/", "dist/", "build/", "coverage/", "next.config.js", "next-i18next.config.js"],
   "rules": {
