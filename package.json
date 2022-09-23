@@ -2,6 +2,9 @@
   "name": "teamapp",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=16"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -16,7 +19,9 @@
     "build-storybook": "build-storybook",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
-    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
+    "prepare": "husky install",
+    "scriptname": "husky install"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.4",
@@ -33,7 +38,8 @@
     "react-dom": "18.2.0",
     "react-query": "^3.39.2",
     "superjson": "^1.10.0",
-    "zod": "^3.18.0"
+    "zod": "^3.18.0",
+    "@storybook/react": "^6.5.12"
   },
   "devDependencies": {
     "@babel/core": "^7.19.1",
@@ -46,7 +52,6 @@
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/builder-webpack5": "^6.5.12",
     "@storybook/manager-webpack5": "^6.5.12",
-    "@storybook/react": "^6.5.12",
     "@storybook/testing-library": "0.0.13",
     "@testing-library/react": "^13.4.0",
     "@types/node": "18.0.0",
@@ -69,7 +74,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "eslint-plugin-storybook": "^0.6.4",
+    "husky": "^8.0.1",
     "jsdom": "^20.0.0",
     "postcss": "^8.4.16",
     "prettier": "^2.7.1",
