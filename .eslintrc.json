@@ -29,6 +29,7 @@
     "class-methods-use-this": "off",
     "no-underscore-dangle": "off",
     "no-restricted-syntax": "off",
+    "arrow-body-style": "off",
     "import/extensions": "off",
     "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",

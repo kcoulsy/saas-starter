@@ -1,6 +1,8 @@
-import { env } from './src/env/server.mjs';
-import nextI18n from './next-i18next.config.js';
 import NextBundleAnalyzer from '@next/bundle-analyzer';
+import withAxiom from 'next-axiom';
+import nextI18n from './next-i18next.config.js';
+import { env } from './src/env/server.mjs';
+
 const { i18n } = nextI18n;
 
 const withBundleAnalyzer = NextBundleAnalyzer({
@@ -19,11 +21,13 @@ function defineNextConfig(config) {
   return config;
 }
 
-export default withBundleAnalyzer(
-  defineNextConfig({
-    reactStrictMode: true,
-    swcMinify: true,
-    // Next.js i18n docs: https://nextjs.org/docs/advanced-features/i18n-routing
-    i18n,
-  }),
+export default withAxiom(
+  withBundleAnalyzer(
+    defineNextConfig({
+      reactStrictMode: true,
+      swcMinify: true,
+      // Next.js i18n docs: https://nextjs.org/docs/advanced-features/i18n-routing
+      i18n,
+    }),
+  ),
 );

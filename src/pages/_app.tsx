@@ -7,21 +7,30 @@ import { appWithTranslation } from 'next-i18next';
 import { DefaultSeo } from 'next-seo';
 import superjson from 'superjson';
 import type { AppType } from 'next/app';
+import LogRocket from 'logrocket';
+import { useEffect } from 'react';
 import type { Session } from 'next-auth';
 import defaultSeoConfig from '../config/seo';
 import type { AppRouter } from '../server/router';
 import '../styles/globals.css';
 
+export { reportWebVitals } from 'next-axiom';
+
 const MyApp: AppType<{
   session: Session | null;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- don't care about this type and they don't expose it
   _nextI18Next: any;
-}> = ({ Component, pageProps: { session, ...pageProps } }) => (
-  <SessionProvider session={session}>
-    <DefaultSeo {...defaultSeoConfig} />
-    <Component {...pageProps} />
-  </SessionProvider>
-);
+}> = ({ Component, pageProps: { session, ...pageProps } }) => {
+  useEffect(() => {
+    LogRocket.init('nfwx3e/teamapp');
+  }, []);
+  return (
+    <SessionProvider session={session}>
+      <DefaultSeo {...defaultSeoConfig} />
+      <Component {...pageProps} />
+    </SessionProvider>
+  );
+};
 
 const getBaseUrl = () => {
   if (typeof window !== 'undefined') return ''; // browser should use relative url
