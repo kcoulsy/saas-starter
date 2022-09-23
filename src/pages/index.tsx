@@ -1,9 +1,12 @@
-import type { NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { trpc } from '../utils/trpc';
 
 const Home: NextPage = () => {
   const hello = trpc.useQuery(['example.hello', { text: 'from tRPC' }]);
+  const { t } = useTranslation('common');
 
   return (
     <>
@@ -14,9 +17,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="container mx-auto flex flex-col items-center justify-center min-h-screen p-4">
-        <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">
-          Create <span className="text-purple-300">T3</span> App
-        </h1>
+        <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">{t('test')}</h1>
         <p className="text-2xl text-gray-700">This stack uses:</p>
         <div className="pt-6 text-2xl text-blue-500 flex justify-center items-center w-full">
           {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
@@ -25,5 +26,12 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale as string, ['common', 'footer'])),
+    // Will be passed to the page component as props
+  },
+});
 
 export default Home;

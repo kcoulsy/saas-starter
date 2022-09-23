@@ -3,13 +3,18 @@ import { httpBatchLink } from '@trpc/client/links/httpBatchLink';
 import { loggerLink } from '@trpc/client/links/loggerLink';
 import { withTRPC } from '@trpc/next';
 import { SessionProvider } from 'next-auth/react';
+import { appWithTranslation } from 'next-i18next';
 import superjson from 'superjson';
 import type { AppType } from 'next/app';
 import type { Session } from 'next-auth';
 import type { AppRouter } from '../server/router';
 import '../styles/globals.css';
 
-const MyApp: AppType<{ session: Session | null }> = ({ Component, pageProps: { session, ...pageProps } }) => (
+const MyApp: AppType<{
+  session: Session | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- don't care about this type and they don't expose it
+  _nextI18Next: any;
+}> = ({ Component, pageProps: { session, ...pageProps } }) => (
   <SessionProvider session={session}>
     <Component {...pageProps} />
   </SessionProvider>
@@ -62,4 +67,4 @@ export default withTRPC<AppRouter>({
    * @link https://trpc.io/docs/ssr
    */
   ssr: false,
-})(MyApp);
+})(appWithTranslation(MyApp));
