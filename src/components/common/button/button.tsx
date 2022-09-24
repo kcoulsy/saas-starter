@@ -1,37 +1,31 @@
-import React from 'react';
-import styles from './button.module.scss';
+import clsx from 'clsx';
 
-interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Button contents
-   */
+export interface ButtonProps {
+  id?: string;
   label: string;
-  /**
-   * Optional click handler
-   */
+  type: 'submit' | 'button' | 'reset';
+  classes?: string;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
-/**
- * Primary UI component for user interaction
- */
-export const Button = ({ primary = false, size = 'medium', backgroundColor, label, ...props }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+const Button = ({ id, type = 'button', label, onClick, classes, disabled }: ButtonProps) => {
   return (
-    <button type="button" className={`bg-red-500 ${styles.storybookButton}`} style={{ backgroundColor }} {...props}>
+    <button
+      id={id}
+      // eslint-disable-next-line react/button-has-type
+      type={type}
+      onClick={!disabled ? onClick : undefined}
+      aria-label={label}
+      className={clsx(`text-sm font-semibold leading-none text-white focus:outline-none py-4 w-full ${classes}`, {
+        'bg-indigo-700 border rounded hover:bg-indigo-600 ': !disabled,
+        'focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700': !disabled,
+        'bg-gray-300 border rounded cursor-not-allowed': disabled,
+      })}
+    >
       {label}
     </button>
   );
 };
+
+export default Button;

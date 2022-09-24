@@ -26,6 +26,7 @@
     "scriptname": "husky install"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.8",
     "@next-auth/prisma-adapter": "1.0.4",
     "@next/bundle-analyzer": "12.3.1",
     "@prisma/client": "4.3.1",
@@ -37,6 +38,7 @@
     "@trpc/react": "9.27.2",
     "@trpc/server": "9.27.2",
     "@vitejs/plugin-react": "2.1.0",
+    "clsx": "^1.2.1",
     "logrocket": "^3.0.1",
     "next": "12.3.1",
     "next-auth": "4.10.3",
