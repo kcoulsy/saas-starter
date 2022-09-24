@@ -3,7 +3,7 @@ import Button from './Button';
 import { mockButtonProps } from './Button.mocks';
 
 export default {
-  title: 'template/Button',
+  title: 'common/Button',
   component: Button,
   // https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
