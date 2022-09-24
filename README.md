@@ -46,7 +46,7 @@ Axiom is integrated through vercel. [Add the integration here](https://vercel.co
 
 ### Chromatic
 
-The storybook stories are linked on chromatic. To publish to chromatic you need the .env key `CHROMATIC_PROJECT_TOKEN`
+The storybook stories are linked on chromatic. To publish to chromatic locally you need the .env key `CHROMATIC_PROJECT_TOKEN`
 
 
 
