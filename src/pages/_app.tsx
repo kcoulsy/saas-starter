@@ -25,6 +25,7 @@ type InitialProps = {
 };
 
 type App = NextComponentType<AppContext, AppInitialProps, AppLayoutProps<InitialProps>>;
+
 const MyApp: App = ({ Component, pageProps }) => {
   useEffect(() => {
     LogRocket.init('nfwx3e/teamapp');

@@ -14,7 +14,7 @@ const AuthPagesLayout = ({ children }: PropsWithChildren) => {
             fill="white"
           />
         </svg>
-        {children}
+        <div className="mt-10 w-full flex flex-col items-center justify-center">{children}</div>
       </div>
     </div>
   );
