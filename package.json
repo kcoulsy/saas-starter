@@ -23,7 +23,8 @@
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
     "prepare": "husky install",
-    "scriptname": "husky install"
+    "scriptname": "husky install",
+    "chromatic": "npx chromatic"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.8",
@@ -75,6 +76,7 @@
     "@typescript-eslint/parser": "5.33.0",
     "autoprefixer": "10.4.12",
     "babel-loader": "8.2.5",
+    "chromatic": "^6.10.0",
     "cross-env": "7.0.3",
     "css-loader": "6.7.1",
     "eslint": "8.2.0",
@@ -102,5 +104,7 @@
   },
   "ct3aMetadata": {
     "initVersion": "5.13.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "teamapp@0.1.0"
 }

@@ -1,0 +1,25 @@
+info @storybook/react v6.5.12
+info 
+info => Cleaning outputDir: C:\Users\K\AppData\Local\Temp\chromatic--51876-8XuZUglNhoj4
+info => Loading presets
+info => Compiling manager..
+info => Compiling preview..
+info Addon-docs: using MDX1
+info => Using PostCSS preset with postcss@8.4.16
+info => Using default Webpack5 setup
+info => Preview built (23 s)
+WARN asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+WARN This can impact web performance.
+WARN Assets: 
+WARN   863.ce23f238.iframe.bundle.js (524 KiB)
+WARN   807.b8dd29a2.iframe.bundle.js (737 KiB)
+WARN   505.fda2cda8.iframe.bundle.js (1.27 MiB)
+WARN entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+WARN Entrypoints:
+WARN   main (1.34 MiB)
+WARN       runtime~main.b90c9f80.iframe.bundle.js
+WARN       505.fda2cda8.iframe.bundle.js
+WARN       main.799782f1.iframe.bundle.js
+WARN 
+info => Manager built (24 s)
+info => Output directory: C:\Users\K\AppData\Local\Temp\chromatic--51876-8XuZUglNhoj4
