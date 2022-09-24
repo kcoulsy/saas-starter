@@ -1,8 +1,8 @@
 import NextBundleAnalyzer from '@next/bundle-analyzer';
 import { withAxiom } from 'next-axiom';
+import { withSentryConfig } from '@sentry/nextjs';
 import nextI18n from './next-i18next.config.js';
 import { env } from './src/env/server.mjs';
-import { withSentryConfig } from '@sentry/nextjs';
 
 const { i18n } = nextI18n;
 
