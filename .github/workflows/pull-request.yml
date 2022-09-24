@@ -13,8 +13,6 @@ jobs:
       DATABASE_URL: https://www.test.com/
       NEXTAUTH_SECRET: test
       NEXTAUTH_URL: https://www.test.com/
-      SENTRY_DSN: https://www.test.com/
-      SENTRY_AUTH_TOKEN: 1234
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
