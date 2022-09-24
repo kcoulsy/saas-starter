@@ -6,9 +6,11 @@ import { SessionProvider } from 'next-auth/react';
 import { appWithTranslation } from 'next-i18next';
 import { DefaultSeo } from 'next-seo';
 import superjson from 'superjson';
-import type { AppType } from 'next/app';
+import type { AppContext, AppInitialProps, AppLayoutProps } from 'next/app';
+import type { NextComponentType } from 'next';
 import LogRocket from 'logrocket';
 import { useEffect } from 'react';
+import type { ReactNode } from 'react';
 import type { Session } from 'next-auth';
 import defaultSeoConfig from '../config/seo';
 import type { AppRouter } from '../server/router';
@@ -16,19 +18,25 @@ import '../styles/globals.css';
 
 export { reportWebVitals } from 'next-axiom';
 
-const MyApp: AppType<{
+type InitialProps = {
   session: Session | null;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- don't care about this type and they don't expose it
   _nextI18Next: any;
-}> = ({ Component, pageProps: { session, ...pageProps } }) => {
+};
+
+type App = NextComponentType<AppContext, AppInitialProps, AppLayoutProps<InitialProps>>;
+const MyApp: App = ({ Component, pageProps }) => {
   useEffect(() => {
     LogRocket.init('nfwx3e/teamapp');
   }, []);
-  return (
-    <SessionProvider session={session}>
+
+  const getLayout = Component.getLayout || ((page: ReactNode) => page);
+
+  return getLayout(
+    <SessionProvider session={pageProps.session}>
       <DefaultSeo {...defaultSeoConfig} />
       <Component {...pageProps} />
-    </SessionProvider>
+    </SessionProvider>,
   );
 };
 

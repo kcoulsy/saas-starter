@@ -1,4 +1,5 @@
 import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
 import React from 'react';
 import type { UseFormRegisterReturn } from 'react-hook-form';
 import Button from '../../../common/button/Button';
@@ -29,14 +30,16 @@ const LoginFormView = ({ registerEmail, registerPassword, errors }: LoginFormVie
       </p>
       <p className="text-sm mt-4 font-medium leading-none text-gray-500">
         {t('loginFormRegisterLabel')}
-        <span
-          tabIndex={0}
-          role="link"
-          aria-label={t('loginFormRegisterLink')}
-          className="text-sm font-medium leading-none underline ml-1 text-gray-800 cursor-pointer"
-        >
-          {t('loginFormRegisterLink')}
-        </span>
+        <Link href="/register">
+          <span
+            tabIndex={0}
+            role="link"
+            aria-label={t('loginFormRegisterLink')}
+            className="text-sm font-medium leading-none underline ml-1 text-gray-800 cursor-pointer"
+          >
+            {t('loginFormRegisterLink')}
+          </span>
+        </Link>
       </p>
       <div className="grid gap-y-4 mt-8">
         <SocialLoginButton type="google" onClick={() => alert('login with google')} />
