@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  sentry _release:
+  sentry_release:
     runs-on: ubuntu-latest
     env:
       DATABASE_URL: https://www.test.com/
