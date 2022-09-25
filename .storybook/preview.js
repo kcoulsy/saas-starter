@@ -5,6 +5,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import enCommonTranslations from '../public/locales/en/common.json';
 import enLoginFormTranslations from '../public/locales/en/login-form.json';
+import enRegisterFormTranslations from '../public/locales/en/register-form.json';
 
 export const decorators = [
   // ... other decorators
@@ -27,6 +28,7 @@ export const decorators = [
         en: {
           common: enCommonTranslations,
           'login-form': enLoginFormTranslations,
+          'register-form': enRegisterFormTranslations,
         },
       },
     });

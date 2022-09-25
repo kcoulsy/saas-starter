@@ -20,14 +20,9 @@ const LoginFormView = ({ registerEmail, registerPassword, errors }: LoginFormVie
 
   return (
     <div className="bg-white shadow rounded w-full p-10">
-      <p
-        role="heading"
-        aria-level={1}
-        aria-label={t('loginFormTitle')}
-        className="text-2xl font-extrabold leading-6 text-gray-800"
-      >
+      <h1 aria-level={1} aria-label={t('loginFormTitle')} className="text-2xl font-extrabold leading-6 text-gray-800">
         {t('loginFormTitle')}
-      </p>
+      </h1>
       <p className="text-sm mt-4 font-medium leading-none text-gray-500">
         {t('loginFormRegisterLabel')}
         <Link href="/register">

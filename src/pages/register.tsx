@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Link from 'next/link';
 import React from 'react';
 import RegisterFormController from '../components/forms/register/RegisterFormController';
@@ -24,11 +25,11 @@ RegisterPage.getLayout = function getLayout(page: React.ReactNode) {
   return <AuthPagesLayout>{page}</AuthPagesLayout>;
 };
 
-// export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-//   props: {
-//     ...(await serverSideTranslations(locale as string, ['common', 'login-form'])),
-//     // Will be passed to the page component as props
-//   },
-// });
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale as string, ['common', 'register-form'])),
+    // Will be passed to the page component as props
+  },
+});
 
 export default RegisterPage;

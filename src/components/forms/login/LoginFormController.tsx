@@ -29,6 +29,7 @@ const LoginFormController = () => {
   } = useForm<LoginFormFields>({
     resolver: zodResolver(formSchema(t)),
   });
+
   const onSubmit = (data: LoginFormFields) => {
     console.log(data);
     // return console.log(data);

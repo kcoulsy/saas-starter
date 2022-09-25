@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import LoginFormView from './LoginFormView';
-import { mockLoginFormViewProps } from './LoginFormView.mocks';
+import RegisterFormView from './RegisterFormView';
+import { mockRegisterFormViewProps } from './RegisterFormView.mocks';
 
 export default {
-  title: 'forms/login/LoginFormView',
-  component: LoginFormView,
+  title: 'forms/register/RegisterFormView',
+  component: RegisterFormView,
   // https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
   parameters: {
@@ -13,22 +13,22 @@ export default {
       values: [{ name: 'dark', value: '#3E3E3E' }],
     },
   },
-} as ComponentMeta<typeof LoginFormView>;
+} as ComponentMeta<typeof RegisterFormView>;
 
-const Template: ComponentStory<typeof LoginFormView> = (args) => (
+const Template: ComponentStory<typeof RegisterFormView> = (args) => (
   <div className="lg:w-1/3 md:w-1/2 w-full">
-    <LoginFormView {...args} />
+    <RegisterFormView {...args} />
   </div>
 );
 
 export const Default = Template.bind({});
 
 Default.args = {
-  ...mockLoginFormViewProps.base,
+  ...mockRegisterFormViewProps.base,
 };
 
 export const Errors = Template.bind({});
 
 Errors.args = {
-  ...mockLoginFormViewProps.errors,
+  ...mockRegisterFormViewProps.errors,
 };
