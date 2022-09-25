@@ -2,11 +2,13 @@ import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { signOut, useSession } from 'next-auth/react';
 import { trpc } from '../utils/trpc';
 
 const Home: NextPage = () => {
   const hello = trpc.useQuery(['example.hello', { text: 'from tRPC' }]);
   const { t } = useTranslation('common');
+  const { status } = useSession();
 
   return (
     <>
@@ -22,14 +24,16 @@ const Home: NextPage = () => {
         <div className="pt-6 text-2xl text-blue-500 flex justify-center items-center w-full">
           {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
         </div>
-        <button
-          type="button"
-          onClick={() => {
-            throw new Error('test');
-          }}
-        >
-          throw error
-        </button>
+        {status === 'authenticated' ? (
+          <div>
+            <p>Authenticated</p>
+            <button type="button" onClick={() => signOut()}>
+              Sign Out
+            </button>
+          </div>
+        ) : (
+          <p>Not authenticated</p>
+        )}
       </main>
     </>
   );

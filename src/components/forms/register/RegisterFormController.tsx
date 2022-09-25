@@ -3,9 +3,8 @@ import { useForm } from 'react-hook-form';
 import { TFunction, useTranslation } from 'next-i18next';
 import { z } from 'zod';
 import RegisterFormView from './registerFormView/RegisterFormView';
-
-const MIN_PASSWORD_LENGTH = 8;
-const MAX_PASSWORD_LENGTH = 100;
+import { MAX_PASSWORD_LENGTH, MIN_PASSWORD_LENGTH } from '../../../constants/auth';
+import { trpc } from '../../../utils/trpc';
 
 const formSchema = (t: TFunction) =>
   z
@@ -42,7 +41,7 @@ type RegisterFormFields = z.infer<ReturnType<typeof formSchema>>;
 
 const RegisterFormController = () => {
   const { t } = useTranslation('register-form');
-
+  const mutation = trpc.useMutation(['auth.createUser']);
   const {
     register,
     handleSubmit,
@@ -53,6 +52,7 @@ const RegisterFormController = () => {
 
   const onSubmit = (data: RegisterFormFields) => {
     console.log(data);
+    mutation.mutate({ email: data.email, password: data.password });
   };
 
   const formErrors = {

@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { TFunction, useTranslation } from 'next-i18next';
+import { signIn, useSession } from 'next-auth/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import LoginFormView from './loginFormView/LoginFormView';
 
@@ -22,6 +23,8 @@ type LoginFormFields = z.infer<ReturnType<typeof formSchema>>;
 
 const LoginFormController = () => {
   const { t } = useTranslation('login-form');
+  const sess = useSession();
+  console.log(sess);
   const {
     register,
     handleSubmit,
@@ -32,6 +35,12 @@ const LoginFormController = () => {
 
   const onSubmit = (data: LoginFormFields) => {
     console.log(data);
+    signIn('credentials', {
+      email: data.email,
+      password: data.password,
+      callbackUrl: '/',
+      redirect: false,
+    });
     // return console.log(data);
   };
 

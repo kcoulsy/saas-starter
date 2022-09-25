@@ -14,8 +14,10 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Example {
-    id String @id @default(cuid())
+model CredentialsAuth {
+    id       String @id @default(cuid())
+    email    String
+    password String
 }
 
 // Necessary for Next auth
