@@ -12,6 +12,7 @@ export interface RegisterFormViewProps {
     email?: string[];
     password?: string[];
     confirm?: string[];
+    register?: string;
   };
 }
 
@@ -45,6 +46,7 @@ const RegisterFormView = ({
           </span>
         </Link>
       </p>
+      {errors?.register && <p>{errors.register}</p>}
       <div className="grid gap-y-4 mt-8">
         <FormInput
           id="email"

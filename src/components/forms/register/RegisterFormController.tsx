@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { TFunction, useTranslation } from 'next-i18next';
@@ -42,6 +43,7 @@ type RegisterFormFields = z.infer<ReturnType<typeof formSchema>>;
 const RegisterFormController = () => {
   const { t } = useTranslation('register-form');
   const mutation = trpc.useMutation(['auth.createUser']);
+  const [registerError, setRegisterError] = useState<string | undefined>(undefined);
   const {
     register,
     handleSubmit,
@@ -50,15 +52,20 @@ const RegisterFormController = () => {
     resolver: zodResolver(formSchema(t)),
   });
 
-  const onSubmit = (data: RegisterFormFields) => {
+  const onSubmit = async (data: RegisterFormFields) => {
     console.log(data);
-    mutation.mutate({ email: data.email, password: data.password });
+    try {
+      await mutation.mutate({ email: data.email, password: data.password });
+    } catch (error) {
+      setRegisterError('Unable to register');
+    }
   };
 
   const formErrors = {
     email: errors.email?.message ? [errors.email.message] : undefined,
     password: errors.password?.message ? [errors.password.message] : undefined,
     confirm: errors.confirm?.message ? [errors.confirm.message] : undefined,
+    register: registerError,
   };
 
   return (

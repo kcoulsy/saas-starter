@@ -14,5 +14,6 @@
   "loginFormSeperatorLabel": "or",
   "loginFormEmailRequired": "Please enter your email",
   "loginFormEmailValid": "Please enter a valid email",
-  "loginFormPasswordRequired": "Please enter your password"
+  "loginFormPasswordRequired": "Please enter your password",
+  "loginFormLoginError": "Invalid Login"
 }

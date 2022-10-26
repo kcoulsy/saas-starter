@@ -3,11 +3,14 @@ import NextAuth, { type NextAuthOptions } from 'next-auth';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import Credentials from 'next-auth/providers/credentials';
 import { prisma } from '../../../server/db/client';
-import { verify } from '../../../server/utils/password';
+import { loginUser } from '../../../server/services/auth.service';
 
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
-  session: { strategy: 'jwt' },
+  session: {
+    strategy: 'jwt',
+    maxAge: 60 * 60, // 1h
+  },
   callbacks: {
     session({ session, user }) {
       if (session.user && user) {
@@ -27,24 +30,8 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
-          return null;
-        }
-        const { email, password } = credentials;
-
-        try {
-          const user = await prisma.credentialsAuth.findFirst({
-            where: { email },
-          });
-          if (!user) throw new Error('User not found');
-
-          const result = await verify(password, user.password);
-          if (!result) throw new Error('Bad password');
-
-          return { id: user.id, email: user.email };
-        } catch (error) {
-          throw new Error('Invalid Login');
-        }
+        if (!credentials) return null;
+        return loginUser(credentials);
       },
     }),
   ],

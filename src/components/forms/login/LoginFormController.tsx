@@ -1,8 +1,10 @@
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { TFunction, useTranslation } from 'next-i18next';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import LoginFormView from './loginFormView/LoginFormView';
 
 const formSchema = (t: TFunction) =>
@@ -23,8 +25,8 @@ type LoginFormFields = z.infer<ReturnType<typeof formSchema>>;
 
 const LoginFormController = () => {
   const { t } = useTranslation('login-form');
-  const sess = useSession();
-  console.log(sess);
+  const router = useRouter();
+  const [loginError, setLoginError] = useState(false);
   const {
     register,
     handleSubmit,
@@ -33,20 +35,29 @@ const LoginFormController = () => {
     resolver: zodResolver(formSchema(t)),
   });
 
-  const onSubmit = (data: LoginFormFields) => {
-    console.log(data);
-    signIn('credentials', {
-      email: data.email,
-      password: data.password,
-      callbackUrl: '/',
-      redirect: false,
-    });
-    // return console.log(data);
+  const onSubmit = async (data: LoginFormFields) => {
+    try {
+      const response = await signIn('credentials', {
+        email: data.email,
+        password: data.password,
+        callbackUrl: '/',
+        redirect: false,
+      });
+      if (response?.ok) {
+        setLoginError(false);
+        router.push('/');
+        return;
+      }
+      setLoginError(true);
+    } catch (error) {
+      setLoginError(true);
+    }
   };
 
   const formErrors = {
     email: errors.email?.message ? [errors.email.message] : undefined,
     password: errors.password?.message ? [errors.password.message] : undefined,
+    loginError: loginError ? [t('loginFormLoginError')] : undefined,
   };
 
   return (

@@ -12,6 +12,7 @@ export interface LoginFormViewProps {
   errors?: {
     email?: string[];
     password?: string[];
+    loginError?: string[];
   };
 }
 
@@ -72,6 +73,16 @@ const LoginFormView = ({ registerEmail, registerPassword, errors }: LoginFormVie
         >
           {t('loginFormForgotPasswordLabel')}
         </span>
+
+        {errors && (
+          <ul className="mt-1">
+            {errors.loginError?.map((error) => (
+              <li key={error}>
+                <small className="text-red-500">{error}</small>
+              </li>
+            ))}
+          </ul>
+        )}
         <Button label={t('loginFormSubmitButton')} type="submit" classes="mt-2" />
       </div>
     </div>
