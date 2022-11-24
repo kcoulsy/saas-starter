@@ -2,6 +2,10 @@
 
 This is an app bootstrapped according to the [init.tips](https://init.tips) stack, also known as the T3-Stack.
 
+## Node Version
+
+This project uses node `16.18.1` and npm `8.19.2`. It is recommended to use nvm to set your environment to these specific versions.
+
 ## Why are there `.js` files in here?
 
 As per [T3-Axiom #3](https://github.com/t3-oss/create-t3-app/tree/next#3-typesafety-isnt-optional), we take typesafety as a first class citizen. Unfortunately, not all frameworks and plugins support TypeScript which means some of the configuration files have to be `.js` files.
@@ -35,10 +39,6 @@ This web app uses a postgres db - we suggest you spin one up at [railway](https:
 ### Sentry
 
 You will need to add `SENTRY_DSN` and `SENTRY_AUTH_TOKEN` to your env file.
-
-### LogRocket
-
-Logrocket is setup for the web app and doesn't required any manual setup.
 
 ### Axiom
 

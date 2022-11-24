@@ -8,8 +8,6 @@ import { DefaultSeo } from 'next-seo';
 import superjson from 'superjson';
 import type { AppContext, AppInitialProps, AppLayoutProps } from 'next/app';
 import type { NextComponentType } from 'next';
-import LogRocket from 'logrocket';
-import { useEffect } from 'react';
 import type { ReactNode } from 'react';
 import type { Session } from 'next-auth';
 import defaultSeoConfig from '../config/seo';
@@ -27,10 +25,6 @@ type InitialProps = {
 type App = NextComponentType<AppContext, AppInitialProps, AppLayoutProps<InitialProps>>;
 
 const MyApp: App = ({ Component, pageProps }) => {
-  useEffect(() => {
-    LogRocket.init('nfwx3e/teamapp');
-  }, []);
-
   const getLayout = Component.getLayout || ((page: ReactNode) => page);
 
   return getLayout(
