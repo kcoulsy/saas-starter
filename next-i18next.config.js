@@ -5,6 +5,6 @@ module.exports = {
     defaultLocale: 'en',
     locales: ['en'],
     // setting path to fix getServerSideProps calls on vercel
-    localePath: path.resolve('./public/locales'),
+    localePath: path.resolve('./src/locales'),
   },
 };

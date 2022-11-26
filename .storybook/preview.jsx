@@ -3,9 +3,9 @@ import '../src/styles/globals.css';
 import * as nextImage from 'next/image';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import enCommonTranslations from '../public/locales/en/common.json';
-import enLoginFormTranslations from '../public/locales/en/login-form.json';
-import enRegisterFormTranslations from '../public/locales/en/register-form.json';
+import enCommonTranslations from '../src/locales/en/common.json';
+import enLoginFormTranslations from '../src/locales/en/login-form.json';
+import enRegisterFormTranslations from '../src/locales/en/register-form.json';
 
 export const decorators = [
   // ... other decorators
