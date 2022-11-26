@@ -2,7 +2,7 @@ import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import React from 'react';
 import Button from '@src/components/common/button/Button';
-import FormInput from '../../common/input/FormInput';
+import FormInput from '@src/components/common/input/FormInput';
 import SocialLoginButton from './socialLoginButton/SocialLoginButton';
 import type { UseFormRegisterReturn } from 'react-hook-form';
 

@@ -2,7 +2,7 @@
 
 import { HTMLInputTypeAttribute, useState } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
-import IconEye from '../../../icons/eye';
+import IconEye from '../../icons/eye';
 
 export interface FormInputProps {
   id: string;
