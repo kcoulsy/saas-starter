@@ -2,7 +2,7 @@ name: Playwright Tests
 on: deployment_status
 jobs:
   e2e:
-   if: github.event.deployment_status.state == 'success'
+    if: github.event.deployment_status.state == 'success'
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
