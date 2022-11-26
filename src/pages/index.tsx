@@ -1,7 +1,7 @@
-import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import HomepageContainer from '../containers/homepage/HomepageContainer';
+import type { GetStaticProps, NextPage } from 'next';
 
 const Home: NextPage = () => {
   // const [t] = useTranslation(['common', 'contentful']);

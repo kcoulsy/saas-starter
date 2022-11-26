@@ -1,10 +1,10 @@
 import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import React from 'react';
-import type { UseFormRegisterReturn } from 'react-hook-form';
-import Button from '../../../common/button/Button';
+import Button from '@src/components/common/button/Button';
 import FormInput from '../../common/input/FormInput';
 import SocialLoginButton from './socialLoginButton/SocialLoginButton';
+import type { UseFormRegisterReturn } from 'react-hook-form';
 
 export interface LoginFormViewProps {
   registerEmail: UseFormRegisterReturn<'email'>;
