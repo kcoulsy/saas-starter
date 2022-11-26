@@ -47,6 +47,7 @@
     "next": "12.3.1",
     "next-auth": "4.10.3",
     "next-axiom": "0.14.0",
+    "next-connect": "^0.13.0",
     "next-i18next": "12.0.1",
     "next-seo": "5.5.0",
     "react": "18.2.0",
@@ -57,6 +58,7 @@
     "superjson": "1.10.0",
     "uuid": "^9.0.0",
     "vitest": "0.23.4",
+    "@faker-js/faker": "^7.6.0",
     "zod": "3.18.0"
   },
   "devDependencies": {

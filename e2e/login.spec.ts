@@ -1,8 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-test('homepage has Playwright in title and get started link linking to the intro page', async ({ page }) => {
-  await page.goto('/login');
+test('it can successfully login', async ({ page, request }) => {
+  const { seedCredentials } = await request.post('/api/e2e/seedUser').then((res) => res.json());
 
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+  await page.goto('/login');
+  await page.locator('input[name="email"]').fill(seedCredentials.email);
+  await page.locator('input[name="password"]').fill(seedCredentials.password);
+  await Promise.all([page.waitForNavigation(), page.locator('button[type="submit"]').click()]);
+
+  await expect(page).toHaveURL('http://localhost:3000/');
 });
