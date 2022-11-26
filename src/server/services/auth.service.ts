@@ -1,6 +1,7 @@
 import { LoginUser, loginUserSchema, RegisterUser, registerUserSchema } from '../schemas/auth.schema';
 import { prisma } from '../db/client';
 import { hash, verify } from '../utils/password';
+import { generateVerificationTokenForUser } from './verification.service';
 
 /**
  * Logs in a user or throws
@@ -20,8 +21,15 @@ export const loginUser = async ({ email, password }: LoginUser) => {
     const result = await verify(password, user.password);
     if (!result) throw new Error('Bad password');
 
+    if (!user.emailVerified) {
+      throw new Error('Email not verified');
+    }
+
     return { id: user.id, email: user.email };
   } catch (error) {
+    if (error instanceof Error && error.message === 'Email not verified') {
+      throw error;
+    }
     throw new Error('Invalid Login');
   }
 };
@@ -49,12 +57,14 @@ export const registerUser = async ({ email, password }: RegisterUser) => {
       throw new Error('Password Error');
     }
 
-    await prisma.credentialsAuth.create({
+    const user = await prisma.credentialsAuth.create({
       data: {
         email,
         password: hashedPassword,
       },
     });
+
+    await generateVerificationTokenForUser(user);
 
     return { success: true };
   } catch (error) {

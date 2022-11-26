@@ -26,7 +26,7 @@ type LoginFormFields = z.infer<ReturnType<typeof formSchema>>;
 const LoginFormController = () => {
   const { t } = useTranslation('login-form');
   const router = useRouter();
-  const [loginError, setLoginError] = useState(false);
+  const [loginError, setLoginError] = useState<string>();
   const {
     register,
     handleSubmit,
@@ -43,21 +43,22 @@ const LoginFormController = () => {
         callbackUrl: '/',
         redirect: false,
       });
+      console.log(response);
       if (response?.ok) {
-        setLoginError(false);
+        setLoginError(undefined);
         router.push('/');
         return;
       }
-      setLoginError(true);
+      setLoginError(response?.error || t('loginFormLoginError'));
     } catch (error) {
-      setLoginError(true);
+      setLoginError(t('loginFormLoginError'));
     }
   };
 
   const formErrors = {
     email: errors.email?.message ? [errors.email.message] : undefined,
     password: errors.password?.message ? [errors.password.message] : undefined,
-    loginError: loginError ? [t('loginFormLoginError')] : undefined,
+    loginError: loginError ? [loginError] : undefined,
   };
 
   return (

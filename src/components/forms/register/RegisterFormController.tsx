@@ -6,6 +6,7 @@ import { z } from 'zod';
 import RegisterFormView from './registerFormView/RegisterFormView';
 import { MAX_PASSWORD_LENGTH, MIN_PASSWORD_LENGTH } from '../../../constants/auth';
 import { trpc } from '../../../utils/trpc';
+import RegisterSuccessView from './registerSuccessView/RegisterSuccessView';
 
 const formSchema = (t: TFunction) =>
   z
@@ -42,8 +43,9 @@ type RegisterFormFields = z.infer<ReturnType<typeof formSchema>>;
 
 const RegisterFormController = () => {
   const { t } = useTranslation('register-form');
-  const mutation = trpc.useMutation(['auth.createUser']);
   const [registerError, setRegisterError] = useState<string | undefined>(undefined);
+  const [registerSuccess, setRegisterSuccess] = useState(false);
+  const mutation = trpc.useMutation(['auth.createUser'], { onSuccess: () => setRegisterSuccess(true) });
   const {
     register,
     handleSubmit,
@@ -53,7 +55,6 @@ const RegisterFormController = () => {
   });
 
   const onSubmit = async (data: RegisterFormFields) => {
-    console.log(data);
     try {
       await mutation.mutate({ email: data.email, password: data.password });
     } catch (error) {
@@ -67,6 +68,10 @@ const RegisterFormController = () => {
     confirm: errors.confirm?.message ? [errors.confirm.message] : undefined,
     register: registerError,
   };
+
+  if (registerSuccess) {
+    return <RegisterSuccessView />;
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="lg:w-1/3 md:w-1/2 w-full">

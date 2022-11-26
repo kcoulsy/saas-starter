@@ -2,7 +2,7 @@
   "registerFormTitle": "Create a new account",
   "registerFormLoginLabel": "Already registered?",
   "registerFormLoginLink": "Log in here",
-  "registerFormEmailLabel" : "Email",
+  "registerFormEmailLabel": "Email",
   "registerFormEmailPlaceholder": "Enter your email",
   "registerFormPasswordLabel": "Password",
   "registerFormPasswordPlaceholder": "Enter your password",
@@ -15,9 +15,11 @@
   "registerFormPasswordMinError": "Password must be at least {{min}} characters",
   "registerFormPasswordMaxError": "Password must be at most {{max}} characters",
   "registerFormPasswordLowerCaseError": "Password must contain at least one lowercase letter",
-  "registerFormPasswordUppercaseCaseError" : "Password must contain at least one uppercase letter",
+  "registerFormPasswordUppercaseCaseError": "Password must contain at least one uppercase letter",
   "registerFormPasswordNumberError": "Password must contain at least one number",
   "registerFormPasswordSpecialError": "Password must contain at least one special character",
   "registerFormConfirmPasswordRequired": "Please confirm your password",
-  "registerFormConfirmPasswordError": "Passwords do not match"
+  "registerFormConfirmPasswordError": "Passwords do not match",
+  "registerFormSuccess": "You have successfully registered. Please check your email to confirm your account.",
+  "registerFormSuccessReturn": "Click here to return to the login page"
 }
