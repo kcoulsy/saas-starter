@@ -51,6 +51,9 @@ export default withSentryConfig(
           // for more information.
           hideSourceMaps: true,
         },
+        env: {
+          VERCEL_ENV: env.VERCEL_ENV,
+        },
       }),
     ),
   ),

@@ -12,6 +12,7 @@ export const serverSchema = z.object({
   NEXTAUTH_URL: z.string().url(),
   SENTRY_DSN: z.string(),
   SENTRY_AUTH_TOKEN: z.string(),
+  VERCEL_ENV: z.enum(['development', 'preview', 'production']),
 });
 
 /**
