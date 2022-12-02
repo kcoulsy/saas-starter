@@ -14,10 +14,6 @@ export default {
   },
 } as ComponentMeta<typeof RegisterSuccessView>;
 
-const Template: ComponentStory<typeof RegisterSuccessView> = (args) => (
-  // <div className="lg:w-1/3 md:w-1/2 w-full">
-  <RegisterSuccessView {...args} />
-  // </div>
-);
+const Template: ComponentStory<typeof RegisterSuccessView> = () => <RegisterSuccessView />;
 
 export const Default = Template.bind({});

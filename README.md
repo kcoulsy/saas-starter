@@ -2,6 +2,9 @@
 
 This is an app bootstrapped according to the [init.tips](https://init.tips) stack, also known as the T3-Stack.
 
+| ![Lint Test Build](https://github.com/kcoulsy/teamapp/actions/workflows/lint-test-build.yml/badge.svg) | ![E2E](https://github.com/kcoulsy/teamapp/actions/workflows/playwright.yml/badge.svg) | ![CodeQL](https://github.com/kcoulsy/teamapp/actions/workflows/codeql.yml/badge.svg) | ![Vercel](https://vercelbadge.vercel.app/api/kcoulsy/teamapp-kr25) |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
+
 ## Node Version
 
 This project uses node `16.18.1` and npm `8.19.2`. It is recommended to use nvm to set your environment to these specific versions.
@@ -34,7 +37,7 @@ Also checkout these awesome tutorials on `create-t3-app`.
 
 ### Database
 
-This web app uses a postgres db - we suggest you spin one up at [railway](https://railway.app). And set the provided url in your .env as  `DATABASE_URL`
+This web app uses a postgres db - we suggest you spin one up at [railway](https://railway.app). And set the provided url in your .env as `DATABASE_URL`
 
 ### Sentry
 
@@ -48,8 +51,6 @@ Axiom is integrated through vercel. [Add the integration here](https://vercel.co
 
 The storybook stories are linked on chromatic. To publish to chromatic locally you need the .env key `CHROMATIC_PROJECT_TOKEN`
 
-
-
 ## How do I deploy this?
 
 ### Vercel
@@ -62,7 +63,6 @@ We recommend deploying to [Vercel](https://vercel.com/?utm_source=t3-oss&utm_cam
 - Add your environment variables.
 - Click **Deploy**
 - Now whenever you push a change to your repository, Vercel will automatically redeploy your website!
-
 
 ## Useful resources
 
