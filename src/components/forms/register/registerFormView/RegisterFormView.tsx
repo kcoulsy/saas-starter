@@ -2,7 +2,7 @@ import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 import { UseFormRegisterReturn } from 'react-hook-form';
 import Button from '@src/components/common/button/Button';
-import FormInput from '@src/components/common/input/FormInput';
+import FormInput from '@src/components/common/formInput/FormInput';
 
 export interface RegisterFormViewProps {
   registerEmail: UseFormRegisterReturn<'email'>;

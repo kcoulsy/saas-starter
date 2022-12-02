@@ -3,7 +3,7 @@ import FormInput from './FormInput';
 import { mockFormInputProps } from './FormInput.mocks';
 
 export default {
-  title: 'forms/common/FormInput',
+  title: 'common/FormInput',
   component: FormInput,
   // https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
