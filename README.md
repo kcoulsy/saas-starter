@@ -2,8 +2,8 @@
 
 This is an app bootstrapped according to the [init.tips](https://init.tips) stack, also known as the T3-Stack.
 
-| ![Lint Test Build](https://github.com/kcoulsy/teamapp/actions/workflows/lint-test-build.yml/badge.svg) | ![E2E](https://github.com/kcoulsy/teamapp/actions/workflows/playwright.yml/badge.svg) | ![CodeQL](https://github.com/kcoulsy/teamapp/actions/workflows/codeql.yml/badge.svg) | ![Vercel](https://vercelbadge.vercel.app/api/kcoulsy/teamapp-kr25) |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| ![Lint Test Build](https://github.com/kcoulsy/teamapp/actions/workflows/lint-test-build.yml/badge.svg) | ![E2E](https://github.com/kcoulsy/teamapp/actions/workflows/playwright.yml/badge.svg) | ![CodeQL](https://github.com/kcoulsy/teamapp/actions/workflows/codeql.yml/badge.svg) | ![Vercel](https://vercelbadge.vercel.app/api/kcoulsy/teamapp) |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------- |
 
 ## Node Version
 
