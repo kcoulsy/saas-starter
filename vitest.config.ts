@@ -12,5 +12,9 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     dir: 'src',
+    coverage: {
+      reporter: ['json-summary'],
+      provider: 'istanbul',
+    },
   },
 });

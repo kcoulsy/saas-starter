@@ -5,6 +5,10 @@ This is an app bootstrapped according to the [init.tips](https://init.tips) stac
 | ![Lint Test Build](https://github.com/kcoulsy/teamapp/actions/workflows/lint-test-build.yml/badge.svg) | ![E2E](https://github.com/kcoulsy/teamapp/actions/workflows/playwright.yml/badge.svg) | ![CodeQL](https://github.com/kcoulsy/teamapp/actions/workflows/codeql.yml/badge.svg) | ![Vercel](https://vercelbadge.vercel.app/api/kcoulsy/teamapp) |
 | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------- |
 
+| Statements                | Branches                | Functions                | Lines                |
+| ------------------------- | ----------------------- | ------------------------ | -------------------- |
+| ![Statements](https://img.shields.io/badge/statements-100%25-brightgreen.svg?style=flat) | ![Branches](https://img.shields.io/badge/branches-100%25-brightgreen.svg?style=flat) | ![Functions](https://img.shields.io/badge/functions-100%25-brightgreen.svg?style=flat) | ![Lines](https://img.shields.io/badge/lines-100%25-brightgreen.svg?style=flat) |
+
 ## Node Version
 
 This project uses node `16.18.1` and npm `8.19.2`. It is recommended to use nvm to set your environment to these specific versions.
