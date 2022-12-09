@@ -22,4 +22,5 @@ Sentry.init({
     new OfflineIntegration(),
     new SentryRRWeb(),
   ],
+  ignoreErrors: ['prisma'],
 });

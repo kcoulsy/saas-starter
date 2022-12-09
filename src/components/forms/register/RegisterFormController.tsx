@@ -3,8 +3,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { TFunction, useTranslation } from 'next-i18next';
 import { z } from 'zod';
+import { trpc } from '@src/utils/trpc';
 import { MAX_PASSWORD_LENGTH, MIN_PASSWORD_LENGTH } from '../../../constants/auth';
-import { trpc } from '../../../utils/trpc';
 import RegisterFormView from './registerFormView/RegisterFormView';
 import RegisterSuccessView from './registerSuccessView/RegisterSuccessView';
 
@@ -45,7 +45,8 @@ const RegisterFormController = () => {
   const { t } = useTranslation('register-form');
   const [registerError, setRegisterError] = useState<string | undefined>(undefined);
   const [registerSuccess, setRegisterSuccess] = useState(false);
-  const mutation = trpc.useMutation(['auth.createUser'], { onSuccess: () => setRegisterSuccess(true) });
+  const mutation = trpc.auth.createUser.useMutation({ onSuccess: () => setRegisterSuccess(true) });
+
   const {
     register,
     handleSubmit,
