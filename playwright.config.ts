@@ -1,5 +1,13 @@
+import path from 'path';
+import dotenv from 'dotenv';
 import { devices } from '@playwright/test';
 import type { PlaywrightTestConfig } from '@playwright/test';
+
+// Read from default ".env" file.
+dotenv.config();
+
+// Alternatively, read from "../my.env" file.
+dotenv.config({ path: path.resolve(__dirname, '..', 'my.env') });
 
 // Use process.env.PORT by default and fallback to port 3000
 const PORT = process.env.PORT || 3000;
@@ -102,13 +110,15 @@ const config: PlaywrightTestConfig = {
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',
+};
 
-  /* Run your local dev server before starting the tests */
-  webServer: {
+/* Run your local dev server before starting the tests */
+if (!process.env.CI) {
+  config.webServer = {
     command: 'npm run dev',
     reuseExistingServer: !process.env.CI,
     url: baseURL,
-  },
-};
+  };
+}
 
 export default config;

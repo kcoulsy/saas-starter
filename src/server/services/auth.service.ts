@@ -21,12 +21,13 @@ export const loginUser = async ({ email, password }: LoginUser) => {
     const result = await verify(password, user.password);
     if (!result) throw new Error('Bad password');
 
-    if (!user.emailVerified) {
-      throw new Error('Email not verified');
-    }
+    // if (!user.emailVerified) {
+    //   throw new Error('Email not verified');
+    // }
 
     return { id: user.id, email: user.email };
   } catch (error) {
+    console.log('error', error);
     if (error instanceof Error && error.message === 'Email not verified') {
       throw error;
     }
