@@ -1,13 +1,23 @@
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, GetStaticProps } from 'next';
 // eslint-disable-next-line
 import { unstable_getServerSession } from 'next-auth';
+import { useSession } from 'next-auth/react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import React from 'react';
+import { useRouter } from 'next/router';
+import React, { useEffect } from 'react';
 import RegisterFormController from '../components/forms/register/RegisterFormController';
 import AuthPagesLayout from '../components/layouts/AuthPagesLayout';
-import { authOptions } from './api/auth/[...nextauth]';
 
 const RegisterPage = () => {
+  const { status } = useSession({ required: false });
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === 'authenticated') {
+      router.push('/');
+    }
+  }, [status, router]);
+
   return <RegisterFormController />;
 };
 
@@ -15,22 +25,13 @@ RegisterPage.getLayout = function getLayout(page: React.ReactNode) {
   return <AuthPagesLayout>{page}</AuthPagesLayout>;
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ locale, req, res }) => {
-  const session = await unstable_getServerSession(req, res, authOptions);
-  if (session) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
-
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale as string, ['common', 'register-form'])),
       // Will be passed to the page component as props
     },
+    redirect: 5 * 60,
   };
 };
 
