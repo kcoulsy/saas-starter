@@ -1,6 +1,4 @@
-import { GetServerSideProps, GetStaticProps } from 'next';
-// eslint-disable-next-line
-import { unstable_getServerSession } from 'next-auth';
+import { GetStaticProps } from 'next';
 import { useSession } from 'next-auth/react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
