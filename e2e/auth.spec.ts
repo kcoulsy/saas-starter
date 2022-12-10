@@ -9,7 +9,9 @@ const seedCredentials = {
   password: password,
 };
 
-test('it can register and login', async ({ page }) => {
+test('it can register and login', async ({ page, request }) => {
+  if (process.env.VERCEL_ENV === 'production') return;
+
   await page.goto('/register');
   await page.locator('input[placeholder="Enter your email"]').fill(seedCredentials.email);
   await page.locator('input[placeholder="Enter your password"]').fill(seedCredentials.password);
@@ -32,5 +34,9 @@ test('it can register and login', async ({ page }) => {
 
   await Promise.all([page.waitForNavigation(), page.locator('button[type="submit"]').click()]);
 
-  // TODO teardown
+  const cleanupResponse = await request.delete('/api/e2e/deleteTestUser', {
+    data: { email: seedCredentials.email },
+  });
+
+  expect(cleanupResponse.status()).toBe(200);
 });
