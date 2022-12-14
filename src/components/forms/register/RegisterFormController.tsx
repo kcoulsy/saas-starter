@@ -1,45 +1,14 @@
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { TFunction, useTranslation } from 'next-i18next';
+import { useTranslation } from 'next-i18next';
 import { z } from 'zod';
 import { trpc } from '@src/utils/trpc';
-import { MAX_PASSWORD_LENGTH, MIN_PASSWORD_LENGTH } from '../../../constants/auth';
+import registerFormSchema from '@src/schemas/registerFormSchema';
 import RegisterFormView from './registerFormView/RegisterFormView';
 import RegisterSuccessView from './registerSuccessView/RegisterSuccessView';
 
-const formSchema = (t: TFunction) =>
-  z
-    .object({
-      email: z
-        .string({
-          required_error: t('registerFormEmailRequired'),
-        })
-        .min(1, { message: t('registerFormEmailRequired') })
-        .email(t('registerFormEmailValid')),
-      password: z
-        .string({
-          required_error: t('registerFormPasswordRequired'),
-        })
-        .min(1, { message: t('registerFormPasswordRequired') })
-        .min(MIN_PASSWORD_LENGTH, { message: t('registerFormPasswordMinError', { min: MIN_PASSWORD_LENGTH }) })
-        .max(MAX_PASSWORD_LENGTH, { message: t('registerFormPasswordMaxError', { max: MAX_PASSWORD_LENGTH }) })
-        .regex(/^.*[a-z]/, { message: t('registerFormPasswordLowerCaseError') })
-        .regex(/^.*[A-Z]/, { message: t('registerFormPasswordUppercaseCaseError') })
-        .regex(/^.*[0-9]/, { message: t('registerFormPasswordNumberError') })
-        .regex(/^.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/, { message: t('registerFormPasswordSpecialError') }),
-      confirm: z
-        .string({
-          required_error: t('registerFormConfirmPasswordRequired'),
-        })
-        .min(1, { message: t('registerFormConfirmPasswordRequired') }),
-    })
-    .refine((data) => data.password === data.confirm, {
-      message: t('registerFormConfirmPasswordError'),
-      path: ['confirm'],
-    });
-
-type RegisterFormFields = z.infer<ReturnType<typeof formSchema>>;
+type RegisterFormFields = z.infer<ReturnType<typeof registerFormSchema>>;
 
 const RegisterFormController = () => {
   const { t } = useTranslation('register-form');
@@ -52,7 +21,7 @@ const RegisterFormController = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<RegisterFormFields>({
-    resolver: zodResolver(formSchema(t)),
+    resolver: zodResolver(registerFormSchema(t)),
   });
 
   const onSubmit = async (data: RegisterFormFields) => {

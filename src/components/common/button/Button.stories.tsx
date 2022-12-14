@@ -2,10 +2,12 @@ import { ComponentStory, Meta } from '@storybook/react';
 import Button from './Button';
 import { mockButtonProps } from './Button.mocks';
 
-export default {
+const meta: Meta = {
   title: 'common/Button',
   component: Button,
-} as Meta;
+};
+
+export default meta;
 
 const Template: ComponentStory<typeof Button> = (args) => (
   <div className="w-40">

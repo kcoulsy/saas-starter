@@ -2,7 +2,7 @@ import { ButtonProps } from './Button';
 
 const base: ButtonProps = {
   label: 'Submit',
-  // eslint-disable-next-line
+  // eslint-disable-next-line no-alert
   onClick: () => alert('onClick'),
   type: 'button',
   classes: '',

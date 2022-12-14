@@ -1,27 +1,14 @@
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { TFunction, useTranslation } from 'next-i18next';
+import { useTranslation } from 'next-i18next';
 import { signIn } from 'next-auth/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import loginFormSchema from '@src/schemas/loginForm.schema';
 import LoginFormView from './loginFormView/LoginFormView';
 
-const formSchema = (t: TFunction) =>
-  z.object({
-    email: z
-      .string({
-        required_error: t('loginFormEmailRequired'),
-      })
-      .email(t('loginFormEmailValid')),
-    password: z
-      .string({
-        required_error: t('loginFormPasswordRequired'),
-      })
-      .min(1, { message: t('loginFormPasswordRequired') }),
-  });
-
-type LoginFormFields = z.infer<ReturnType<typeof formSchema>>;
+type LoginFormFields = z.infer<ReturnType<typeof loginFormSchema>>;
 
 const LoginFormController = () => {
   const { t } = useTranslation('login-form');
@@ -32,7 +19,7 @@ const LoginFormController = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormFields>({
-    resolver: zodResolver(formSchema(t)),
+    resolver: zodResolver(loginFormSchema(t)),
   });
 
   const onSubmit = async (data: LoginFormFields) => {
