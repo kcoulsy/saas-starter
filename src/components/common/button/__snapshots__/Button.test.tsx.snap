@@ -1,0 +1,35 @@
+// Vitest Snapshot v1
+
+exports[`Button > should render and match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="w-40"
+  >
+    <button
+      aria-label="Submit"
+      class="text-sm font-semibold leading-none text-white focus:outline-none py-4 w-full  bg-indigo-700 border rounded hover:bg-indigo-600  focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700"
+      id="button-base"
+      type="button"
+    >
+      Submit
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Button > should render disabled 1`] = `
+<DocumentFragment>
+  <div
+    class="w-40"
+  >
+    <button
+      aria-label="Submit"
+      class="text-sm font-semibold leading-none text-white focus:outline-none py-4 w-full  bg-gray-300 border rounded cursor-not-allowed"
+      id="button-disabled"
+      type="button"
+    >
+      Submit
+    </button>
+  </div>
+</DocumentFragment>
+`;

@@ -7,7 +7,7 @@ import type { AppContext, AppInitialProps, AppLayoutProps } from 'next/app';
 import type { NextComponentType } from 'next';
 import type { ReactNode } from 'react';
 import type { Session } from 'next-auth';
-import '../styles/globals.css';
+import '@src/styles/globals.css';
 
 export { reportWebVitals } from 'next-axiom';
 
