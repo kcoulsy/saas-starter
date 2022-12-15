@@ -3,7 +3,6 @@ import Link from 'next/link';
 import React from 'react';
 import Button from '@src/components/common/button/Button';
 import FormInput from '@src/components/common/formInput/FormInput';
-import SocialLoginButton from './socialLoginButton/SocialLoginButton';
 import type { UseFormRegisterReturn } from 'react-hook-form';
 
 export interface LoginFormViewProps {
@@ -37,11 +36,11 @@ const LoginFormView = ({ registerEmail, registerPassword, errors }: LoginFormVie
           </span>
         </Link>
       </p>
-      <div className="grid gap-y-4 mt-8">
+      {/* <div className="grid gap-y-4 mt-8">
         <SocialLoginButton type="google" onClick={() => alert('login with google')} />
         <SocialLoginButton type="twitter" onClick={() => alert('login with google')} />
         <SocialLoginButton type="github" onClick={() => alert('login with google')} />
-      </div>
+      </div> */}
 
       <div className="w-full flex items-center justify-between py-5">
         <hr className="w-full bg-gray-400" />

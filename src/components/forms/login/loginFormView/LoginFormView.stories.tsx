@@ -1,19 +1,19 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 import LoginFormView from './LoginFormView';
 import { mockLoginFormViewProps } from './LoginFormView.mocks';
 
-export default {
+const meta: Meta = {
   title: 'forms/login/LoginFormView',
   component: LoginFormView,
-  // https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {},
   parameters: {
     backgrounds: {
       default: 'dark',
       values: [{ name: 'dark', value: '#3E3E3E' }],
     },
   },
-} as ComponentMeta<typeof LoginFormView>;
+};
+
+export default meta;
 
 const Template: ComponentStory<typeof LoginFormView> = (args) => (
   <div className="lg:w-1/3 md:w-1/2 w-full">
