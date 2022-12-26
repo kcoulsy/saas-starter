@@ -8,7 +8,9 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  resolve: { alias: { '@src': '/src' } },
   test: {
+    setupFiles: ['src/config/setupTests.ts'],
     globals: true,
     environment: 'jsdom',
     dir: 'src',

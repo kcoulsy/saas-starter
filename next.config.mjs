@@ -1,10 +1,7 @@
 import NextBundleAnalyzer from '@next/bundle-analyzer';
 import { withAxiom } from 'next-axiom';
 import { withSentryConfig } from '@sentry/nextjs';
-import nextI18n from './next-i18next.config.js';
 import { env } from './src/env/server.mjs';
-
-const { i18n } = nextI18n;
 
 const withBundleAnalyzer = NextBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
@@ -41,7 +38,6 @@ export default withSentryConfig(
         reactStrictMode: true,
         swcMinify: true,
         // Next.js i18n docs: https://nextjs.org/docs/advanced-features/i18n-routing
-        i18n,
         sentry: {
           // Use `hidden-source-map` rather than `source-map` as the Webpack `devtool`
           // for client-side builds. (This will be the default starting in

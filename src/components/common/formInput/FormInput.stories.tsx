@@ -1,13 +1,13 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ComponentStory, Meta } from '@storybook/react';
 import FormInput from './FormInput';
 import { mockFormInputProps } from './FormInput.mocks';
 
-export default {
+const meta: Meta = {
   title: 'common/FormInput',
   component: FormInput,
-  // https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {},
-} as ComponentMeta<typeof FormInput>;
+};
+
+export default meta;
 
 const Template: ComponentStory<typeof FormInput> = (args) => <FormInput {...args} />;
 

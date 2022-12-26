@@ -1,38 +1,17 @@
 import '../src/styles/globals.css';
-
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import enCommonTranslations from '../src/locales/en/common.json';
-import enLoginFormTranslations from '../src/locales/en/login-form.json';
-import enRegisterFormTranslations from '../src/locales/en/register-form.json';
+import TypesafeI18n from '../src/i18n/i18n-react';
+import { loadAllLocales } from '../src/i18n/i18n-util.sync';
 
 export const decorators = [
   // ... other decorators
   (Story, Context) => {
-    i18n.use(initReactI18next).init({
-      lng: 'en',
-      fallbackLng: 'en',
+    loadAllLocales();
 
-      // have a common namespace used around the full app
-      ns: ['translations'],
-      defaultNS: 'translations',
-
-      // debug: true,
-
-      interpolation: {
-        escapeValue: false, // not needed for react!!
-      },
-
-      resources: {
-        en: {
-          common: enCommonTranslations,
-          'login-form': enLoginFormTranslations,
-          'register-form': enRegisterFormTranslations,
-        },
-      },
-    });
-
-    return <Story />;
+    return (
+      <TypesafeI18n locale="en">
+        <Story />
+      </TypesafeI18n>
+    );
   },
 ];
 

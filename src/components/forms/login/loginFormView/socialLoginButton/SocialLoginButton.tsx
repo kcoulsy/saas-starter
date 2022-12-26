@@ -1,5 +1,5 @@
-import { useTranslation } from 'next-i18next';
-import { capitalize } from '../../../../../utils/capitalize';
+import { useI18nContext } from '@src/i18n/i18n-react';
+import { capitalize } from '@src/utils/capitalize';
 import IconGithub from '../../../../icons/github';
 import IconGoogle from '../../../../icons/google';
 import IconTwitter from '../../../../icons/twitter';
@@ -10,7 +10,8 @@ export interface SocialLoginButtonProps {
 }
 
 const SocialLoginButton = ({ type = 'google', onClick }: SocialLoginButtonProps) => {
-  const { t } = useTranslation('login-form');
+  const { LL } = useI18nContext();
+
   return (
     <button
       type="button"
@@ -30,7 +31,7 @@ const SocialLoginButton = ({ type = 'google', onClick }: SocialLoginButtonProps)
             return null;
         }
       })()}
-      <p className="text-base font-medium ml-4 text-gray-700">{t(`socialLogin${capitalize(type)}`)}</p>
+      <p className="text-base font-medium ml-4 text-gray-700">{LL.login.form[`socialLogin${capitalize(type)}`]()}</p>
     </button>
   );
 };
