@@ -1,30 +1,31 @@
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { TFunction, useTranslation } from 'next-i18next';
 import { signIn } from 'next-auth/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useI18nContext } from '@src/i18n/i18n-react';
 import LoginFormView from './loginFormView/LoginFormView';
+import type { TranslationFunctions } from '@src/i18n/i18n-types';
 
-const formSchema = (t: TFunction) =>
+const formSchema = (LL: TranslationFunctions) =>
   z.object({
     email: z
       .string({
-        required_error: t('loginFormEmailRequired'),
+        required_error: LL.login.form.emailRequired(),
       })
-      .email(t('loginFormEmailValid')),
+      .email(LL.login.form.emailValid()),
     password: z
       .string({
-        required_error: t('loginFormPasswordRequired'),
+        required_error: LL.login.form.passwordRequired(),
       })
-      .min(1, { message: t('loginFormPasswordRequired') }),
+      .min(1, { message: LL.login.form.passwordRequired() }),
   });
 
 type LoginFormFields = z.infer<ReturnType<typeof formSchema>>;
 
 const LoginFormController = () => {
-  const { t } = useTranslation('login-form');
+  const { LL } = useI18nContext();
   const router = useRouter();
   const [loginError, setLoginError] = useState<string>();
   const {
@@ -32,7 +33,7 @@ const LoginFormController = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormFields>({
-    resolver: zodResolver(formSchema(t)),
+    resolver: zodResolver(formSchema(LL)),
   });
 
   const onSubmit = async (data: LoginFormFields) => {
@@ -49,9 +50,9 @@ const LoginFormController = () => {
         router.push('/');
         return;
       }
-      setLoginError(response?.error || t('loginFormLoginError'));
+      setLoginError(response?.error || LL.login.form.loginError());
     } catch (error) {
-      setLoginError(t('loginFormLoginError'));
+      setLoginError(LL.login.form.loginError());
     }
   };
 
