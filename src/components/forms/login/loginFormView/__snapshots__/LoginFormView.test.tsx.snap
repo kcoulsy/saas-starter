@@ -9,23 +9,23 @@ exports[`LoginFormView > it renders Default and matches snapshots 1`] = `
       class="bg-white shadow rounded w-full p-10"
     >
       <h1
-        aria-label="loginFormTitle"
+        aria-label="Login to your account"
         aria-level="1"
         class="text-2xl font-extrabold leading-6 text-gray-800"
       >
-        loginFormTitle
+        Login to your account
       </h1>
       <p
         class="text-sm mt-4 font-medium leading-none text-gray-500"
       >
-        loginFormRegisterLabel
+        Dont have account?
         <span
-          aria-label="loginFormRegisterLink"
+          aria-label="Sign up here"
           class="text-sm font-medium leading-none underline ml-1 text-gray-800 cursor-pointer"
           role="link"
           tabindex="0"
         >
-          loginFormRegisterLink
+          Sign up here
         </span>
       </p>
       <div
@@ -37,7 +37,7 @@ exports[`LoginFormView > it renders Default and matches snapshots 1`] = `
         <p
           class="text-base font-medium leading-4 px-2.5 text-gray-400 uppercase"
         >
-          loginFormSeperatorLabel
+          or
         </p>
         <hr
           class="w-full bg-gray-400  "
@@ -54,13 +54,13 @@ exports[`LoginFormView > it renders Default and matches snapshots 1`] = `
               class="text-sm font-medium leading-none text-gray-800 capitalize relative flex-1"
               for="email"
             >
-              loginFormEmailLabel
+              Email
               <input
-                aria-label="loginFormEmailLabel"
+                aria-label="Email"
                 class="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
                 id="email"
                 name="email"
-                placeholder="loginFormEmailPlaceholder"
+                placeholder="Enter your email"
                 type="email"
               />
             </label>
@@ -74,13 +74,13 @@ exports[`LoginFormView > it renders Default and matches snapshots 1`] = `
               class="text-sm font-medium leading-none text-gray-800 capitalize relative flex-1"
               for="password"
             >
-              loginFormPasswordLabel
+              Password
               <input
-                aria-label="loginFormPasswordLabel"
+                aria-label="Password"
                 class="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
                 id="password"
                 name="password"
-                placeholder="loginFormPasswordPlaceholder"
+                placeholder="Enter your password"
                 type="password"
               />
             </label>
@@ -104,19 +104,19 @@ exports[`LoginFormView > it renders Default and matches snapshots 1`] = `
           </div>
         </div>
         <span
-          aria-label="loginFormRegisterLink"
+          aria-label="Sign up here"
           class="text-sm font-medium leading-none underline ml-1 text-gray-800 cursor-pointer"
           role="link"
           tabindex="0"
         >
-          loginFormForgotPasswordLabel
+          Forgot password?
         </span>
         <button
-          aria-label="loginFormSubmitButton"
+          aria-label="Login"
           class="text-sm font-semibold leading-none text-white focus:outline-none py-4 w-full mt-2 bg-indigo-700 border rounded hover:bg-indigo-600  focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700"
           type="submit"
         >
-          loginFormSubmitButton
+          Login
         </button>
       </div>
     </div>
@@ -133,23 +133,23 @@ exports[`LoginFormView > it renders Errors and matches snapshots 1`] = `
       class="bg-white shadow rounded w-full p-10"
     >
       <h1
-        aria-label="loginFormTitle"
+        aria-label="Login to your account"
         aria-level="1"
         class="text-2xl font-extrabold leading-6 text-gray-800"
       >
-        loginFormTitle
+        Login to your account
       </h1>
       <p
         class="text-sm mt-4 font-medium leading-none text-gray-500"
       >
-        loginFormRegisterLabel
+        Dont have account?
         <span
-          aria-label="loginFormRegisterLink"
+          aria-label="Sign up here"
           class="text-sm font-medium leading-none underline ml-1 text-gray-800 cursor-pointer"
           role="link"
           tabindex="0"
         >
-          loginFormRegisterLink
+          Sign up here
         </span>
       </p>
       <div
@@ -161,7 +161,7 @@ exports[`LoginFormView > it renders Errors and matches snapshots 1`] = `
         <p
           class="text-base font-medium leading-4 px-2.5 text-gray-400 uppercase"
         >
-          loginFormSeperatorLabel
+          or
         </p>
         <hr
           class="w-full bg-gray-400  "
@@ -178,13 +178,13 @@ exports[`LoginFormView > it renders Errors and matches snapshots 1`] = `
               class="text-sm font-medium leading-none text-gray-800 capitalize relative flex-1"
               for="email"
             >
-              loginFormEmailLabel
+              Email
               <input
-                aria-label="loginFormEmailLabel"
+                aria-label="Email"
                 class="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
                 id="email"
                 name="email"
-                placeholder="loginFormEmailPlaceholder"
+                placeholder="Enter your email"
                 type="email"
               />
             </label>
@@ -209,13 +209,13 @@ exports[`LoginFormView > it renders Errors and matches snapshots 1`] = `
               class="text-sm font-medium leading-none text-gray-800 capitalize relative flex-1"
               for="password"
             >
-              loginFormPasswordLabel
+              Password
               <input
-                aria-label="loginFormPasswordLabel"
+                aria-label="Password"
                 class="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
                 id="password"
                 name="password"
-                placeholder="loginFormPasswordPlaceholder"
+                placeholder="Enter your password"
                 type="password"
               />
             </label>
@@ -250,22 +250,22 @@ exports[`LoginFormView > it renders Errors and matches snapshots 1`] = `
           </ul>
         </div>
         <span
-          aria-label="loginFormRegisterLink"
+          aria-label="Sign up here"
           class="text-sm font-medium leading-none underline ml-1 text-gray-800 cursor-pointer"
           role="link"
           tabindex="0"
         >
-          loginFormForgotPasswordLabel
+          Forgot password?
         </span>
         <ul
           class="mt-1"
         />
         <button
-          aria-label="loginFormSubmitButton"
+          aria-label="Login"
           class="text-sm font-semibold leading-none text-white focus:outline-none py-4 w-full mt-2 bg-indigo-700 border rounded hover:bg-indigo-600  focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700"
           type="submit"
         >
-          loginFormSubmitButton
+          Login
         </button>
       </div>
     </div>

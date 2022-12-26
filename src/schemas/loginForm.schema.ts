@@ -1,18 +1,18 @@
-import { TFunction } from 'next-i18next';
 import { z } from 'zod';
+import { TranslationFunctions } from '@src/i18n/i18n-types';
 
-const loginFormSchema = (t: TFunction) =>
+const loginFormSchema = (LL: TranslationFunctions) =>
   z.object({
     email: z
       .string({
-        required_error: t('loginFormEmailRequired'),
+        required_error: LL.login.form.emailRequired(),
       })
-      .email(t('loginFormEmailValid')),
+      .email(LL.login.form.emailValid()),
     password: z
       .string({
-        required_error: t('loginFormPasswordRequired'),
+        required_error: LL.login.form.passwordRequired(),
       })
-      .min(1, { message: t('loginFormPasswordRequired') }),
+      .min(1, { message: LL.login.form.passwordRequired() }),
   });
 
 export default loginFormSchema;

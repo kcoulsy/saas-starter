@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { useTranslation } from 'next-i18next';
 import { z } from 'zod';
-import { trpc } from '@src/utils/trpc';
+import { useForm } from 'react-hook-form';
 import registerFormSchema from '@src/schemas/registerFormSchema';
+import { trpc } from '@src/utils/trpc';
+import { useI18nContext } from '@src/i18n/i18n-react';
 import RegisterFormView from './registerFormView/RegisterFormView';
 import RegisterSuccessView from './registerSuccessView/RegisterSuccessView';
 
 type RegisterFormFields = z.infer<ReturnType<typeof registerFormSchema>>;
 
 const RegisterFormController = () => {
-  const { t } = useTranslation('register-form');
+  const { LL } = useI18nContext();
   const [registerError, setRegisterError] = useState<string | undefined>(undefined);
   const [registerSuccess, setRegisterSuccess] = useState(false);
   const mutation = trpc.auth.createUser.useMutation({ onSuccess: () => setRegisterSuccess(true) });
@@ -21,7 +21,7 @@ const RegisterFormController = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<RegisterFormFields>({
-    resolver: zodResolver(registerFormSchema(t)),
+    resolver: zodResolver(registerFormSchema(LL)),
   });
 
   const onSubmit = async (data: RegisterFormFields) => {
