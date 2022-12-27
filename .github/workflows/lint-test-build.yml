@@ -15,8 +15,8 @@ jobs:
       NEXTAUTH_URL: https://www.test.com/
       SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      VERCEL_ENV: preview,
-      SENDGRID_API_KEY: 123,
+      VERCEL_ENV: preview
+      SENDGRID_API_KEY: 123
       SENDGRID_FROM_EMAIL: test@test.com
     steps:
       - uses: actions/checkout@v2
