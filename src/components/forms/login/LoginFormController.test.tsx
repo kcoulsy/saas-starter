@@ -8,6 +8,7 @@ import mockRouter from 'next-router-mock';
 vi.mock('next/router', () => require('next-router-mock'));
 
 const render = () => renderComponent(<LoginFormController />);
+
 describe('LoginFormController', () => {
   it('can log in successfully and redirect', async () => {
     const spy = vi.spyOn(mockRouter, 'push');

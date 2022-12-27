@@ -24,7 +24,6 @@ const LoginFormController = () => {
     resolver: zodResolver(loginFormSchema(LL)),
   });
 
-  console.log(process.env.NEXTAUTH_URL);
   const onSubmit = async (data: LoginFormFields) => {
     try {
       const response = await signIn('credentials', {
@@ -33,8 +32,6 @@ const LoginFormController = () => {
         callbackUrl: '/',
         redirect: false,
       });
-
-      console.log(response);
 
       if (response?.ok) {
         setLoginError(undefined);
