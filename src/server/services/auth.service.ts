@@ -1,7 +1,7 @@
 import { LoginUser, loginUserSchema, RegisterUser, registerUserSchema } from '../schemas/auth.schema';
 import { prisma } from '../db/client';
 import { hash, verify } from '../utils/password';
-import { generateVerificationTokenForUser } from './verification.service';
+import { sendVerificationEmail } from './verification.service';
 
 /**
  * Logs in a user or throws
@@ -21,9 +21,9 @@ export const loginUser = async ({ email, password }: LoginUser) => {
     const result = await verify(password, user.password);
     if (!result) throw new Error('Bad password');
 
-    // if (!user.emailVerified) {
-    //   throw new Error('Email not verified');
-    // }
+    if (!user.emailVerified) {
+      throw new Error('Email not verified');
+    }
 
     return { id: user.id, email: user.email };
   } catch (error) {
@@ -65,7 +65,7 @@ export const registerUser = async ({ email, password }: RegisterUser) => {
       },
     });
 
-    await generateVerificationTokenForUser(user);
+    await sendVerificationEmail(user);
 
     return { success: true };
   } catch (error) {

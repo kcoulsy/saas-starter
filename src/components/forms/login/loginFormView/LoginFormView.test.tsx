@@ -44,4 +44,35 @@ describe('LoginFormView', () => {
 
     expect(mockRegisterPassword.onChange).toHaveBeenCalled();
   });
+
+  it('renders email verified text', () => {
+    renderComponent(<Default emailVerified />);
+
+    const emailVerifiedText = screen.getByText('Email successfully verified, you may now login');
+    expect(emailVerifiedText).toBeInTheDocument();
+  });
+
+  it('renders email not verified text', () => {
+    renderComponent(<Default emailVerified={false} />);
+    const emailNotVerifiedText = screen.getByText('Email not verified');
+    expect(emailNotVerifiedText).toBeInTheDocument();
+  });
+
+  it('renders email not verified button and calls onResendEmail', async () => {
+    const onResendEmail = vi.fn();
+    renderComponent(<Default emailVerified={false} onResendEmail={onResendEmail} />);
+
+    const resendEmailButton = screen.getByRole('button', { name: 'Click here to resend verification email' });
+    expect(resendEmailButton).toBeInTheDocument();
+    await userEvent.click(resendEmailButton);
+    expect(onResendEmail).toHaveBeenCalled();
+  });
+
+  it('renders login error', () => {
+    renderComponent(<Default errors={{ loginError: ['Login error test 1', 'Login error test 2'] }} />);
+    const loginError1 = screen.getByText('Login error test 1');
+    const loginError2 = screen.getByText('Login error test 2');
+    expect(loginError1).toBeInTheDocument();
+    expect(loginError2).toBeInTheDocument();
+  });
 });

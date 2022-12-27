@@ -20,6 +20,9 @@ const en: BaseTranslation = {
       emailValid: 'Please enter a valid email',
       passwordRequired: 'Please enter your password',
       loginError: 'Invalid Login',
+      emailNotVerified: 'Email not verified',
+      emailNotVerifiedLink: 'Click here to resend verification email',
+      emailVerified: 'Email successfully verified, you may now login',
     },
   },
   register: {

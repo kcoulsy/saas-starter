@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import clsx from 'clsx';
 import React from 'react';
 import Button from '@src/components/common/button/Button';
 import { useI18nContext } from '@src/i18n/i18n-react';
@@ -8,6 +9,8 @@ import type { UseFormRegisterReturn } from 'react-hook-form';
 export interface LoginFormViewProps {
   registerEmail: UseFormRegisterReturn<'email'>;
   registerPassword: UseFormRegisterReturn<'password'>;
+  emailVerified?: boolean;
+  onResendEmail?: () => void;
   errors?: {
     email?: string[];
     password?: string[];
@@ -15,7 +18,13 @@ export interface LoginFormViewProps {
   };
 }
 
-const LoginFormView = ({ registerEmail, registerPassword, errors }: LoginFormViewProps) => {
+const LoginFormView = ({
+  registerEmail,
+  registerPassword,
+  errors,
+  emailVerified,
+  onResendEmail,
+}: LoginFormViewProps) => {
   const { LL } = useI18nContext();
 
   return (
@@ -36,20 +45,36 @@ const LoginFormView = ({ registerEmail, registerPassword, errors }: LoginFormVie
           </span>
         </Link>
       </p>
+      {typeof emailVerified !== 'undefined' ? (
+        <div className="text-sm font-medium leading-none mt-2">
+          {emailVerified ? (
+            <p>{LL.login.form.emailVerified()}</p>
+          ) : (
+            <p>
+              {LL.login.form.emailNotVerified()}{' '}
+              {typeof onResendEmail !== 'undefined' && (
+                <button type="button" onClick={() => onResendEmail?.()} className="underline">
+                  {LL.login.form.emailNotVerifiedLink()}
+                </button>
+              )}
+            </p>
+          )}
+        </div>
+      ) : null}
       {/* <div className="grid gap-y-4 mt-8">
         <SocialLoginButton type="google" onClick={() => alert('login with google')} />
         <SocialLoginButton type="twitter" onClick={() => alert('login with google')} />
         <SocialLoginButton type="github" onClick={() => alert('login with google')} />
       </div> */}
 
-      <div className="w-full flex items-center justify-between py-5">
+      {/* <div className="w-full flex items-center justify-between py-5">
         <hr className="w-full bg-gray-400" />
         <p className="text-base font-medium leading-4 px-2.5 text-gray-400 uppercase">
           {LL.login.form.seperatorLabel()}
         </p>
         <hr className="w-full bg-gray-400  " />
-      </div>
-      <div className="grid gap-y-4">
+      </div> */}
+      <div className={clsx('grid gap-y-4 mt-4', { 'mt-10': typeof emailVerified === 'undefined' })}>
         <FormInput
           id="email"
           type="email"

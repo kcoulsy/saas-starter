@@ -29,22 +29,7 @@ exports[`LoginFormView > it renders Default and matches snapshots 1`] = `
         </span>
       </p>
       <div
-        class="w-full flex items-center justify-between py-5"
-      >
-        <hr
-          class="w-full bg-gray-400"
-        />
-        <p
-          class="text-base font-medium leading-4 px-2.5 text-gray-400 uppercase"
-        >
-          or
-        </p>
-        <hr
-          class="w-full bg-gray-400  "
-        />
-      </div>
-      <div
-        class="grid gap-y-4"
+        class="grid gap-y-4 mt-4 mt-10"
       >
         <div>
           <div
@@ -153,22 +138,7 @@ exports[`LoginFormView > it renders Errors and matches snapshots 1`] = `
         </span>
       </p>
       <div
-        class="w-full flex items-center justify-between py-5"
-      >
-        <hr
-          class="w-full bg-gray-400"
-        />
-        <p
-          class="text-base font-medium leading-4 px-2.5 text-gray-400 uppercase"
-        >
-          or
-        </p>
-        <hr
-          class="w-full bg-gray-400  "
-        />
-      </div>
-      <div
-        class="grid gap-y-4"
+        class="grid gap-y-4 mt-4 mt-10"
       >
         <div>
           <div
