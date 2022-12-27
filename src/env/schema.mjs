@@ -14,7 +14,7 @@ export const serverSchema = z.object({
   SENTRY_AUTH_TOKEN: z.string(),
   VERCEL_ENV: z.enum(['development', 'preview', 'production']),
   SENDGRID_API_KEY: z.string(),
-  SENDGRID_FROM_EMAIL: z.string(),
+  SENDGRID_FROM_EMAIL: z.string().email(),
 });
 
 /**
