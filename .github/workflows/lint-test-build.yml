@@ -17,7 +17,7 @@ jobs:
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       VERCEL_ENV: preview,
       SENDGRID_API_KEY: 123,
-      SENDGRID_FROM_EMAIL: test@test.com,
+      SENDGRID_FROM_EMAIL: test@test.com
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
