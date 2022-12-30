@@ -20,7 +20,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       };
     }
   } catch (error) {
-    console.log(error);
+    // Do nothing, redirect
   }
   return {
     redirect: {

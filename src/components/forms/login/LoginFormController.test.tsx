@@ -41,8 +41,6 @@ describe('LoginFormController', () => {
     await userEvent.click(loginButton);
 
     expect(spy).toHaveBeenCalledWith('/login?email=invalidemail%40email.com&verified=false');
-
-    // assert api request was made
   });
 
   it('clears email verified message if invalid login', async () => {

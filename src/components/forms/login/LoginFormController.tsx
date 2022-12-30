@@ -8,6 +8,7 @@ import loginFormSchema from '@src/schemas/loginForm.schema';
 import { useI18nContext } from '@src/i18n/i18n-react';
 import { trpc } from '@src/utils/trpc';
 import LoginFormView from './loginFormView/LoginFormView';
+import { notEmpty } from '@src/utils/array';
 
 type LoginFormFields = z.infer<ReturnType<typeof loginFormSchema>>;
 
@@ -57,9 +58,7 @@ const LoginFormController = () => {
   const resendEmailMutation = trpc.auth.verifyUser.useMutation();
 
   const emailVerificationError = resendEmailMutation.error?.message;
-
-  // TODO type this properly
-  const loginErrors = [loginError, emailVerificationError].filter(Boolean) as string[];
+  const loginErrors = [loginError, emailVerificationError].filter(notEmpty);
   const formErrors = {
     email: errors.email?.message ? [errors.email.message] : undefined,
     password: errors.password?.message ? [errors.password.message] : undefined,

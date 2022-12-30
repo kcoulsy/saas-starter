@@ -18,7 +18,6 @@ Object.defineProperty(window, 'location', {
 });
 
 const baseURL = 'http://localhost:3000';
-// fetch(new URL(url, baseURL));
 
 global.fetch = (...args) => fetch(new URL(args[0] as string, baseURL), args[1]);
 
