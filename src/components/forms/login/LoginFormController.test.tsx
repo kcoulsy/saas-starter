@@ -35,16 +35,16 @@ describe('LoginFormController', () => {
     const passwordField = screen.getByLabelText('Password');
     const loginButton = screen.getByRole('button', { name: 'Login' });
 
-    await userEvent.type(emailField, 'invalidemail@email.com');
+    await userEvent.type(emailField, 'unverfied@email.com');
     await userEvent.type(passwordField, 'Password1!');
 
     await userEvent.click(loginButton);
 
-    expect(spy).toHaveBeenCalledWith('/login?email=invalidemail%40email.com&verified=false');
+    expect(spy).toHaveBeenCalledWith('/login?email=unverfied@email.com&verified=false');
   });
 
   it('clears email verified message if invalid login', async () => {
-    mockRouter.setCurrentUrl('/login?email=invalidemail%40email.com&verified=false');
+    mockRouter.setCurrentUrl('/login?email=unverfied@email.com&verified=false');
     render();
 
     expect(screen.getByText('Email not verified')).toBeInTheDocument();
@@ -73,23 +73,6 @@ describe('LoginFormController', () => {
 
     await userEvent.click(loginButton);
 
-    expect(screen.getByText('Login failed')).toBeInTheDocument();
-  });
-
-  it('clears error when email is changed', async () => {
-    render();
-
-    const emailField = screen.getByLabelText('Email');
-    const passwordField = screen.getByLabelText('Password');
-    const loginButton = screen.getByRole('button', { name: 'Login' });
-
-    await userEvent.type(emailField, 'invalid@email.com');
-    await userEvent.type(passwordField, 'Password1!');
-
-    await userEvent.click(loginButton);
-
-    await userEvent.type(emailField, '');
-
-    expect(screen.getByText('Login failed')).not.toBeInTheDocument();
+    expect(screen.getByText('Invalid Login')).toBeInTheDocument();
   });
 });
