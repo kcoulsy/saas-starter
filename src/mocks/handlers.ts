@@ -11,6 +11,13 @@ export const handlers = {
       return res(ctx.status(200), ctx.json({ url: 'http://localhost:3000/' }));
     }
 
+    if (params.get('email') === 'unverfied@email.com') {
+      return res(
+        ctx.status(401),
+        ctx.json({ url: 'http://localhost:3000/api/auth/error?error=Email%20not%20verified' }),
+      );
+    }
+
     return res(ctx.status(401), ctx.json({ url: 'http://localhost:3000/api/auth/error?error=Invalid%20Login' }));
   }),
   session: rest.get('/api/auth/session', (req, res, ctx) => {
