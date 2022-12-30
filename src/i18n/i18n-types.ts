@@ -83,6 +83,18 @@ type RootTranslation = {
 			 * I​n​v​a​l​i​d​ ​L​o​g​i​n
 			 */
 			loginError: string
+			/**
+			 * E​m​a​i​l​ ​n​o​t​ ​v​e​r​i​f​i​e​d
+			 */
+			emailNotVerified: string
+			/**
+			 * C​l​i​c​k​ ​h​e​r​e​ ​t​o​ ​r​e​s​e​n​d​ ​v​e​r​i​f​i​c​a​t​i​o​n​ ​e​m​a​i​l
+			 */
+			emailNotVerifiedLink: string
+			/**
+			 * E​m​a​i​l​ ​s​u​c​c​e​s​s​f​u​l​l​y​ ​v​e​r​i​f​i​e​d​,​ ​y​o​u​ ​m​a​y​ ​n​o​w​ ​l​o​g​i​n
+			 */
+			emailVerified: string
 		}
 	}
 	register: {
@@ -256,6 +268,18 @@ export type TranslationFunctions = {
 			 * Invalid Login
 			 */
 			loginError: () => LocalizedString
+			/**
+			 * Email not verified
+			 */
+			emailNotVerified: () => LocalizedString
+			/**
+			 * Click here to resend verification email
+			 */
+			emailNotVerifiedLink: () => LocalizedString
+			/**
+			 * Email successfully verified, you may now login
+			 */
+			emailVerified: () => LocalizedString
 		}
 	}
 	register: {

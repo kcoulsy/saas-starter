@@ -23,12 +23,17 @@ test('it can register and login', async ({ page, request }) => {
     page.getByText('You have successfully registered. Please check your email to confirm your account.'),
   ).toBeVisible();
 
-  // TODO Assert wont login because not verified email
-  // Then hit e2e endpoint to verify
-
   await page.goto('/login');
   await page.locator('input[placeholder="Enter your email"]').fill(seedCredentials.email);
   await page.locator('input[placeholder="Enter your password"]').fill(seedCredentials.password);
+
+  await page.locator('button[type="submit"]').click();
+
+  await expect(page.getByText('Email not verified ')).toBeVisible();
+
+  await request.post('/api/e2e/verifyTestUser', {
+    data: { email: seedCredentials.email },
+  });
 
   await page.locator('button[type="submit"]').click();
 
