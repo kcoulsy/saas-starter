@@ -7,8 +7,8 @@ import { useState } from 'react';
 import loginFormSchema from '@src/schemas/loginForm.schema';
 import { useI18nContext } from '@src/i18n/i18n-react';
 import { trpc } from '@src/utils/trpc';
-import LoginFormView from './loginFormView/LoginFormView';
 import { notEmpty } from '@src/utils/array';
+import LoginFormView from './loginFormView/LoginFormView';
 
 type LoginFormFields = z.infer<ReturnType<typeof loginFormSchema>>;
 
