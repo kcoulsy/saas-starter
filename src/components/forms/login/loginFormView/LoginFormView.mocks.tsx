@@ -10,6 +10,7 @@ const errors: LoginFormViewProps = {
   errors: {
     email: ['Please enter your email'],
     password: ['Please enter your password'],
+    loginError: ['Invalid email or password', 'Failed to reach server'],
   },
 };
 
