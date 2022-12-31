@@ -13,6 +13,14 @@ export type Translation = RootTranslation
 export type Translations = RootTranslation
 
 type RootTranslation = {
+	common: {
+		inputField: {
+			/**
+			 * T​o​g​g​l​e​ ​p​a​s​s​w​o​r​d​ ​v​i​s​i​b​i​l​i​t​y
+			 */
+			passwordToggle: string
+		}
+	}
 	login: {
 		form: {
 			/**
@@ -148,44 +156,6 @@ type RootTranslation = {
 			 */
 			emailValid: string
 			/**
-			 * P​l​e​a​s​e​ ​e​n​t​e​r​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d
-			 */
-			passwordRequired: string
-			/**
-			 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​b​e​ ​a​t​ ​l​e​a​s​t​ ​{​m​i​n​}​ ​c​h​a​r​a​c​t​e​r​s
-			 * @param {number} min
-			 */
-			passwordMinError: RequiredParams<'min'>
-			/**
-			 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​b​e​ ​a​t​ ​m​o​s​t​ ​{​m​a​x​}​ ​c​h​a​r​a​c​t​e​r​s
-			 * @param {number} max
-			 */
-			passwordMaxError: RequiredParams<'max'>
-			/**
-			 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​c​o​n​t​a​i​n​ ​a​t​ ​l​e​a​s​t​ ​o​n​e​ ​l​o​w​e​r​c​a​s​e​ ​l​e​t​t​e​r
-			 */
-			passwordLowerCaseError: string
-			/**
-			 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​c​o​n​t​a​i​n​ ​a​t​ ​l​e​a​s​t​ ​o​n​e​ ​u​p​p​e​r​c​a​s​e​ ​l​e​t​t​e​r
-			 */
-			passwordUppercaseCaseError: string
-			/**
-			 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​c​o​n​t​a​i​n​ ​a​t​ ​l​e​a​s​t​ ​o​n​e​ ​n​u​m​b​e​r
-			 */
-			passwordNumberError: string
-			/**
-			 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​c​o​n​t​a​i​n​ ​a​t​ ​l​e​a​s​t​ ​o​n​e​ ​s​p​e​c​i​a​l​ ​c​h​a​r​a​c​t​e​r
-			 */
-			passwordSpecialError: string
-			/**
-			 * P​l​e​a​s​e​ ​c​o​n​f​i​r​m​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d
-			 */
-			confirmPasswordRequired: string
-			/**
-			 * P​a​s​s​w​o​r​d​s​ ​d​o​ ​n​o​t​ ​m​a​t​c​h
-			 */
-			confirmPasswordError: string
-			/**
 			 * Y​o​u​ ​h​a​v​e​ ​s​u​c​c​e​s​s​f​u​l​l​y​ ​r​e​g​i​s​t​e​r​e​d​.​ ​P​l​e​a​s​e​ ​c​h​e​c​k​ ​y​o​u​r​ ​e​m​a​i​l​ ​t​o​ ​c​o​n​f​i​r​m​ ​y​o​u​r​ ​a​c​c​o​u​n​t​.
 			 */
 			success: string
@@ -239,9 +209,89 @@ type RootTranslation = {
 			successReturn: string
 		}
 	}
+	resetPassword: {
+		form: {
+			/**
+			 * R​e​s​e​t​ ​P​a​s​s​w​o​r​d
+			 */
+			title: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​n​e​w​ ​p​a​s​s​w​o​r​d​ ​b​e​l​o​w​.
+			 */
+			description: string
+			/**
+			 * N​e​w​ ​P​a​s​s​w​o​r​d
+			 */
+			passwordLabel: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​n​e​w​ ​p​a​s​s​w​o​r​d
+			 */
+			passwordPlaceholder: string
+			/**
+			 * C​o​n​f​i​r​m​ ​P​a​s​s​w​o​r​d
+			 */
+			passwordConfirmLabel: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​n​e​w​ ​p​a​s​s​w​o​r​d​ ​a​g​a​i​n
+			 */
+			passwordConfirmPlaceholder: string
+			/**
+			 * R​e​s​e​t​ ​P​a​s​s​w​o​r​d
+			 */
+			submitButton: string
+		}
+	}
+	passwordValidation: {
+		/**
+		 * P​l​e​a​s​e​ ​e​n​t​e​r​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d
+		 */
+		required: string
+		/**
+		 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​b​e​ ​a​t​ ​l​e​a​s​t​ ​{​m​i​n​}​ ​c​h​a​r​a​c​t​e​r​s
+		 * @param {number} min
+		 */
+		minError: RequiredParams<'min'>
+		/**
+		 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​b​e​ ​a​t​ ​m​o​s​t​ ​{​m​a​x​}​ ​c​h​a​r​a​c​t​e​r​s
+		 * @param {number} max
+		 */
+		maxError: RequiredParams<'max'>
+		/**
+		 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​c​o​n​t​a​i​n​ ​a​t​ ​l​e​a​s​t​ ​o​n​e​ ​l​o​w​e​r​c​a​s​e​ ​l​e​t​t​e​r
+		 */
+		lowerCaseError: string
+		/**
+		 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​c​o​n​t​a​i​n​ ​a​t​ ​l​e​a​s​t​ ​o​n​e​ ​u​p​p​e​r​c​a​s​e​ ​l​e​t​t​e​r
+		 */
+		uppercaseCaseError: string
+		/**
+		 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​c​o​n​t​a​i​n​ ​a​t​ ​l​e​a​s​t​ ​o​n​e​ ​n​u​m​b​e​r
+		 */
+		numberError: string
+		/**
+		 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​c​o​n​t​a​i​n​ ​a​t​ ​l​e​a​s​t​ ​o​n​e​ ​s​p​e​c​i​a​l​ ​c​h​a​r​a​c​t​e​r
+		 */
+		specialError: string
+		/**
+		 * P​l​e​a​s​e​ ​c​o​n​f​i​r​m​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d
+		 */
+		confirmRequired: string
+		/**
+		 * P​a​s​s​w​o​r​d​s​ ​d​o​ ​n​o​t​ ​m​a​t​c​h
+		 */
+		confirmError: string
+	}
 }
 
 export type TranslationFunctions = {
+	common: {
+		inputField: {
+			/**
+			 * Toggle password visibility
+			 */
+			passwordToggle: () => LocalizedString
+		}
+	}
 	login: {
 		form: {
 			/**
@@ -377,42 +427,6 @@ export type TranslationFunctions = {
 			 */
 			emailValid: () => LocalizedString
 			/**
-			 * Please enter your password
-			 */
-			passwordRequired: () => LocalizedString
-			/**
-			 * Password must be at least {min} characters
-			 */
-			passwordMinError: (arg: { min: number }) => LocalizedString
-			/**
-			 * Password must be at most {max} characters
-			 */
-			passwordMaxError: (arg: { max: number }) => LocalizedString
-			/**
-			 * Password must contain at least one lowercase letter
-			 */
-			passwordLowerCaseError: () => LocalizedString
-			/**
-			 * Password must contain at least one uppercase letter
-			 */
-			passwordUppercaseCaseError: () => LocalizedString
-			/**
-			 * Password must contain at least one number
-			 */
-			passwordNumberError: () => LocalizedString
-			/**
-			 * Password must contain at least one special character
-			 */
-			passwordSpecialError: () => LocalizedString
-			/**
-			 * Please confirm your password
-			 */
-			confirmPasswordRequired: () => LocalizedString
-			/**
-			 * Passwords do not match
-			 */
-			confirmPasswordError: () => LocalizedString
-			/**
 			 * You have successfully registered. Please check your email to confirm your account.
 			 */
 			success: () => LocalizedString
@@ -465,6 +479,76 @@ export type TranslationFunctions = {
 			 */
 			successReturn: () => LocalizedString
 		}
+	}
+	resetPassword: {
+		form: {
+			/**
+			 * Reset Password
+			 */
+			title: () => LocalizedString
+			/**
+			 * Enter your new password below.
+			 */
+			description: () => LocalizedString
+			/**
+			 * New Password
+			 */
+			passwordLabel: () => LocalizedString
+			/**
+			 * Enter your new password
+			 */
+			passwordPlaceholder: () => LocalizedString
+			/**
+			 * Confirm Password
+			 */
+			passwordConfirmLabel: () => LocalizedString
+			/**
+			 * Enter your new password again
+			 */
+			passwordConfirmPlaceholder: () => LocalizedString
+			/**
+			 * Reset Password
+			 */
+			submitButton: () => LocalizedString
+		}
+	}
+	passwordValidation: {
+		/**
+		 * Please enter your password
+		 */
+		required: () => LocalizedString
+		/**
+		 * Password must be at least {min} characters
+		 */
+		minError: (arg: { min: number }) => LocalizedString
+		/**
+		 * Password must be at most {max} characters
+		 */
+		maxError: (arg: { max: number }) => LocalizedString
+		/**
+		 * Password must contain at least one lowercase letter
+		 */
+		lowerCaseError: () => LocalizedString
+		/**
+		 * Password must contain at least one uppercase letter
+		 */
+		uppercaseCaseError: () => LocalizedString
+		/**
+		 * Password must contain at least one number
+		 */
+		numberError: () => LocalizedString
+		/**
+		 * Password must contain at least one special character
+		 */
+		specialError: () => LocalizedString
+		/**
+		 * Please confirm your password
+		 */
+		confirmRequired: () => LocalizedString
+		/**
+		 * Passwords do not match
+		 */
+		confirmError: () => LocalizedString
 	}
 }
 

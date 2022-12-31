@@ -46,6 +46,7 @@ exports[`FormInput > should render password and match snapshot 1`] = `
         />
       </label>
       <button
+        aria-label="Toggle password visibility"
         class="absolute right-0 mt-9 z-10 mr-3 cursor-pointer"
         type="button"
       >

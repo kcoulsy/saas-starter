@@ -1,41 +1,42 @@
 import { describe } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import * as stories from './FormInput.stories';
 import { composeStories } from '@storybook/react';
 import userEvent from '@testing-library/user-event';
+import { renderComponent } from '@src/utils/testing';
 
 const { Default, WithError, Password } = composeStories(stories);
 
 describe('FormInput', () => {
   it('should render and match snapshot', () => {
-    const { asFragment } = render(<Default />);
+    const { asFragment } = renderComponent(<Default />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render with error and match snapshot', () => {
-    const { asFragment } = render(<WithError />);
+    const { asFragment } = renderComponent(<WithError />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should render password and match snapshot', () => {
-    const { asFragment } = render(<Password />);
+    const { asFragment } = renderComponent(<Password />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   it('should contain label text', () => {
-    render(<Default label="test-label" />);
+    renderComponent(<Default label="test-label" />);
     const label = screen.getByText('test-label');
     expect(label).toBeInTheDocument();
   });
 
   it('should contain error text', () => {
-    render(<WithError errors={['test-error']} />);
+    renderComponent(<WithError errors={['test-error']} />);
     const error = screen.getByText('test-error');
     expect(error).toBeInTheDocument();
   });
 
   it('should toggle between text and password', async () => {
-    render(<Password label="password" />);
+    renderComponent(<Password label="password" />);
     const toggleButton = screen.getByRole('button');
 
     expect(screen.getByLabelText('password')).toHaveAttribute('type', 'password');
@@ -46,7 +47,7 @@ describe('FormInput', () => {
   });
 
   it('should render placeholder text', () => {
-    render(<Default placeholder="test-placeholder" />);
+    renderComponent(<Default placeholder="test-placeholder" />);
     const input = screen.getByPlaceholderText('test-placeholder');
     expect(input).toBeInTheDocument();
   });
@@ -54,7 +55,7 @@ describe('FormInput', () => {
   it('should pass register props', async () => {
     const mockRegister = { onBlur: vi.fn(), onChange: vi.fn(), name: 'example', ref: vi.fn() };
 
-    render(
+    renderComponent(
       <div data-testid="outside">
         <Default register={mockRegister} label="test-label" />
       </div>,
@@ -73,7 +74,7 @@ describe('FormInput', () => {
   });
 
   it('should be accessible', async () => {
-    render(<Default label="test-label" />);
+    renderComponent(<Default label="test-label" />);
     const input = screen.getByLabelText('test-label');
 
     await userEvent.type(input, 'test');
