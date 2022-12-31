@@ -4,6 +4,7 @@ import React from 'react';
 import Button from '@src/components/common/button/Button';
 import { useI18nContext } from '@src/i18n/i18n-react';
 import FormInput from '@src/components/common/formInput/FormInput';
+import { routes } from '@src/constants/routes';
 import type { UseFormRegisterReturn } from 'react-hook-form';
 
 export interface LoginFormViewProps {
@@ -91,19 +92,20 @@ const LoginFormView = ({
           register={registerPassword}
           errors={errors?.password}
         />
-        <span
-          tabIndex={0}
-          role="link"
-          aria-label={LL.login.form.registerLink()}
-          className="text-sm font-medium leading-none underline ml-1 text-gray-800 cursor-pointer"
-        >
-          {LL.login.form.forgotPasswordLabel()}
-        </span>
+        <Link href={routes.forgotPassword}>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a
+            aria-label={LL.login.form.registerLink()}
+            className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer"
+          >
+            {LL.login.form.forgotPasswordLabel()}
+          </a>
+        </Link>
 
         {errors && (
-          <ul className="mt-1">
+          <ul>
             {errors.loginError?.map((error) => (
-              <li key={error}>
+              <li key={error} className="mt-1">
                 <small className="text-red-500">{error}</small>
               </li>
             ))}

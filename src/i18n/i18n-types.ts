@@ -195,6 +195,50 @@ type RootTranslation = {
 			successReturn: string
 		}
 	}
+	forgotPassword: {
+		form: {
+			/**
+			 * F​o​r​g​o​t​ ​P​a​s​s​w​o​r​d
+			 */
+			title: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​e​m​a​i​l​ ​a​d​d​r​e​s​s​ ​b​e​l​o​w​ ​a​n​d​ ​w​e​'​l​l​ ​s​e​n​d​ ​y​o​u​ ​a​ ​l​i​n​k​ ​t​o​ ​r​e​s​e​t​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d​.
+			 */
+			description: string
+			/**
+			 * B​a​c​k​ ​t​o​ ​l​o​g​i​n
+			 */
+			loginLink: string
+			/**
+			 * E​m​a​i​l
+			 */
+			emailLabel: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​e​m​a​i​l
+			 */
+			emailPlaceholder: string
+			/**
+			 * R​e​s​e​t​ ​P​a​s​s​w​o​r​d
+			 */
+			submitButton: string
+			/**
+			 * P​l​e​a​s​e​ ​e​n​t​e​r​ ​y​o​u​r​ ​e​m​a​i​l
+			 */
+			emailRequired: string
+			/**
+			 * P​l​e​a​s​e​ ​e​n​t​e​r​ ​a​ ​v​a​l​i​d​ ​e​m​a​i​l
+			 */
+			emailValid: string
+			/**
+			 * I​f​ ​t​h​e​ ​e​m​a​i​l​ ​y​o​u​ ​e​n​t​e​r​e​d​ ​i​s​ ​a​s​s​o​c​i​a​t​e​d​ ​w​i​t​h​ ​a​n​ ​a​c​c​o​u​n​t​,​ ​y​o​u​ ​w​i​l​l​ ​r​e​c​e​i​v​e​ ​a​n​ ​e​m​a​i​l​ ​w​i​t​h​ ​a​ ​l​i​n​k​ ​t​o​ ​r​e​s​e​t​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d​.
+			 */
+			success: string
+			/**
+			 * C​l​i​c​k​ ​h​e​r​e​ ​t​o​ ​r​e​t​u​r​n​ ​t​o​ ​t​h​e​ ​l​o​g​i​n​ ​p​a​g​e
+			 */
+			successReturn: string
+		}
+	}
 }
 
 export type TranslationFunctions = {
@@ -370,6 +414,50 @@ export type TranslationFunctions = {
 			confirmPasswordError: () => LocalizedString
 			/**
 			 * You have successfully registered. Please check your email to confirm your account.
+			 */
+			success: () => LocalizedString
+			/**
+			 * Click here to return to the login page
+			 */
+			successReturn: () => LocalizedString
+		}
+	}
+	forgotPassword: {
+		form: {
+			/**
+			 * Forgot Password
+			 */
+			title: () => LocalizedString
+			/**
+			 * Enter your email address below and we'll send you a link to reset your password.
+			 */
+			description: () => LocalizedString
+			/**
+			 * Back to login
+			 */
+			loginLink: () => LocalizedString
+			/**
+			 * Email
+			 */
+			emailLabel: () => LocalizedString
+			/**
+			 * Enter your email
+			 */
+			emailPlaceholder: () => LocalizedString
+			/**
+			 * Reset Password
+			 */
+			submitButton: () => LocalizedString
+			/**
+			 * Please enter your email
+			 */
+			emailRequired: () => LocalizedString
+			/**
+			 * Please enter a valid email
+			 */
+			emailValid: () => LocalizedString
+			/**
+			 * If the email you entered is associated with an account, you will receive an email with a link to reset your password.
 			 */
 			success: () => LocalizedString
 			/**

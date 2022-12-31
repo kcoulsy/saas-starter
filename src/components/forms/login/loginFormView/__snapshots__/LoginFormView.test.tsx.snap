@@ -88,14 +88,13 @@ exports[`LoginFormView > it renders Default and matches snapshots 1`] = `
             </button>
           </div>
         </div>
-        <span
+        <a
           aria-label="Sign up here"
-          class="text-sm font-medium leading-none underline ml-1 text-gray-800 cursor-pointer"
-          role="link"
-          tabindex="0"
+          class="text-sm font-medium leading-none underline text-gray-800 cursor-pointer"
+          href="/forgot-password"
         >
           Forgot password?
-        </span>
+        </a>
         <button
           aria-label="Login"
           class="text-sm font-semibold leading-none text-white focus:outline-none py-4 w-full mt-2 bg-indigo-700 border rounded hover:bg-indigo-600  focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700"
@@ -219,17 +218,33 @@ exports[`LoginFormView > it renders Errors and matches snapshots 1`] = `
             </li>
           </ul>
         </div>
-        <span
+        <a
           aria-label="Sign up here"
-          class="text-sm font-medium leading-none underline ml-1 text-gray-800 cursor-pointer"
-          role="link"
-          tabindex="0"
+          class="text-sm font-medium leading-none underline text-gray-800 cursor-pointer"
+          href="/forgot-password"
         >
           Forgot password?
-        </span>
-        <ul
-          class="mt-1"
-        />
+        </a>
+        <ul>
+          <li
+            class="mt-1"
+          >
+            <small
+              class="text-red-500"
+            >
+              Invalid email or password
+            </small>
+          </li>
+          <li
+            class="mt-1"
+          >
+            <small
+              class="text-red-500"
+            >
+              Failed to reach server
+            </small>
+          </li>
+        </ul>
         <button
           aria-label="Login"
           class="text-sm font-semibold leading-none text-white focus:outline-none py-4 w-full mt-2 bg-indigo-700 border rounded hover:bg-indigo-600  focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700"

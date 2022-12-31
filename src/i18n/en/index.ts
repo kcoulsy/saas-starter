@@ -52,6 +52,21 @@ const en: BaseTranslation = {
       successReturn: 'Click here to return to the login page',
     },
   },
+  forgotPassword: {
+    form: {
+      title: 'Forgot Password',
+      description: "Enter your email address below and we'll send you a link to reset your password.",
+      loginLink: 'Back to login',
+      emailLabel: 'Email',
+      emailPlaceholder: 'Enter your email',
+      submitButton: 'Reset Password',
+      emailRequired: 'Please enter your email',
+      emailValid: 'Please enter a valid email',
+      success:
+        'If the email you entered is associated with an account, you will receive an email with a link to reset your password.',
+      successReturn: 'Click here to return to the login page',
+    },
+  },
 };
 
 export default en;
