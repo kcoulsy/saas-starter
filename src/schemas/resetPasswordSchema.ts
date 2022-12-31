@@ -2,15 +2,9 @@ import { z } from 'zod';
 import { TranslationFunctions } from '@src/i18n/i18n-types';
 import passwordSchema from './passwordSchema';
 
-const registerFormSchema = (LL: TranslationFunctions) =>
+const resetPasswordSchema = (LL: TranslationFunctions) =>
   z
     .object({
-      email: z
-        .string({
-          required_error: LL.register.form.emailRequired(),
-        })
-        .min(1, { message: LL.register.form.emailRequired() })
-        .email(LL.register.form.emailValid()),
       password: passwordSchema(LL),
       confirm: z
         .string({
@@ -23,4 +17,4 @@ const registerFormSchema = (LL: TranslationFunctions) =>
       path: ['confirm'],
     });
 
-export default registerFormSchema;
+export default resetPasswordSchema;

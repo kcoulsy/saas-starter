@@ -1,19 +1,11 @@
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
-import React, { useEffect } from 'react';
+import React from 'react';
 import RegisterFormController from '@src/components/forms/register/RegisterFormController';
 import AuthPagesLayout from '@src/components/layouts/AuthPagesLayout';
+import useRequireNoAuth from '@src/hooks/useRequireNoAuth';
 
 const RegisterPage = () => {
-  const { status } = useSession({ required: false });
-  const router = useRouter();
-
-  useEffect(() => {
-    if (status === 'authenticated') {
-      router.push('/');
-    }
-  }, [status, router]);
+  useRequireNoAuth();
 
   return (
     <>

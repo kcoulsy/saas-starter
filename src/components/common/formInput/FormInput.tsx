@@ -2,6 +2,7 @@
 
 import { HTMLInputTypeAttribute, useState } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
+import { useI18nContext } from '@src/i18n/i18n-react';
 import IconEye from '../../icons/eye';
 
 export interface FormInputProps {
@@ -14,6 +15,7 @@ export interface FormInputProps {
 }
 
 const FormInput = ({ id, label, type, register, placeholder, errors }: FormInputProps) => {
+  const { LL } = useI18nContext();
   const [showPasswordAsText, setShowPasswordAsText] = useState(false);
   const isPassword = type === 'password';
 
@@ -36,6 +38,7 @@ const FormInput = ({ id, label, type, register, placeholder, errors }: FormInput
             type="button"
             onClick={() => setShowPasswordAsText((s) => !s)}
             className="absolute right-0 mt-9 z-10 mr-3 cursor-pointer"
+            aria-label={LL.common.inputField.passwordToggle()}
           >
             <IconEye />
           </button>
