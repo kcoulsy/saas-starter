@@ -33,7 +33,7 @@ const ChangePasswordView = ({
         {LL.changePassword.form.title()}
       </h1>
       <h2 className="text-sm mt-4 font-medium leading-none text-gray-500">{LL.changePassword.form.description()}</h2>
-      <div className="mt-8 w-full grid gap-y-4 ">
+      <div className="mt-8 w-full grid gap-y-4">
         <FormInput
           id="password"
           type="password"
