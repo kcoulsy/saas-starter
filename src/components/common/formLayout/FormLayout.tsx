@@ -1,11 +1,11 @@
-import { HTMLInputTypeAttribute } from 'react';
+import React, { HTMLInputTypeAttribute } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
 import Button from '../button/Button';
 import FormInput from '../formInput/FormInput';
 
 export interface FormLayoutProps {
   title: string;
-  description: string;
+  description: string | React.ReactNode;
   formFields: {
     id: string;
     type: HTMLInputTypeAttribute;
@@ -14,11 +14,12 @@ export interface FormLayoutProps {
     register: UseFormRegisterReturn<string>;
     errors: string[];
   }[];
+  footer?: string | React.ReactNode;
   submitButtonLabel: string;
   errors: string[];
 }
 
-const FormLayout = ({ title, description, formFields, submitButtonLabel, errors }: FormLayoutProps) => {
+const FormLayout = ({ title, description, formFields, submitButtonLabel, footer, errors }: FormLayoutProps) => {
   return (
     <div className="">
       <div className="">
@@ -40,6 +41,7 @@ const FormLayout = ({ title, description, formFields, submitButtonLabel, errors 
             ))}
           </ul>
         )}
+        {footer && <div className="mt-4  text-sm font-medium leading-none text-gray-500">{footer}</div>}
         <Button label={submitButtonLabel} type="submit" classes="mt-4" />
       </div>
     </div>

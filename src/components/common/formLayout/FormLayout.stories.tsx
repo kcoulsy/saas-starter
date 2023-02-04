@@ -21,6 +21,18 @@ Default.args = {
   ...mockFormLayoutProps.base,
 };
 
+export const WithLinkInDescription = Template.bind({});
+
+WithLinkInDescription.args = {
+  ...mockFormLayoutProps.withLinkInDescription,
+};
+
+export const WithFooter = Template.bind({});
+
+WithFooter.args = {
+  ...mockFormLayoutProps.withFooter,
+};
+
 export const WithErrors = Template.bind({});
 
 WithErrors.args = {

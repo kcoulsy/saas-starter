@@ -36,6 +36,30 @@ const base: FormLayoutProps = {
   errors: [],
 };
 
+const withLinkInDescription: FormLayoutProps = {
+  ...base,
+  description: (
+    <div>
+      hello {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+      <a href="#" className="underline">
+        world
+      </a>
+    </div>
+  ),
+};
+
+const withFooter: FormLayoutProps = {
+  ...base,
+  footer: (
+    <div>
+      Footer here with a link {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+      <a href="#" className="underline">
+        click me
+      </a>
+    </div>
+  ),
+};
+
 const withErrors: FormLayoutProps = {
   title: 'Form With Errors',
   description: 'This form will include some errors',
@@ -73,5 +97,7 @@ const withErrors: FormLayoutProps = {
 
 export const mockFormLayoutProps = {
   base,
+  withLinkInDescription,
+  withFooter,
   withErrors,
 };

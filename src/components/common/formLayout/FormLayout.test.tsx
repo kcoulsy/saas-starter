@@ -27,6 +27,11 @@ describe('FormLayout', () => {
     expect(screen.getByText('Test Description')).toBeInTheDocument();
   });
 
+  it('should allow jsx in description', () => {
+    renderComponent(<Default description={<span data-testid="jsx-element">Test Description</span>} />);
+    expect(screen.getByTestId('jsx-element')).toBeInTheDocument();
+  });
+
   it('should render all the form fields', () => {
     const mockFormFields = [
       {

@@ -14,7 +14,19 @@ const errors: LoginFormViewProps = {
   },
 };
 
+const emailVerified: LoginFormViewProps = {
+  ...base,
+  emailVerified: true,
+};
+
+const emailUnverified: LoginFormViewProps = {
+  ...base,
+  emailVerified: false,
+};
+
 export const mockLoginFormViewProps = {
   base,
+  emailVerified,
+  emailUnverified,
   errors,
 };
