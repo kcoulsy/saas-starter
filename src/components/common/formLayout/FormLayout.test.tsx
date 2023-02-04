@@ -4,7 +4,7 @@ import { screen } from '@testing-library/dom';
 import { describe } from 'vitest';
 import * as stories from './FormLayout.stories';
 
-const { Default, WithErrors } = composeStories(stories);
+const { Default, WithErrors, WithFooter, WithLinkInDescription } = composeStories(stories);
 
 describe('FormLayout', () => {
   it('should render correctly', () => {
@@ -14,6 +14,16 @@ describe('FormLayout', () => {
 
   it('should render correctly with errors', () => {
     const { asFragment } = renderComponent(<WithErrors />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should render correctly with footer', () => {
+    const { asFragment } = renderComponent(<WithFooter />);
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should render correctly with link in description', () => {
+    const { asFragment } = renderComponent(<WithLinkInDescription />);
     expect(asFragment()).toMatchSnapshot();
   });
 
@@ -88,6 +98,16 @@ describe('FormLayout', () => {
     expect(screen.getByText('Error 1')).toBeInTheDocument();
     expect(screen.getByText('Error 2')).toBeInTheDocument();
     expect(screen.getByText('Error 3')).toBeInTheDocument();
+  });
+
+  it('should render footer', () => {
+    renderComponent(<Default footer={<span data-testid="footer">Test Footer</span>} />);
+    expect(screen.getByTestId('footer')).toBeInTheDocument();
+  });
+
+  it('should render footer as text', () => {
+    renderComponent(<Default footer="Test Footer" />);
+    expect(screen.getByText('Test Footer')).toBeInTheDocument();
   });
 
   it('should render the submit button', () => {
