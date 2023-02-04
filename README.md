@@ -20,6 +20,10 @@ This project uses node `16.18.1` and npm `8.19.2`. It is recommended to use nvm 
 3. npm i
 4. npm run dev
 
+## Storybook
+
+You can view the projects storybook on chromatic by [Clicking this link](https://main--632f5460936ef37ac5ba9a3b.chromatic.com/?path=/story/common-button--default)
+
 ## Why are there `.js` files in here?
 
 As per [T3-Axiom #3](https://github.com/t3-oss/create-t3-app/tree/next#3-typesafety-isnt-optional), we take typesafety as a first class citizen. Unfortunately, not all frameworks and plugins support TypeScript which means some of the configuration files have to be `.js` files.
