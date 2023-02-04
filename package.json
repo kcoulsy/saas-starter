@@ -38,6 +38,7 @@
     "@next/bundle-analyzer": "12.3.1",
     "@playwright/test": "1.28.1",
     "@prisma/client": "4.6.1",
+    "@radix-ui/react-tabs": "1.0.2",
     "@sendgrid/mail": "7.7.0",
     "@sentry/nextjs": "7.13.0",
     "@sentry/rrweb": "0.3.3",
