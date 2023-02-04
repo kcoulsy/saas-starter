@@ -281,6 +281,46 @@ type RootTranslation = {
 		 */
 		confirmError: string
 	}
+	changePassword: {
+		form: {
+			/**
+			 * C​h​a​n​g​e​ ​P​a​s​s​w​o​r​d
+			 */
+			title: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​c​u​r​r​e​n​t​ ​p​a​s​s​w​o​r​d​ ​a​n​d​ ​n​e​w​ ​p​a​s​s​w​o​r​d​ ​b​e​l​o​w​.
+			 */
+			description: string
+			/**
+			 * C​u​r​r​e​n​t​ ​P​a​s​s​w​o​r​d
+			 */
+			currentPasswordLabel: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​c​u​r​r​e​n​t​ ​p​a​s​s​w​o​r​d
+			 */
+			currentPasswordPlaceholder: string
+			/**
+			 * N​e​w​ ​P​a​s​s​w​o​r​d
+			 */
+			newPasswordLabel: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​n​e​w​ ​p​a​s​s​w​o​r​d
+			 */
+			newPasswordPlacehodler: string
+			/**
+			 * C​o​n​f​i​r​m​ ​N​e​w​ ​P​a​s​s​w​o​r​d
+			 */
+			newPasswordConfirmLabel: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​n​e​w​ ​p​a​s​s​w​o​r​d​ ​a​g​a​i​n
+			 */
+			newPasswordConfirmPlaceholder: string
+			/**
+			 * C​h​a​n​g​e​ ​P​a​s​s​w​o​r​d
+			 */
+			submitButton: string
+		}
+	}
 }
 
 export type TranslationFunctions = {
@@ -549,6 +589,46 @@ export type TranslationFunctions = {
 		 * Passwords do not match
 		 */
 		confirmError: () => LocalizedString
+	}
+	changePassword: {
+		form: {
+			/**
+			 * Change Password
+			 */
+			title: () => LocalizedString
+			/**
+			 * Enter your current password and new password below.
+			 */
+			description: () => LocalizedString
+			/**
+			 * Current Password
+			 */
+			currentPasswordLabel: () => LocalizedString
+			/**
+			 * Enter your current password
+			 */
+			currentPasswordPlaceholder: () => LocalizedString
+			/**
+			 * New Password
+			 */
+			newPasswordLabel: () => LocalizedString
+			/**
+			 * Enter your new password
+			 */
+			newPasswordPlacehodler: () => LocalizedString
+			/**
+			 * Confirm New Password
+			 */
+			newPasswordConfirmLabel: () => LocalizedString
+			/**
+			 * Enter your new password again
+			 */
+			newPasswordConfirmPlaceholder: () => LocalizedString
+			/**
+			 * Change Password
+			 */
+			submitButton: () => LocalizedString
+		}
 	}
 }
 

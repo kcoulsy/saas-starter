@@ -85,6 +85,19 @@ const en: BaseTranslation = {
     confirmRequired: 'Please confirm your password',
     confirmError: 'Passwords do not match',
   },
+  changePassword: {
+    form: {
+      title: 'Change Password',
+      description: 'Enter your current password and new password below.',
+      currentPasswordLabel: 'Current Password',
+      currentPasswordPlaceholder: 'Enter your current password',
+      newPasswordLabel: 'New Password',
+      newPasswordPlacehodler: 'Enter your new password',
+      newPasswordConfirmLabel: 'Confirm New Password',
+      newPasswordConfirmPlaceholder: 'Enter your new password again',
+      submitButton: 'Change Password',
+    },
+  },
 };
 
 export default en;
