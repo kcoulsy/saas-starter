@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { UseFormRegisterReturn } from 'react-hook-form';
 import { useI18nContext } from '@src/i18n/i18n-react';
 import FormLayout from '@src/components/common/formLayout/FormLayout';
+import { routes } from '@src/constants/routes';
 
 export interface RegisterFormViewProps {
   registerEmail: UseFormRegisterReturn<'email'>;
@@ -30,7 +31,7 @@ const RegisterFormView = ({
         description={
           <>
             {LL.register.form.loginLabel()}
-            <Link href="/login">
+            <Link href={routes.login}>
               <span
                 tabIndex={0}
                 role="link"
