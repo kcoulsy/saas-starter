@@ -1,8 +1,6 @@
 const path = require('path');
 const { mergeConfig } = require('vite');
 
-console.log(process.env);
-
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
@@ -10,7 +8,7 @@ module.exports = {
     '@storybook/addon-essentials',
     // '@storybook/addon-interactions',
     '@storybook/preset-scss',
-    'storybook-addon-next',
+    // 'storybook-addon-next',
     {
       /**
        * Fix Storybook issue with PostCSS@8
@@ -23,10 +21,11 @@ module.exports = {
         },
       },
     },
+    '@storybook/addon-mdx-gfm',
   ],
-  framework: '@storybook/react',
-  core: {
-    builder: '@storybook/builder-vite',
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
   },
   typescript: {
     reactDocgen: 'react-docgen',
@@ -38,7 +37,7 @@ module.exports = {
       define: {
         'process.env': {
           ...process.env,
-          __NEXT_VERSION: '12.3.1',
+          __NEXT_VERSION: '13.3.0',
         },
       },
       resolve: {
@@ -50,5 +49,8 @@ module.exports = {
   },
   docsPage: {
     docs: 'automatic',
+  },
+  docs: {
+    autodocs: true,
   },
 };
