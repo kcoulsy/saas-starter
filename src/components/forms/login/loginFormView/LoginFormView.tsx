@@ -45,7 +45,7 @@ const LoginFormView = ({
         description={
           <>
             {LL.login.form.registerLabel()}
-            <Link href="/register">
+            <Link href={routes.register}>
               <span
                 tabIndex={0}
                 role="link"
@@ -92,14 +92,12 @@ const LoginFormView = ({
           },
         ]}
         footer={
-          <Link href={routes.forgotPassword}>
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a
-              aria-label={LL.login.form.registerLink()}
-              className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer"
-            >
-              {LL.login.form.forgotPasswordLabel()}
-            </a>
+          <Link
+            href={routes.forgotPassword}
+            aria-label={LL.login.form.registerLink()}
+            className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer"
+          >
+            {LL.login.form.forgotPasswordLabel()}
           </Link>
         }
         submitButtonLabel={LL.login.form.submitButton()}

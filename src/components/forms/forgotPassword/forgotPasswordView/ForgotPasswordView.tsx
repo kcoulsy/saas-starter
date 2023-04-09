@@ -31,11 +31,12 @@ const ForgotPasswordView = ({ registerEmail, errors }: ForgotPasswordViewProps) 
           },
         ]}
         footer={
-          <Link href={routes.login}>
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a aria-label={LL.forgotPassword.form.loginLink()} className="underline text-gray-800 cursor-pointer">
-              {LL.forgotPassword.form.loginLink()}
-            </a>
+          <Link
+            href={routes.login}
+            aria-label={LL.forgotPassword.form.loginLink()}
+            className="underline text-gray-800 cursor-pointer"
+          >
+            {LL.forgotPassword.form.loginLink()}
           </Link>
         }
         submitButtonLabel={LL.forgotPassword.form.submitButton()}

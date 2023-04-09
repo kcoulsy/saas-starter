@@ -25,14 +25,18 @@ exports[`LoginFormView > it renders Default and matches snapshots 1`] = `
             class="text-sm mt-4 font-medium leading-none text-gray-500"
           >
             Dont have account?
-            <span
-              aria-label="Sign up here"
-              class="text-sm font-medium leading-none underline ml-1 text-gray-800 cursor-pointer"
-              role="link"
-              tabindex="0"
+            <a
+              href="/register"
             >
-              Sign up here
-            </span>
+              <span
+                aria-label="Sign up here"
+                class="text-sm font-medium leading-none underline ml-1 text-gray-800 cursor-pointer"
+                role="link"
+                tabindex="0"
+              >
+                Sign up here
+              </span>
+            </a>
           </h2>
           <div
             class="mt-4 w-full grid gap-y-4 "
@@ -153,14 +157,18 @@ exports[`LoginFormView > it renders Errors and matches snapshots 1`] = `
             class="text-sm mt-4 font-medium leading-none text-gray-500"
           >
             Dont have account?
-            <span
-              aria-label="Sign up here"
-              class="text-sm font-medium leading-none underline ml-1 text-gray-800 cursor-pointer"
-              role="link"
-              tabindex="0"
+            <a
+              href="/register"
             >
-              Sign up here
-            </span>
+              <span
+                aria-label="Sign up here"
+                class="text-sm font-medium leading-none underline ml-1 text-gray-800 cursor-pointer"
+                role="link"
+                tabindex="0"
+              >
+                Sign up here
+              </span>
+            </a>
           </h2>
           <div
             class="mt-4 w-full grid gap-y-4 "
