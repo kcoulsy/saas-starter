@@ -35,6 +35,10 @@ export default withSentryConfig(
   withAxiom(
     withBundleAnalyzer(
       defineNextConfig({
+        // expirmental: {
+        //   appDir: true,
+        // },
+        transpilePackages: ['@sentry/nextjs'],
         reactStrictMode: true,
         swcMinify: true,
         // Next.js i18n docs: https://nextjs.org/docs/advanced-features/i18n-routing

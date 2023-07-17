@@ -1,9 +1,9 @@
-import NextAuth, { type NextAuthOptions } from 'next-auth';
+import NextAuth, { type AuthOptions } from 'next-auth';
 
 import Credentials from 'next-auth/providers/credentials';
-import { loginUser } from '../../../server/services/auth.service';
+import { loginUser } from '../../../../server/services/auth.service';
 
-export const authOptions: NextAuthOptions = {
+export const authOptions: AuthOptions = {
   // Include user.id on session
   session: {
     strategy: 'jwt',
@@ -35,4 +35,6 @@ export const authOptions: NextAuthOptions = {
   ],
 };
 
-export default NextAuth(authOptions);
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };
