@@ -1,7 +1,7 @@
 import NextAuth, { type AuthOptions } from 'next-auth';
 
 import Credentials from 'next-auth/providers/credentials';
-import { loginUser } from '../../../../server/services/auth.service';
+import { loginUser } from '../../../server/services/auth.service';
 
 export const authOptions: AuthOptions = {
   // Include user.id on session
@@ -29,12 +29,10 @@ export const authOptions: AuthOptions = {
       },
       async authorize(credentials) {
         if (!credentials) return null;
-        return loginUser(credentials);
+        return await loginUser(credentials);
       },
     }),
   ],
 };
 
-const handler = NextAuth(authOptions);
-
-export { handler as GET, handler as POST };
+export default NextAuth(authOptions);

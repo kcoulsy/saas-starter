@@ -1,7 +1,7 @@
 // Wrapper for unstable_getServerSession https://next-auth.js.org/configuration/nextjs
 
 // eslint-disable-next-line camelcase
-import { unstable_getServerSession } from 'next-auth';
+import { getServerSession } from 'next-auth';
 import { authOptions as nextAuthOptions } from '../../pages/api/auth/[...nextauth]';
 import type { GetServerSidePropsContext } from 'next';
 
@@ -9,4 +9,4 @@ import type { GetServerSidePropsContext } from 'next';
 export const getServerAuthSession = async (ctx: {
   req: GetServerSidePropsContext['req'];
   res: GetServerSidePropsContext['res'];
-}) => unstable_getServerSession(ctx.req, ctx.res, nextAuthOptions);
+}) => getServerSession(ctx.req, ctx.res, nextAuthOptions);
