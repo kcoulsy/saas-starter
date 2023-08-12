@@ -1,21 +1,27 @@
+'use client';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { signIn } from 'next-auth/react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter } from 'next/router';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import loginFormSchema from '@src/schemas/loginForm.schema';
 import { useI18nContext } from '@src/i18n/i18n-react';
 import { trpc } from '@src/utils/trpc';
 import { notEmpty } from '@src/utils/array';
 import LoginFormView from './loginFormView/LoginFormView';
+import { useMutation } from '@tanstack/react-query';
+import { apiRoutes } from '@src/constants/routes';
 
 type LoginFormFields = z.infer<ReturnType<typeof loginFormSchema>>;
 
 const LoginFormController = () => {
   const { LL } = useI18nContext();
   const router = useRouter();
-  const emailVerifiedParam = router.query.verified as string;
+  const params = useSearchParams();
+  const emailParam = params?.get('email');
+  const emailVerifiedParam = params?.get('verified');
+  console.log({ emailVerifiedParam });
   const [loginError, setLoginError] = useState<string>();
   const {
     register,
@@ -43,7 +49,7 @@ const LoginFormController = () => {
       // TODO more typesafe way to check if email is verified
       if (response?.error === 'Email not verified') {
         router.push(`/login?email=${data.email}&verified=false`);
-        setLoginError(undefined);
+        setLoginError('Email not verified');
         return;
       }
 
@@ -55,8 +61,16 @@ const LoginFormController = () => {
     }
   };
 
-  const resendEmailMutation = trpc.auth.verifyUser.useMutation();
-
+  const resendEmailMutation = useMutation((email: string) =>
+    fetch(apiRoutes.auth.verify.post, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    }),
+  );
+  // @ts-ignore
   const emailVerificationError = resendEmailMutation.error?.message;
   const loginErrors = [loginError, emailVerificationError].filter(notEmpty);
   const formErrors = {
@@ -66,8 +80,8 @@ const LoginFormController = () => {
   };
 
   const handleResendEmail = async () => {
-    if (!router.query.email) return;
-    await resendEmailMutation.mutate({ email: router.query.email as string });
+    if (!emailParam) return;
+    await resendEmailMutation.mutate(emailParam);
   };
 
   return (
@@ -75,7 +89,7 @@ const LoginFormController = () => {
       <LoginFormView
         registerEmail={register('email')}
         registerPassword={register('password')}
-        onResendEmail={router.query.email ? handleResendEmail : undefined}
+        onResendEmail={emailParam ? handleResendEmail : undefined}
         errors={formErrors}
         {...(emailVerifiedParam && { emailVerified: emailVerifiedParam === 'true' })}
       />

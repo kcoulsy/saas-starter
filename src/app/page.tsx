@@ -5,7 +5,7 @@ import type { NextPage } from 'next';
 const Home: NextPage = () => {
   return (
     <>
-      <NextSeo title="Homepage" description="A short description goes here." />
+      {/* <NextSeo title="Homepage" description="A short description goes here." /> */}
       <HomepageContainer />
     </>
   );

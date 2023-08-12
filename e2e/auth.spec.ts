@@ -29,7 +29,7 @@ test('it can register and login', async ({ page, request }) => {
 
   await page.locator('button[type="submit"]').click();
 
-  await expect(page.getByText('Email not verified ')).toBeVisible();
+  await expect(page.getByText('Email not verified Click here to resend verification email')).toBeVisible();
 
   await request.post('/api/e2e/verifyTestUser', {
     data: { email: seedCredentials.email },

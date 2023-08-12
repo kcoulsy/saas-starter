@@ -1,3 +1,4 @@
+'use client';
 import Tabs from '@src/components/common/tabs/Tabs';
 
 const SettingsTabs = () => {

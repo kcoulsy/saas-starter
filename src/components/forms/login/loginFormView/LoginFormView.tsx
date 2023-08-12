@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useI18nContext } from '@src/i18n/i18n-react';
-import { routes } from '@src/constants/routes';
+import { pageRoutes } from '@src/constants/routes';
 import FormLayout from '@src/components/common/formLayout/FormLayout';
 import type { UseFormRegisterReturn } from 'react-hook-form';
 
@@ -45,7 +45,7 @@ const LoginFormView = ({
         description={
           <>
             {LL.login.form.registerLabel()}
-            <Link href={routes.register}>
+            <Link href={pageRoutes.register}>
               <span
                 tabIndex={0}
                 role="link"
@@ -93,7 +93,7 @@ const LoginFormView = ({
         ]}
         footer={
           <Link
-            href={routes.forgotPassword}
+            href={pageRoutes.forgotPassword}
             aria-label={LL.login.form.registerLink()}
             className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer"
           >

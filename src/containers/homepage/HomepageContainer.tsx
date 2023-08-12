@@ -1,3 +1,5 @@
+'use client';
+
 import HomepageNav from '../../components/homepage/HomepageNav/HomepageNav';
 
 const HomepageContainer = () => {

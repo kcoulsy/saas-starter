@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { UseFormRegisterReturn } from 'react-hook-form';
-import { routes } from '@src/constants/routes';
+import { pageRoutes } from '@src/constants/routes';
 import { useI18nContext } from '@src/i18n/i18n-react';
 import FormLayout from '@src/components/common/formLayout/FormLayout';
 
@@ -32,7 +32,7 @@ const ForgotPasswordView = ({ registerEmail, errors }: ForgotPasswordViewProps) 
         ]}
         footer={
           <Link
-            href={routes.login}
+            href={pageRoutes.login}
             aria-label={LL.forgotPassword.form.loginLink()}
             className="underline text-gray-800 cursor-pointer"
           >

@@ -1,12 +1,15 @@
+'use client';
 import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import registerFormSchema from '@src/schemas/registerFormSchema';
-import { trpc } from '@src/utils/trpc';
 import { useI18nContext } from '@src/i18n/i18n-react';
 import RegisterFormView from './registerFormView/RegisterFormView';
 import RegisterSuccessView from './registerSuccessView/RegisterSuccessView';
+import { useMutation } from '@tanstack/react-query';
+import { apiRoutes } from '@src/constants/routes';
+import { PostRegisterInput } from '@src/app/(auth)/api/register/route';
 
 type RegisterFormFields = z.infer<ReturnType<typeof registerFormSchema>>;
 
@@ -14,7 +17,20 @@ const RegisterFormController = () => {
   const { LL } = useI18nContext();
   const [registerError, setRegisterError] = useState<string | undefined>(undefined);
   const [registerSuccess, setRegisterSuccess] = useState(false);
-  const mutation = trpc.auth.createUser.useMutation({ onSuccess: () => setRegisterSuccess(true) });
+
+  const mutation = useMutation(
+    ({ email, password }: PostRegisterInput) =>
+      fetch(apiRoutes.auth.register.post, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      }),
+    {
+      onSuccess: () => setRegisterSuccess(true),
+    },
+  );
 
   const {
     register,
