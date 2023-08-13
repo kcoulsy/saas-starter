@@ -1,9 +1,11 @@
 import { CredentialsAuth, VerificationToken } from '@prisma/client';
 import { v4 as uuidv4 } from 'uuid';
-import confirmRegistration from '@src/server/email/templates/confirmRegistration.hbs';
 import { env } from '@src/env/server.mjs';
 import { prisma } from '../db/client';
 import { sendEmail } from './email.service';
+import ConfirmEmail from '@emails/confirm-email';
+import { render } from '@react-email/render';
+import { pageRoutes } from '@src/constants/routes';
 
 export const findExistingVerificationTokenForUser = async (user: CredentialsAuth) => {
   return prisma.verificationToken.findFirst({
@@ -92,8 +94,9 @@ export const sendVerificationEmail = async (user: CredentialsAuth) => {
     throw new Error('Email already verified');
   }
   const { token } = await generateVerificationTokenForUser(user);
-  const tokenLink = `${env.NEXTAUTH_URL}/verify?token=${token}&email=${user.email}`;
-  const html = confirmRegistration({ tokenLink });
+  const tokenLink = `${env.NEXTAUTH_URL}${pageRoutes.verify(token)}`;
+
+  const html = render(<ConfirmEmail token={token} />);
   await sendEmail({
     email: user.email,
     subject: 'Confirm your email',

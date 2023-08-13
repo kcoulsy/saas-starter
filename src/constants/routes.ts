@@ -3,8 +3,9 @@ export const pageRoutes = {
   login: '/login',
   register: '/register',
   forgotPassword: '/forgot-password',
-  resetPassword: '/reset-password',
   dashboard: '/dashboard',
+  verify: (token: string) => `/verify/${token}`,
+  resetPassword: (token: string) => `/reset-password/${token}`,
 } as const;
 
 export const apiRoutes = {

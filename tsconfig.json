@@ -18,7 +18,8 @@
     "types": ["vitest/globals", "@testing-library/jest-dom"],
     "baseUrl": ".",
     "paths": {
-      "@src/*": ["src/*"]
+      "@src/*": ["src/*"],
+      "@emails/*": ["emails/*"]
     },
     "plugins": [
       {
@@ -30,9 +31,10 @@
     "next-env.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
+    "emails/**/*.ts",
+    "emails/**/*.tsx",
     "**/*.cjs",
     "**/*.mjs",
-    "**/*.hbs",
     "...eslintrc.json",
     ".next/types/**/*.ts"
   ],

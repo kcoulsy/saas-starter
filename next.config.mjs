@@ -54,12 +54,6 @@ export default withSentryConfig(
         env: {
           VERCEL_ENV: env.VERCEL_ENV,
         },
-        webpack: (config, options) => {
-          // Add your custom webpack config here
-          // Important: return the modified config
-          config.module.rules.push({ test: /\.hbs$/, loader: 'handlebars-loader' });
-          return config;
-        },
       }),
     ),
   ),

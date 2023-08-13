@@ -19,6 +19,8 @@
 # production
 /build
 
+/.react-email
+
 # misc
 .DS_Store
 *.pem
