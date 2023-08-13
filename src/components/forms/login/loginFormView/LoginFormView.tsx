@@ -14,6 +14,7 @@ export interface LoginFormViewProps {
     password?: string[];
     loginError?: string[];
   };
+  isLoggingIn?: boolean;
 }
 
 const LoginFormView = ({
@@ -22,6 +23,7 @@ const LoginFormView = ({
   errors,
   emailVerified,
   onResendEmail,
+  isLoggingIn = false,
 }: LoginFormViewProps) => {
   const { LL } = useI18nContext();
 
@@ -102,6 +104,7 @@ const LoginFormView = ({
         }
         submitButtonLabel={LL.login.form.submitButton()}
         errors={errors?.loginError || []}
+        isLoading={isLoggingIn}
       />
     </div>
   );

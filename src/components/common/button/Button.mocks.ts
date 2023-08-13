@@ -15,7 +15,14 @@ const disabled: ButtonProps = {
   id: 'button-disabled',
 };
 
+const loading: ButtonProps = {
+  ...base,
+  isLoading: true,
+  id: 'button-loading',
+};
+
 export const mockButtonProps = {
   base,
   disabled,
+  loading,
 };

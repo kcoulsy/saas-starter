@@ -17,9 +17,18 @@ export interface FormLayoutProps {
   footer?: string | React.ReactNode;
   submitButtonLabel: string;
   errors: string[];
+  isLoading?: boolean;
 }
 
-const FormLayout = ({ title, description, formFields, submitButtonLabel, footer, errors }: FormLayoutProps) => {
+const FormLayout = ({
+  title,
+  description,
+  formFields,
+  submitButtonLabel,
+  footer,
+  errors,
+  isLoading = false,
+}: FormLayoutProps) => {
   return (
     <div className="">
       <div className="">
@@ -42,7 +51,7 @@ const FormLayout = ({ title, description, formFields, submitButtonLabel, footer,
           </ul>
         )}
         {footer && <div className="mt-4  text-sm font-medium leading-none text-gray-500">{footer}</div>}
-        <Button label={submitButtonLabel} type="submit" classes="mt-4" />
+        <Button label={submitButtonLabel} type="submit" classes="mt-4" isLoading={isLoading} />
       </div>
     </div>
   );

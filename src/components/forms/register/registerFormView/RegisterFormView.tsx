@@ -14,6 +14,7 @@ export interface RegisterFormViewProps {
     confirm?: string[];
     register?: string;
   };
+  isRegistering?: boolean;
 }
 
 const RegisterFormView = ({
@@ -21,6 +22,7 @@ const RegisterFormView = ({
   registerPassword,
   registerConfirmPassword,
   errors,
+  isRegistering = false,
 }: RegisterFormViewProps) => {
   const { LL } = useI18nContext();
 
@@ -71,6 +73,7 @@ const RegisterFormView = ({
         ]}
         submitButtonLabel={LL.register.form.submitButton()}
         errors={errors?.register ? [errors?.register] : []}
+        isLoading={isRegistering}
       />
     </div>
   );

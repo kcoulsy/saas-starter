@@ -26,3 +26,9 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   ...mockButtonProps.disabled,
 };
+
+export const Loading = Template.bind({});
+
+Loading.args = {
+  ...mockButtonProps.loading,
+};

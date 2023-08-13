@@ -66,6 +66,7 @@ const RegisterFormController = () => {
         registerPassword={register('password')}
         registerConfirmPassword={register('confirm')}
         errors={formErrors}
+        isRegistering={mutation.isLoading}
       />
     </form>
   );

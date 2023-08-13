@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import * as stories from './Button.stories';
 import userEvent from '@testing-library/user-event';
 
-const { Default, Disabled } = composeStories(stories);
+const { Default, Disabled, Loading } = composeStories(stories);
 
 describe('Button', () => {
   it('should render and match snapshot', () => {
@@ -54,5 +54,14 @@ describe('Button', () => {
     await userEvent.click(button);
 
     expect(onClick).not.toHaveBeenCalled();
+  });
+
+  it('should render spinner when isLoading is true', () => {
+    render(<Loading />);
+
+    const button = screen.getByRole('button');
+    const spinner = screen.getByRole('status');
+
+    expect(button).toContainElement(spinner);
   });
 });

@@ -21,7 +21,6 @@ const LoginFormController = () => {
   const params = useSearchParams();
   const emailParam = params?.get('email');
   const emailVerifiedParam = params?.get('verified');
-  console.log({ emailVerifiedParam });
   const [loginError, setLoginError] = useState<string>();
   const {
     register,
@@ -30,9 +29,11 @@ const LoginFormController = () => {
   } = useForm<LoginFormFields>({
     resolver: zodResolver(loginFormSchema(LL)),
   });
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
 
   const onSubmit = async (data: LoginFormFields) => {
     try {
+      setIsLoggingIn(true);
       const response = await signIn('credentials', {
         email: data.email,
         password: data.password,
@@ -50,6 +51,7 @@ const LoginFormController = () => {
       if (response?.error === 'Email not verified') {
         router.push(`/login?email=${data.email}&verified=false`);
         setLoginError('Email not verified');
+        setIsLoggingIn(false);
         return;
       }
 
@@ -59,6 +61,7 @@ const LoginFormController = () => {
       router.push('/login');
       setLoginError(LL.login.form.loginError());
     }
+    setIsLoggingIn(false);
   };
 
   const resendEmailMutation = useMutation((email: string) =>
@@ -91,6 +94,7 @@ const LoginFormController = () => {
         registerPassword={register('password')}
         onResendEmail={emailParam ? handleResendEmail : undefined}
         errors={formErrors}
+        isLoggingIn={isLoggingIn}
         {...(emailVerifiedParam && { emailVerified: emailVerifiedParam === 'true' })}
       />
     </form>
