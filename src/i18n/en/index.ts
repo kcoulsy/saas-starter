@@ -2,11 +2,19 @@ import type { BaseTranslation } from '../i18n-types';
 
 const en: BaseTranslation = {
   common: {
+    meta: {
+      title: 'DEFAULT TITLE',
+      description: 'DEFAULT DESCRIPTION',
+    },
     inputField: {
       passwordToggle: 'Toggle password visibility',
     },
   },
   login: {
+    meta: {
+      title: 'Login Page',
+      description: 'Log in to your account',
+    },
     form: {
       socialLoginGithub: 'Login with Github',
       socialLoginGoogle: 'Login with Google',
@@ -31,6 +39,10 @@ const en: BaseTranslation = {
     },
   },
   register: {
+    meta: {
+      title: 'Register Page',
+      description: 'Register for a new account',
+    },
     form: {
       title: 'Create a new account',
       loginLabel: 'Already registered?',
@@ -49,6 +61,10 @@ const en: BaseTranslation = {
     },
   },
   forgotPassword: {
+    meta: {
+      title: 'Forgot Password',
+      description: 'Forgot Password',
+    },
     form: {
       title: 'Forgot Password',
       description: "Enter your email address below and we'll send you a link to reset your password.",
@@ -64,6 +80,10 @@ const en: BaseTranslation = {
     },
   },
   resetPassword: {
+    meta: {
+      title: 'Reset Password',
+      description: 'Reset Password',
+    },
     form: {
       title: 'Reset Password',
       description: 'Enter your new password below.',

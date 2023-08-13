@@ -14,6 +14,16 @@ export type Translations = RootTranslation
 
 type RootTranslation = {
 	common: {
+		meta: {
+			/**
+			 * D​E​F​A​U​L​T​ ​T​I​T​L​E
+			 */
+			title: string
+			/**
+			 * D​E​F​A​U​L​T​ ​D​E​S​C​R​I​P​T​I​O​N
+			 */
+			description: string
+		}
 		inputField: {
 			/**
 			 * T​o​g​g​l​e​ ​p​a​s​s​w​o​r​d​ ​v​i​s​i​b​i​l​i​t​y
@@ -22,6 +32,16 @@ type RootTranslation = {
 		}
 	}
 	login: {
+		meta: {
+			/**
+			 * L​o​g​i​n​ ​P​a​g​e
+			 */
+			title: string
+			/**
+			 * L​o​g​ ​i​n​ ​t​o​ ​y​o​u​r​ ​a​c​c​o​u​n​t
+			 */
+			description: string
+		}
 		form: {
 			/**
 			 * L​o​g​i​n​ ​w​i​t​h​ ​G​i​t​h​u​b
@@ -106,6 +126,16 @@ type RootTranslation = {
 		}
 	}
 	register: {
+		meta: {
+			/**
+			 * R​e​g​i​s​t​e​r​ ​P​a​g​e
+			 */
+			title: string
+			/**
+			 * R​e​g​i​s​t​e​r​ ​f​o​r​ ​a​ ​n​e​w​ ​a​c​c​o​u​n​t
+			 */
+			description: string
+		}
 		form: {
 			/**
 			 * C​r​e​a​t​e​ ​a​ ​n​e​w​ ​a​c​c​o​u​n​t
@@ -166,6 +196,16 @@ type RootTranslation = {
 		}
 	}
 	forgotPassword: {
+		meta: {
+			/**
+			 * F​o​r​g​o​t​ ​P​a​s​s​w​o​r​d
+			 */
+			title: string
+			/**
+			 * F​o​r​g​o​t​ ​P​a​s​s​w​o​r​d
+			 */
+			description: string
+		}
 		form: {
 			/**
 			 * F​o​r​g​o​t​ ​P​a​s​s​w​o​r​d
@@ -210,6 +250,16 @@ type RootTranslation = {
 		}
 	}
 	resetPassword: {
+		meta: {
+			/**
+			 * R​e​s​e​t​ ​P​a​s​s​w​o​r​d
+			 */
+			title: string
+			/**
+			 * R​e​s​e​t​ ​P​a​s​s​w​o​r​d
+			 */
+			description: string
+		}
 		form: {
 			/**
 			 * R​e​s​e​t​ ​P​a​s​s​w​o​r​d
@@ -325,6 +375,16 @@ type RootTranslation = {
 
 export type TranslationFunctions = {
 	common: {
+		meta: {
+			/**
+			 * DEFAULT TITLE
+			 */
+			title: () => LocalizedString
+			/**
+			 * DEFAULT DESCRIPTION
+			 */
+			description: () => LocalizedString
+		}
 		inputField: {
 			/**
 			 * Toggle password visibility
@@ -333,6 +393,16 @@ export type TranslationFunctions = {
 		}
 	}
 	login: {
+		meta: {
+			/**
+			 * Login Page
+			 */
+			title: () => LocalizedString
+			/**
+			 * Log in to your account
+			 */
+			description: () => LocalizedString
+		}
 		form: {
 			/**
 			 * Login with Github
@@ -417,6 +487,16 @@ export type TranslationFunctions = {
 		}
 	}
 	register: {
+		meta: {
+			/**
+			 * Register Page
+			 */
+			title: () => LocalizedString
+			/**
+			 * Register for a new account
+			 */
+			description: () => LocalizedString
+		}
 		form: {
 			/**
 			 * Create a new account
@@ -477,6 +557,16 @@ export type TranslationFunctions = {
 		}
 	}
 	forgotPassword: {
+		meta: {
+			/**
+			 * Forgot Password
+			 */
+			title: () => LocalizedString
+			/**
+			 * Forgot Password
+			 */
+			description: () => LocalizedString
+		}
 		form: {
 			/**
 			 * Forgot Password
@@ -521,6 +611,16 @@ export type TranslationFunctions = {
 		}
 	}
 	resetPassword: {
+		meta: {
+			/**
+			 * Reset Password
+			 */
+			title: () => LocalizedString
+			/**
+			 * Reset Password
+			 */
+			description: () => LocalizedString
+		}
 		form: {
 			/**
 			 * Reset Password
