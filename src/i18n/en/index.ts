@@ -118,6 +118,29 @@ const en: BaseTranslation = {
       submitButton: 'Change Password',
     },
   },
+  emails: {
+    confirmEmail: {
+      subject: 'Confirm your email',
+      text: 'Please click the link to confirm your email address. {link}',
+      preview: 'Confirm your email address',
+      heading: 'Thanks for registering!',
+      button: 'Click here to confirm your email',
+      subcopy:
+        'This link and code will only be valid for the next 5 minutes. If the link does not work, you can copy this link and paste it into your browser',
+      footerLink: 'Saas Name',
+    },
+    forgotPassword: {
+      subject: 'Reset your password',
+      text: 'Please click the link to reset your password. {link}',
+      preview: 'Reset your password',
+      heading: 'Reset your password',
+      body: "Someone has requested a link to change your password. You can do this through the button below. If you didn't request this, please ignore this email.",
+      button: 'Click here to reset your password',
+      subcopy:
+        'This link and code will only be valid for the next 5 minutes. If the link does not work, you can copy this link and paste it into your browser',
+      footerLink: 'Saas Name',
+    },
+  },
 };
 
 export default en;

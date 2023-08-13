@@ -12,40 +12,37 @@ import {
   Section,
   Text,
 } from '@react-email/components';
-import { pageRoutes } from '@src/constants/routes';
+import { pageRoutes } from '../src/constants/routes';
+import L from '../src/i18n/i18n-node';
 import * as React from 'react';
+import type { Locales } from '../src/i18n/i18n-types';
 
 interface ForgotPasswordEmailProps {
   token?: string;
+  locale?: Locales;
 }
 
 const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '';
 
-export const ForgotPasswordEmail = ({ token = 'tt226-5398x' }: ForgotPasswordEmailProps) => (
+export const ForgotPasswordEmail = ({ token = 'tt226-5398x', locale = 'en' }: ForgotPasswordEmailProps) => (
   <Html>
     <Head />
-    <Preview>Confirm Your Account</Preview>
+    <Preview>{L[locale].emails.forgotPassword.preview()}</Preview>
     <Body style={main}>
       <Container style={container}>
         <Img src={`${baseUrl}/static/linear-logo.png`} width="42" height="42" alt="Saas Name" style={logo} />
-        <Heading style={heading}>Reset Password</Heading>
-        <Text style={paragraph}>
-          Someone has requested a link to change your password. You can do this through the button below. If you didn't
-          request this, please ignore this email.
-        </Text>
+        <Heading style={heading}>{L[locale].emails.forgotPassword.heading()}</Heading>
+        <Text style={paragraph}>{L[locale].emails.forgotPassword.body()}</Text>
         <Section style={buttonContainer}>
           <Button pY={11} pX={23} style={button} href={`${baseUrl}${pageRoutes.resetPassword(token)}`}>
-            Click here to update your password
+            {L[locale].emails.forgotPassword.button()}
           </Button>
         </Section>
-        <Text style={paragraph}>
-          This link and code will only be valid for the next 5 minutes. If the link does not work, you can visit the
-          link directly
-        </Text>
+        <Text style={paragraph}>{L[locale].emails.forgotPassword.subcopy()}</Text>
         <code style={code}>{`${baseUrl}${pageRoutes.resetPassword(token)}`}</code>
         <Hr style={hr} />
         <Link href={baseUrl} style={reportLink}>
-          SaaS Name
+          {L[locale].emails.forgotPassword.footerLink()}
         </Link>
       </Container>
     </Body>

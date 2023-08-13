@@ -6,6 +6,7 @@ import { sendEmail } from './email.service';
 import ConfirmEmail from '@emails/confirm-email';
 import { render } from '@react-email/render';
 import { pageRoutes } from '@src/constants/routes';
+import L from '@src/i18n/i18n-node';
 
 export const findExistingVerificationTokenForUser = async (user: CredentialsAuth) => {
   return prisma.verificationToken.findFirst({
@@ -97,10 +98,12 @@ export const sendVerificationEmail = async (user: CredentialsAuth) => {
   const tokenLink = `${env.NEXTAUTH_URL}${pageRoutes.verify(token)}`;
 
   const html = render(<ConfirmEmail token={token} />);
+  const locale = 'en';
+
   await sendEmail({
     email: user.email,
-    subject: 'Confirm your email',
-    text: `Please confirm your account by visiting the link ${tokenLink}`,
+    subject: L[locale].emails.forgotPassword.subject(),
+    text: L[locale].emails.forgotPassword.text(tokenLink),
     html,
   });
 };

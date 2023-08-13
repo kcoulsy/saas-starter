@@ -371,6 +371,74 @@ type RootTranslation = {
 			submitButton: string
 		}
 	}
+	emails: {
+		confirmEmail: {
+			/**
+			 * C​o​n​f​i​r​m​ ​y​o​u​r​ ​e​m​a​i​l
+			 */
+			subject: string
+			/**
+			 * P​l​e​a​s​e​ ​c​l​i​c​k​ ​t​h​e​ ​l​i​n​k​ ​t​o​ ​c​o​n​f​i​r​m​ ​y​o​u​r​ ​e​m​a​i​l​ ​a​d​d​r​e​s​s​.​ ​{​l​i​n​k​}
+			 * @param {unknown} link
+			 */
+			text: RequiredParams<'link'>
+			/**
+			 * C​o​n​f​i​r​m​ ​y​o​u​r​ ​e​m​a​i​l​ ​a​d​d​r​e​s​s
+			 */
+			preview: string
+			/**
+			 * T​h​a​n​k​s​ ​f​o​r​ ​r​e​g​i​s​t​e​r​i​n​g​!
+			 */
+			heading: string
+			/**
+			 * C​l​i​c​k​ ​h​e​r​e​ ​t​o​ ​c​o​n​f​i​r​m​ ​y​o​u​r​ ​e​m​a​i​l
+			 */
+			button: string
+			/**
+			 * T​h​i​s​ ​l​i​n​k​ ​a​n​d​ ​c​o​d​e​ ​w​i​l​l​ ​o​n​l​y​ ​b​e​ ​v​a​l​i​d​ ​f​o​r​ ​t​h​e​ ​n​e​x​t​ ​5​ ​m​i​n​u​t​e​s​.​ ​I​f​ ​t​h​e​ ​l​i​n​k​ ​d​o​e​s​ ​n​o​t​ ​w​o​r​k​,​ ​y​o​u​ ​c​a​n​ ​c​o​p​y​ ​t​h​i​s​ ​l​i​n​k​ ​a​n​d​ ​p​a​s​t​e​ ​i​t​ ​i​n​t​o​ ​y​o​u​r​ ​b​r​o​w​s​e​r
+			 */
+			subcopy: string
+			/**
+			 * S​a​a​s​ ​N​a​m​e
+			 */
+			footerLink: string
+		}
+		forgotPassword: {
+			/**
+			 * R​e​s​e​t​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d
+			 */
+			subject: string
+			/**
+			 * P​l​e​a​s​e​ ​c​l​i​c​k​ ​t​h​e​ ​l​i​n​k​ ​t​o​ ​r​e​s​e​t​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d​.​ ​{​l​i​n​k​}
+			 * @param {unknown} link
+			 */
+			text: RequiredParams<'link'>
+			/**
+			 * R​e​s​e​t​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d
+			 */
+			preview: string
+			/**
+			 * R​e​s​e​t​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d
+			 */
+			heading: string
+			/**
+			 * S​o​m​e​o​n​e​ ​h​a​s​ ​r​e​q​u​e​s​t​e​d​ ​a​ ​l​i​n​k​ ​t​o​ ​c​h​a​n​g​e​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d​.​ ​Y​o​u​ ​c​a​n​ ​d​o​ ​t​h​i​s​ ​t​h​r​o​u​g​h​ ​t​h​e​ ​b​u​t​t​o​n​ ​b​e​l​o​w​.​ ​I​f​ ​y​o​u​ ​d​i​d​n​'​t​ ​r​e​q​u​e​s​t​ ​t​h​i​s​,​ ​p​l​e​a​s​e​ ​i​g​n​o​r​e​ ​t​h​i​s​ ​e​m​a​i​l​.
+			 */
+			body: string
+			/**
+			 * C​l​i​c​k​ ​h​e​r​e​ ​t​o​ ​r​e​s​e​t​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d
+			 */
+			button: string
+			/**
+			 * T​h​i​s​ ​l​i​n​k​ ​a​n​d​ ​c​o​d​e​ ​w​i​l​l​ ​o​n​l​y​ ​b​e​ ​v​a​l​i​d​ ​f​o​r​ ​t​h​e​ ​n​e​x​t​ ​5​ ​m​i​n​u​t​e​s​.​ ​I​f​ ​t​h​e​ ​l​i​n​k​ ​d​o​e​s​ ​n​o​t​ ​w​o​r​k​,​ ​y​o​u​ ​c​a​n​ ​c​o​p​y​ ​t​h​i​s​ ​l​i​n​k​ ​a​n​d​ ​p​a​s​t​e​ ​i​t​ ​i​n​t​o​ ​y​o​u​r​ ​b​r​o​w​s​e​r
+			 */
+			subcopy: string
+			/**
+			 * S​a​a​s​ ​N​a​m​e
+			 */
+			footerLink: string
+		}
+	}
 }
 
 export type TranslationFunctions = {
@@ -728,6 +796,72 @@ export type TranslationFunctions = {
 			 * Change Password
 			 */
 			submitButton: () => LocalizedString
+		}
+	}
+	emails: {
+		confirmEmail: {
+			/**
+			 * Confirm your email
+			 */
+			subject: () => LocalizedString
+			/**
+			 * Please click the link to confirm your email address. {link}
+			 */
+			text: (arg: { link: unknown }) => LocalizedString
+			/**
+			 * Confirm your email address
+			 */
+			preview: () => LocalizedString
+			/**
+			 * Thanks for registering!
+			 */
+			heading: () => LocalizedString
+			/**
+			 * Click here to confirm your email
+			 */
+			button: () => LocalizedString
+			/**
+			 * This link and code will only be valid for the next 5 minutes. If the link does not work, you can copy this link and paste it into your browser
+			 */
+			subcopy: () => LocalizedString
+			/**
+			 * Saas Name
+			 */
+			footerLink: () => LocalizedString
+		}
+		forgotPassword: {
+			/**
+			 * Reset your password
+			 */
+			subject: () => LocalizedString
+			/**
+			 * Please click the link to reset your password. {link}
+			 */
+			text: (arg: { link: unknown }) => LocalizedString
+			/**
+			 * Reset your password
+			 */
+			preview: () => LocalizedString
+			/**
+			 * Reset your password
+			 */
+			heading: () => LocalizedString
+			/**
+			 * Someone has requested a link to change your password. You can do this through the button below. If you didn't request this, please ignore this email.
+			 */
+			body: () => LocalizedString
+			/**
+			 * Click here to reset your password
+			 */
+			button: () => LocalizedString
+			/**
+			 * This link and code will only be valid for the next 5 minutes. If the link does not work, you can copy this link and paste it into your browser
+			 */
+			subcopy: () => LocalizedString
+			/**
+			 * Saas Name
+			 */
+			footerLink: () => LocalizedString
 		}
 	}
 }

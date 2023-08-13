@@ -12,36 +12,36 @@ import {
   Section,
   Text,
 } from '@react-email/components';
-import { pageRoutes } from '@src/constants/routes';
+import { pageRoutes } from '../src/constants/routes';
+import L from '../src/i18n/i18n-node';
 import * as React from 'react';
+import type { Locales } from '../src/i18n/i18n-types';
 
 interface ConfirmEmailProps {
   token?: string;
+  locale?: Locales;
 }
 
 const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '';
 
-export const ConfirmEmail = ({ token = 'tt226-5398x' }: ConfirmEmailProps) => (
+export const ConfirmEmail = ({ token = 'tt226-5398x', locale = 'en' }: ConfirmEmailProps) => (
   <Html>
     <Head />
-    <Preview>Confirm Your Account</Preview>
+    <Preview>{L[locale].emails.confirmEmail.preview()}</Preview>
     <Body style={main}>
       <Container style={container}>
         <Img src={`${baseUrl}/static/linear-logo.png`} width="42" height="42" alt="Saas Name" style={logo} />
-        <Heading style={heading}>Thanks for registering!</Heading>
+        <Heading style={heading}>{L[locale].emails.confirmEmail.heading()}</Heading>
         <Section style={buttonContainer}>
           <Button pY={11} pX={23} style={button} href={`${baseUrl}${pageRoutes.verify(token)}`}>
-            Click here to confirm your account
+            {L[locale].emails.confirmEmail.button()}
           </Button>
         </Section>
-        <Text style={paragraph}>
-          This link and code will only be valid for the next 5 minutes. If the link does not work, you can visit the
-          link directly
-        </Text>
+        <Text style={paragraph}>{L[locale].emails.confirmEmail.subcopy()}</Text>
         <code style={code}>{`${baseUrl}${pageRoutes.verify(token)}`}</code>
         <Hr style={hr} />
         <Link href={baseUrl} style={reportLink}>
-          SaaS Name
+          {L[locale].emails.confirmEmail.footerLink()}
         </Link>
       </Container>
     </Body>
