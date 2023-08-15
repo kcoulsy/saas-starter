@@ -84,6 +84,7 @@ exports[`FormLayout > should render correctly 1`] = `
       </div>
     </div>
   </div>
+  ;
 </DocumentFragment>
 `;
 
@@ -220,6 +221,7 @@ exports[`FormLayout > should render correctly with errors 1`] = `
       </div>
     </div>
   </div>
+  ;
 </DocumentFragment>
 `;
 
@@ -320,6 +322,7 @@ exports[`FormLayout > should render correctly with footer 1`] = `
       </div>
     </div>
   </div>
+  ;
 </DocumentFragment>
 `;
 
@@ -415,5 +418,6 @@ exports[`FormLayout > should render correctly with link in description 1`] = `
       </div>
     </div>
   </div>
+  ;
 </DocumentFragment>
 `;

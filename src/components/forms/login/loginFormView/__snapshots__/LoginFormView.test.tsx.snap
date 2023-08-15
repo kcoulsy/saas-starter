@@ -129,6 +129,7 @@ exports[`LoginFormView > it renders Default and matches snapshots 1`] = `
       </div>
     </div>
   </div>
+  ;
 </DocumentFragment>
 `;
 
@@ -296,5 +297,6 @@ exports[`LoginFormView > it renders Errors and matches snapshots 1`] = `
       </div>
     </div>
   </div>
+  ;
 </DocumentFragment>
 `;
