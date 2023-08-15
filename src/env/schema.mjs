@@ -15,6 +15,7 @@ export const serverSchema = z.object({
   VERCEL_ENV: z.enum(['development', 'preview', 'production']),
   SENDGRID_API_KEY: z.string(),
   SENDGRID_FROM_EMAIL: z.string().email(),
+  FORGOT_PASSWORD_JWT_SECRET: z.string(),
 });
 
 /**

@@ -1,5 +1,5 @@
-import Spinner from '../spinner/Spinner';
 import { cn } from '@src/utils/cn';
+import Spinner from '../spinner/Spinner';
 
 export interface ButtonProps {
   id?: string;

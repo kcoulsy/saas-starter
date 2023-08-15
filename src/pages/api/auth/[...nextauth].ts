@@ -29,7 +29,7 @@ export const authOptions: AuthOptions = {
       },
       async authorize(credentials) {
         if (!credentials) return null;
-        return await loginUser(credentials);
+        return loginUser(credentials);
       },
     }),
   ],

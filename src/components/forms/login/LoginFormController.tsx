@@ -1,17 +1,19 @@
 'use client';
+
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { signIn } from 'next-auth/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
+import { useMutation } from '@tanstack/react-query';
+import axios from 'axios';
+import { apiRoutes } from '@src/constants/routes';
 import loginFormSchema from '@src/schemas/loginForm.schema';
 import { useI18nContext } from '@src/i18n/i18n-react';
-import { trpc } from '@src/utils/trpc';
 import { notEmpty } from '@src/utils/array';
 import LoginFormView from './loginFormView/LoginFormView';
-import { useMutation } from '@tanstack/react-query';
-import { apiRoutes } from '@src/constants/routes';
+import type { VerifyPostSuccessResponse, VerifyPostInput } from '@src/app/(auth)/api/verify/types';
 
 type LoginFormFields = z.infer<ReturnType<typeof loginFormSchema>>;
 
@@ -65,14 +67,11 @@ const LoginFormController = () => {
   };
 
   const resendEmailMutation = useMutation((email: string) =>
-    fetch(apiRoutes.auth.verify.post, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email }),
+    axios.post<VerifyPostSuccessResponse, VerifyPostSuccessResponse, VerifyPostInput>(apiRoutes.auth.verify.post, {
+      email,
     }),
   );
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const emailVerificationError = resendEmailMutation.error?.message;
   const loginErrors = [loginError, emailVerificationError].filter(notEmpty);
@@ -84,7 +83,7 @@ const LoginFormController = () => {
 
   const handleResendEmail = async () => {
     if (!emailParam) return;
-    await resendEmailMutation.mutate(emailParam);
+    resendEmailMutation.mutate(emailParam);
   };
 
   return (

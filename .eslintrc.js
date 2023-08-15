@@ -39,6 +39,7 @@ module.exports = {
     'arrow-body-style': 'off',
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
+    'import/no-named-as-default': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/function-component-definition': 'off',
     'react/jsx-filename-extension': [

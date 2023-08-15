@@ -1,10 +1,10 @@
 'use client';
 
-import TypesafeI18n from '@src/i18n/i18n-react';
-import { loadAllLocales } from '@src/i18n/i18n-util.sync';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { SessionProvider } from 'next-auth/react';
 import { PropsWithChildren } from 'react';
+import TypesafeI18n from '@src/i18n/i18n-react';
+import { loadAllLocales } from '@src/i18n/i18n-util.sync';
 
 const queryClient = new QueryClient();
 

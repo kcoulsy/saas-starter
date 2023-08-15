@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginFormController from '@src/components/forms/login/LoginFormController';
-import { redirectIfLoggedIn } from '../utils';
 import L from '@src/i18n/i18n-node';
+import { redirectIfLoggedIn } from '../utils';
 
 export async function generateMetadata() {
   return {
@@ -13,11 +13,7 @@ export async function generateMetadata() {
 async function LoginPage() {
   await redirectIfLoggedIn();
 
-  return (
-    <>
-      <LoginFormController />
-    </>
-  );
+  return <LoginFormController />;
 }
 
 export default LoginPage;

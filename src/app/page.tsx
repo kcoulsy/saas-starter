@@ -1,14 +1,16 @@
-import { NextSeo } from 'next-seo';
 import HomepageContainer from '@src/containers/homepage/HomepageContainer';
 import type { NextPage } from 'next';
 
+export async function generateMetadata() {
+  return {
+    // TODO: add to translation files
+    title: 'Homepage',
+    description: 'Description',
+  };
+}
+
 const Home: NextPage = () => {
-  return (
-    <>
-      {/* <NextSeo title="Homepage" description="A short description goes here." /> */}
-      <HomepageContainer />
-    </>
-  );
+  return <HomepageContainer />;
 };
 
 export default Home;

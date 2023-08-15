@@ -1,7 +1,7 @@
 import React from 'react';
 import ResetPasswordController from '@src/components/forms/resetPassword/ResetPasswordController';
-import { redirectIfLoggedIn } from '../utils';
 import L from '@src/i18n/i18n-node';
+import { redirectIfLoggedIn } from '../utils';
 
 export async function generateMetadata() {
   return {
@@ -13,11 +13,7 @@ export async function generateMetadata() {
 async function ResetPasswordPage() {
   await redirectIfLoggedIn();
 
-  return (
-    <>
-      <ResetPasswordController />
-    </>
-  );
+  return <ResetPasswordController />;
 }
 
 export default ResetPasswordPage;

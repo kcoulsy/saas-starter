@@ -1,7 +1,7 @@
 import React from 'react';
 import ForgotPasswordController from '@src/components/forms/forgotPassword/ForgotPasswordController';
-import { redirectIfLoggedIn } from '../utils';
 import L from '@src/i18n/i18n-node';
+import { redirectIfLoggedIn } from '../utils';
 
 export async function generateMetadata() {
   return {
@@ -13,11 +13,7 @@ export async function generateMetadata() {
 async function ForgotPasswordPage() {
   await redirectIfLoggedIn();
 
-  return (
-    <>
-      <ForgotPasswordController />
-    </>
-  );
+  return <ForgotPasswordController />;
 }
 
 export default ForgotPasswordPage;

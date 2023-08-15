@@ -1,12 +1,12 @@
 import { CredentialsAuth, VerificationToken } from '@prisma/client';
+import { render } from '@react-email/render';
 import { v4 as uuidv4 } from 'uuid';
+import ConfirmEmail from '@emails/confirm-email';
+import { pageRoutes } from '@src/constants/routes';
+import L from '@src/i18n/i18n-node';
 import { env } from '@src/env/server.mjs';
 import { prisma } from '../db/client';
 import { sendEmail } from './email.service';
-import ConfirmEmail from '@emails/confirm-email';
-import { render } from '@react-email/render';
-import { pageRoutes } from '@src/constants/routes';
-import L from '@src/i18n/i18n-node';
 
 export const findExistingVerificationTokenForUser = async (user: CredentialsAuth) => {
   return prisma.verificationToken.findFirst({
@@ -102,8 +102,8 @@ export const sendVerificationEmail = async (user: CredentialsAuth) => {
 
   await sendEmail({
     email: user.email,
-    subject: L[locale].emails.forgotPassword.subject(),
-    text: L[locale].emails.forgotPassword.text(tokenLink),
+    subject: L[locale].emails.confirmEmail.subject(),
+    text: L[locale].emails.confirmEmail.text(tokenLink),
     html,
   });
 };

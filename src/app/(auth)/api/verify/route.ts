@@ -1,27 +1,23 @@
-import { resendVerificationEmail } from '@src/server/services/verification.service';
 import { NextResponse } from 'next/server';
-import { ZodError, z } from 'zod';
-
-export const postVerifyInputSchema = z.object({
-  email: z.string().email(),
-});
-
-export type PostVerifyInput = z.infer<typeof postVerifyInputSchema>;
+import { ZodError } from 'zod';
+import { resendVerificationEmail } from '@src/server/services/verification.service';
+import { verifyPostInputSchema } from './schemas';
+import { VerifyPostErrorResponse, VerifyPostSuccessResponse } from './types';
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { email } = postVerifyInputSchema.parse(body);
+    const { email } = verifyPostInputSchema.parse(body);
     await resendVerificationEmail(email);
 
-    return new NextResponse(JSON.stringify({ success: true }), { status: 200 });
+    return NextResponse.json<VerifyPostSuccessResponse>({ success: true });
   } catch (error) {
     if (error instanceof ZodError) {
-      return new NextResponse(JSON.stringify({ error: error.issues }), { status: 422 });
+      return NextResponse.json<VerifyPostErrorResponse>({ error: error.issues }, { status: 422 });
     }
     if (error instanceof Error) {
-      return new NextResponse(JSON.stringify({ error: error.message }), { status: 500 });
+      return NextResponse.json<VerifyPostErrorResponse>({ error: error.message }, { status: 500 });
     }
-    return new NextResponse('Unknown error', { status: 500 });
+    return NextResponse.json<VerifyPostErrorResponse>({ error: 'unknown error' }, { status: 500 });
   }
 }

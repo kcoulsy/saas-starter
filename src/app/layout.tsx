@@ -1,3 +1,4 @@
+import React from 'react';
 import L from '@src/i18n/i18n-node';
 import Providers from './providers';
 import '@src/styles/globals.css';

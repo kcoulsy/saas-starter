@@ -1,4 +1,5 @@
 'use client';
+
 import { signOut, useSession } from 'next-auth/react';
 import { useState } from 'react';
 
@@ -6,7 +7,6 @@ const DashboardNavbar = () => {
   const [_, setMobileNavOpen] = useState(false);
   const session = useSession();
 
-  console.log(session);
   return (
     <nav className="w-full border-b">
       <div className="py-5 md:py-0 container mx-auto px-6 flex items-center justify-between">

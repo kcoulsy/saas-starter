@@ -1,15 +1,17 @@
 'use client';
+
 import { useState } from 'react';
+import axios from 'axios';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
+import { useMutation } from '@tanstack/react-query';
+import { apiRoutes } from '@src/constants/routes';
 import registerFormSchema from '@src/schemas/registerFormSchema';
 import { useI18nContext } from '@src/i18n/i18n-react';
 import RegisterFormView from './registerFormView/RegisterFormView';
 import RegisterSuccessView from './registerSuccessView/RegisterSuccessView';
-import { useMutation } from '@tanstack/react-query';
-import { apiRoutes } from '@src/constants/routes';
-import { PostRegisterInput } from '@src/app/(auth)/api/register/route';
+import type { RegisterPostInput, RegisterPostSuccessResponse } from '@src/app/(auth)/api/register/types';
 
 type RegisterFormFields = z.infer<ReturnType<typeof registerFormSchema>>;
 
@@ -19,14 +21,11 @@ const RegisterFormController = () => {
   const [registerSuccess, setRegisterSuccess] = useState(false);
 
   const mutation = useMutation(
-    ({ email, password }: PostRegisterInput) =>
-      fetch(apiRoutes.auth.register.post, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      }),
+    ({ email, password }: RegisterPostInput) =>
+      axios.post<RegisterPostSuccessResponse, RegisterPostSuccessResponse, RegisterPostInput>(
+        apiRoutes.auth.register.post,
+        { email, password },
+      ),
     {
       onSuccess: () => setRegisterSuccess(true),
     },
@@ -42,7 +41,7 @@ const RegisterFormController = () => {
 
   const onSubmit = async (data: RegisterFormFields) => {
     try {
-      await mutation.mutate({ email: data.email, password: data.password });
+      mutation.mutate({ email: data.email, password: data.password });
     } catch (error) {
       setRegisterError('Unable to register');
     }

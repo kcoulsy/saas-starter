@@ -1,6 +1,6 @@
+import { redirect } from 'next/navigation';
 import { pageRoutes } from '@src/constants/routes';
 import { verifyToken } from '@src/server/services/verification.service';
-import { redirect } from 'next/navigation';
 
 export default async function VerifyPage({ params }: { params: { token: string } }) {
   if (!params || !params.token) {
