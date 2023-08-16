@@ -9,13 +9,20 @@ export default async function VerifyPage({ params }: { params: { token: string }
 
   const { token } = params;
 
+  console.log('token', token);
+  let success = false;
   try {
     const user = await verifyToken(token);
+    console.log('Verifying token', user, token);
     if (user) {
-      return redirect(`${pageRoutes.login}?verified=true`);
+      success = true;
     }
   } catch (error) {
+    console.log('error', error);
     // Do nothing, redirect
   }
-  return redirect(`${pageRoutes.login}?verified=false`);
+  if (success) {
+    redirect(`${pageRoutes.login}?verified=true`);
+  }
+  redirect(`${pageRoutes.login}?verified=false`);
 }
