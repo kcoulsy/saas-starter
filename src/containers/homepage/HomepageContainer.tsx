@@ -3,8 +3,6 @@
 import HomepageNav from '../../components/homepage/HomepageNav/HomepageNav';
 
 const HomepageContainer = () => {
-  // const [t] = useTranslation(['common', 'contentful']);
-
   return (
     <div>
       <HomepageNav />
