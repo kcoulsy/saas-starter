@@ -70,7 +70,14 @@ const DashboardNavbar = () => {
           </div>
         </div>
         {session.data && <div>Signed in as {session.data.user?.email}</div>}
-        <button type="button" onClick={() => signOut()}>
+        <button
+          type="button"
+          onClick={() =>
+            signOut({
+              callbackUrl: '/login',
+            })
+          }
+        >
           Sign Out
         </button>
       </div>

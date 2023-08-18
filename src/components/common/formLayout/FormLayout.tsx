@@ -5,7 +5,7 @@ import FormInput from '../formInput/FormInput';
 
 export interface FormLayoutProps {
   title: string;
-  description: string | React.ReactNode;
+  description?: string | React.ReactNode;
   formFields: {
     id: string;
     type: HTMLInputTypeAttribute;
@@ -35,7 +35,7 @@ const FormLayout = ({
         <h1 aria-level={1} aria-label={title} className="text-2xl font-extrabold leading-6 text-gray-800">
           {title}
         </h1>
-        <h2 className="text-sm mt-4 font-medium leading-none text-gray-500">{description}</h2>
+        {description ? <h2 className="text-sm mt-4 font-medium leading-none text-gray-500">{description}</h2> : null}
         <div className="mt-4 w-full grid gap-y-4 ">
           {formFields.map((formInputProps) => (
             <FormInput key={formInputProps.id} {...formInputProps} />
