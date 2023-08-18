@@ -9,7 +9,7 @@ export const serverSchema = z.object({
   DATABASE_URL: z.string().url(),
   NODE_ENV: z.enum(['development', 'test', 'production']),
   NEXTAUTH_SECRET: z.string(),
-  NEXTAUTH_URL: z.string().url(),
+  NEXTAUTH_URL: z.string(),
   SENTRY_DSN: z.string(),
   SENTRY_AUTH_TOKEN: z.string(),
   VERCEL_ENV: z.enum(['development', 'preview', 'production']),
