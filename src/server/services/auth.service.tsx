@@ -93,7 +93,7 @@ export const forgotPassword = async (email: string) => {
 
     if (!user) throw new Error('Email not found');
 
-    const token = jwt.sign({ email, id: user.id }, env.FORGOT_PASSWORD_JWT_SECRET, {
+    const token = jwt.sign({ email, id: user.id }, 'env.FORGOT_PASSWORD_JWT_SECRET', {
       expiresIn: '5m',
     });
 
