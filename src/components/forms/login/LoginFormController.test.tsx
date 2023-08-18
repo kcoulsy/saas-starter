@@ -8,6 +8,7 @@ import mockRouter from 'next-router-mock';
 vi.mock('next/navigation', async () => {
   const actual = await vi.importActual('next-router-mock');
   return {
+    // @ts-ignore
     ...actual,
     useSearchParams: vi.fn(),
   };

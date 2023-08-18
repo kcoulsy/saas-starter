@@ -36,10 +36,15 @@ const LoginFormController = () => {
   const onSubmit = async (data: LoginFormFields) => {
     try {
       setIsLoggingIn(true);
-      const response = await signIn('credentials', {
+      // const response = await signIn('credentials', {
+      //   email: data.email,
+      //   password: data.password,
+      //   callbackUrl: '/',
+      //   redirect: false,
+      // });
+      const response = await signIn('email', {
         email: data.email,
-        password: data.password,
-        callbackUrl: '/',
+        callbackUrl: '/dashboard',
         redirect: false,
       });
 
