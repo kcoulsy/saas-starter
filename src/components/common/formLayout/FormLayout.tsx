@@ -1,21 +1,13 @@
-import React, { HTMLInputTypeAttribute } from 'react';
-import { UseFormRegisterReturn } from 'react-hook-form';
+import React from 'react';
 import Button from '../button/Button';
-import FormInput from '../formInput/FormInput';
+import FormInput, { FormInputProps } from '../formInput/FormInput';
 
 export interface FormLayoutProps {
-  title: string;
+  title?: string;
   description?: string | React.ReactNode;
-  formFields: {
-    id: string;
-    type: HTMLInputTypeAttribute;
-    label: string;
-    placeholder: string;
-    register: UseFormRegisterReturn<string>;
-    errors: string[];
-  }[];
+  formFields: FormInputProps[];
   footer?: string | React.ReactNode;
-  submitButtonLabel: string;
+  submitButtonLabel?: string;
   errors: string[];
   isLoading?: boolean;
 }
@@ -32,9 +24,11 @@ const FormLayout = ({
   return (
     <div className="">
       <div className="">
-        <h1 aria-level={1} aria-label={title} className="text-2xl font-extrabold leading-6 text-gray-800">
-          {title}
-        </h1>
+        {title && (
+          <h1 aria-level={1} aria-label={title} className="text-2xl font-extrabold leading-6 text-gray-800">
+            {title}
+          </h1>
+        )}
         {description ? <h2 className="text-sm mt-4 font-medium leading-none text-gray-500">{description}</h2> : null}
         <div className="mt-4 w-full grid gap-y-4 ">
           {formFields.map((formInputProps) => (
@@ -51,7 +45,7 @@ const FormLayout = ({
           </ul>
         )}
         {footer && <div className="mt-4  text-sm font-medium leading-none text-gray-500">{footer}</div>}
-        <Button label={submitButtonLabel} type="submit" classes="mt-4" isLoading={isLoading} />
+        {submitButtonLabel && <Button label={submitButtonLabel} type="submit" classes="mt-4" isLoading={isLoading} />}
       </div>
     </div>
   );

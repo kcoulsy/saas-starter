@@ -3,6 +3,8 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Button from '../../common/button/Button';
+import { pageRoutes } from '@src/constants/routes';
+import Logo from '@src/components/common/logo';
 
 const HomepageNav = () => {
   const router = useRouter();
@@ -11,13 +13,9 @@ const HomepageNav = () => {
   return (
     <nav className="w-full border-b">
       <div className="py-5 md:py-0 container mx-auto px-6 flex items-center justify-between">
-        <div aria-label="Home. logo" role="img">
-          {/* <img
-            className="w-12 md:w-auto"
-            src="https://tuk-cdn.s3.amazonaws.com/can-uploader/centre_aligned_simple-Svg1.svg"
-            alt="logo"
-          /> */}
-        </div>
+        <a href={pageRoutes.home} className="flex items-center">
+          <Logo />
+        </a>
         <div>
           <button
             type="button"
@@ -67,25 +65,22 @@ const HomepageNav = () => {
             </button>
             <ul className="flex text-3xl md:text-base items-center py-10 md:flex flex-col md:flex-row justify-center fixed md:relative top-0 bottom-0 left-0 right-0 bg-white md:bg-transparent z-20">
               <li className="text-gray-700 hover:text-gray-900 cursor-pointer text-base lg:text-lg pt-10 md:pt-0">
-                Feature
+                Features
               </li>
               <li className="text-gray-700 hover:text-gray-900 cursor-pointer text-base lg:text-lg pt-10 md:pt-0 md:ml-5 lg:ml-10">
-                Marketplace
+                About
               </li>
               <li className="text-gray-700 hover:text-gray-900 cursor-pointer text-base lg:text-lg pt-10 md:pt-0 md:ml-5 lg:ml-10">
                 Company
               </li>
               <li className="text-gray-700 hover:text-gray-900 cursor-pointer text-base lg:text-lg pt-10 md:pt-0 md:ml-5 lg:ml-10">
-                Features
-              </li>
-              <li className="text-gray-700 hover:text-gray-900 cursor-pointer text-base lg:text-lg pt-10 md:pt-0 md:ml-5 lg:ml-10">
-                Contact
+                Pricing
               </li>
             </ul>
           </div>
         </div>
         <div>
-          <Button label="Sign In" type="button" classes="px-4" onClick={() => router.push('/login')} />
+          <Button label="Get Started" type="button" classes="px-6 py-6 text-md" onClick={() => router.push('/login')} />
         </div>
       </div>
     </nav>

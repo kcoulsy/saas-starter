@@ -8,13 +8,15 @@ import IconEye from '../../icons/eye';
 export interface FormInputProps {
   id: string;
   label: string;
+  subLabel?: string;
   type: HTMLInputTypeAttribute;
   register?: UseFormRegisterReturn;
   placeholder?: string;
+  disabled?: boolean;
   errors?: string[];
 }
 
-const FormInput = ({ id, label, type, register, placeholder, errors }: FormInputProps) => {
+const FormInput = ({ id, label, type, register, placeholder, errors, disabled, subLabel }: FormInputProps) => {
   const { LL } = useI18nContext();
   const [showPasswordAsText, setShowPasswordAsText] = useState(false);
   const isPassword = type === 'password';
@@ -30,6 +32,7 @@ const FormInput = ({ id, label, type, register, placeholder, errors }: FormInput
             type={isPassword && showPasswordAsText ? 'text' : type}
             className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
             placeholder={placeholder}
+            disabled={disabled}
             {...register}
           />
         </label>
@@ -44,6 +47,7 @@ const FormInput = ({ id, label, type, register, placeholder, errors }: FormInput
           </button>
         )}
       </div>
+      {subLabel && <small className="text-gray-600 text-xs">{subLabel}</small>}
       {errors && (
         <ul className="mt-1">
           {errors.map((error) => (
