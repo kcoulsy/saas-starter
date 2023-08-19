@@ -2,9 +2,9 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import Button from '../../common/button/Button';
 import { pageRoutes } from '@src/constants/routes';
 import Logo from '@src/components/common/logo';
+import Button from '../../common/button/Button';
 
 const HomepageNav = () => {
   const router = useRouter();

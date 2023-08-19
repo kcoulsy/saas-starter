@@ -1,8 +1,8 @@
 'use client';
 
 import Footer from '@src/components/common/footer';
-import HomepageNav from '../../components/homepage/HomepageNav/HomepageNav';
 import Hero from '@src/components/homepage/hero';
+import HomepageNav from '../../components/homepage/HomepageNav/HomepageNav';
 
 const HomepageContainer = () => {
   return (
