@@ -4,6 +4,11 @@ export const pageRoutes = {
   register: '/register',
   forgotPassword: '/forgot-password',
   dashboard: '/dashboard',
+  settings: {
+    account: '/settings/account',
+    subscription: '/settings/subscription',
+    notifications: '/settings/notifications',
+  },
   verify: (token: string) => `/verify/${token}`,
   resetPassword: (token: string) => `/reset-password/${token}`,
 } as const;
