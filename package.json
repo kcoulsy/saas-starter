@@ -48,7 +48,7 @@
     "@react-email/html": "0.0.4",
     "@react-email/render": "npx 0.0.7",
     "@sendgrid/mail": "7.7.0",
-    "@sentry/nextjs": "7.63.0",
+    "@sentry/nextjs": "7.69.0",
     "@sentry/rrweb": "0.3.3",
     "@storybook/preset-scss": "1.0.3",
     "@storybook/react": "7.0.2",
