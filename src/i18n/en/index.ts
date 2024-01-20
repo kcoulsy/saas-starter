@@ -74,6 +74,7 @@ const en: BaseTranslation = {
       submitButton: 'Reset Password',
       emailRequired: 'Please enter your email',
       emailValid: 'Please enter a valid email',
+      errorGeneric: 'Unable to reset password',
       success:
         'If the email you entered is associated with an account, you will receive an email with a link to reset your password.',
       successReturn: 'Click here to return to the login page',

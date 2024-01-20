@@ -1,35 +1,22 @@
 'use client';
 
 import { useState } from 'react';
-import axios from 'axios';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
-import { useMutation } from '@tanstack/react-query';
-import { apiRoutes } from '@src/constants/routes';
 import registerFormSchema from '@src/schemas/registerFormSchema';
+import { registerUser } from '@src/server/services/auth.service';
 import { useI18nContext } from '@src/i18n/i18n-react';
 import RegisterFormView from './registerFormView/RegisterFormView';
 import RegisterSuccessView from './registerSuccessView/RegisterSuccessView';
-import type { RegisterPostInput, RegisterPostSuccessResponse } from '@src/app/(auth)/api/register/types';
 
 type RegisterFormFields = z.infer<ReturnType<typeof registerFormSchema>>;
 
 const RegisterFormController = () => {
+  const [isRegistering, setIsRegistering] = useState(false);
   const { LL } = useI18nContext();
   const [registerError, setRegisterError] = useState<string | undefined>(undefined);
   const [registerSuccess, setRegisterSuccess] = useState(false);
-
-  const mutation = useMutation(
-    ({ email, password }: RegisterPostInput) =>
-      axios.post<RegisterPostSuccessResponse, RegisterPostSuccessResponse, RegisterPostInput>(
-        apiRoutes.auth.register.post,
-        { email, password },
-      ),
-    {
-      onSuccess: () => setRegisterSuccess(true),
-    },
-  );
 
   const {
     register,
@@ -41,10 +28,21 @@ const RegisterFormController = () => {
 
   const onSubmit = async (data: RegisterFormFields) => {
     try {
-      mutation.mutate({ email: data.email, password: data.password });
+      setIsRegistering(true);
+      const { success } = await registerUser({
+        email: data.email,
+        password: data.password,
+      });
+
+      if (!success) {
+        throw new Error('Unable to register');
+      }
+
+      setRegisterSuccess(true);
     } catch (error) {
       setRegisterError('Unable to register');
     }
+    setIsRegistering(false);
   };
 
   const formErrors = {
@@ -65,7 +63,7 @@ const RegisterFormController = () => {
         registerPassword={register('password')}
         registerConfirmPassword={register('confirm')}
         errors={formErrors}
-        isRegistering={mutation.isLoading}
+        isRegistering={isRegistering}
       />
     </form>
   );

@@ -1,14 +1,16 @@
+'use server';
+
 import jwt from 'jsonwebtoken';
-import { render } from '@react-email/render';
-import { env } from '@src/env/server.mjs';
-import { pageRoutes } from '@src/constants/routes';
-import ForgotPasswordEmail from '@emails/forgot-password';
-import L from '@src/i18n/i18n-node';
+// // import { render } from '@react-email/render';
+// import { env } from '@src/env/server.mjs';
+// import { pageRoutes } from '@src/constants/routes';
+// // import ForgotPasswordEmail from '@emails/forgot-password';
+// import L from '@src/i18n/i18n-node';
 import { LoginUser, loginUserSchema, RegisterUser, registerUserSchema } from '../schemas/auth.schema';
 import { prisma } from '../db/client';
 import { hash, verify } from '../utils/password';
-import { sendVerificationEmail } from './verification.service';
-import { sendEmail } from './email.service';
+// import { sendVerificationEmail } from './verification.service';
+// import { sendEmail } from './email.service';
 
 /**
  * Logs in a user or throws
@@ -72,7 +74,7 @@ export const registerUser = async ({ email, password }: RegisterUser) => {
       },
     });
 
-    await sendVerificationEmail(user);
+    // await sendVerificationEmail(user);
 
     return { success: true };
   } catch (error) {
@@ -93,21 +95,21 @@ export const forgotPassword = async (email: string) => {
 
     if (!user) throw new Error('Email not found');
 
-    const token = jwt.sign({ email, id: user.id }, 'env.FORGOT_PASSWORD_JWT_SECRET', {
+    const token = jwt.sign({ email, id: '123' }, 'env.FORGOT_PASSWORD_JWT_SECRET', {
       expiresIn: '5m',
     });
 
-    const tokenLink = `${env.NEXTAUTH_URL}${pageRoutes.verify(token)}`;
+    // const tokenLink = `${env.NEXTAUTH_URL}${pageRoutes.verify(token)}`;
 
-    const html = render(<ForgotPasswordEmail token={token} />);
-    const locale = 'en';
+    // const html = render(<ForgotPasswordEmail token={token} />);
+    // const locale = 'en';
 
-    await sendEmail({
-      email: user.email,
-      subject: L[locale].emails.forgotPassword.subject(),
-      text: L[locale].emails.forgotPassword.text(tokenLink),
-      html,
-    });
+    // await sendEmail({
+    //   email: user.email,
+    //   subject: L[locale].emails.forgotPassword.subject(),
+    //   text: L[locale].emails.forgotPassword.text(tokenLink),
+    //   html,
+    // });
 
     return { success: true };
   } catch (error) {

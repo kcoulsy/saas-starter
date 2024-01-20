@@ -54,6 +54,9 @@ export default withSentryConfig(
         env: {
           VERCEL_ENV: env.VERCEL_ENV,
         },
+        experimental: {
+          serverActions: true,
+        },
       }),
     ),
   ),

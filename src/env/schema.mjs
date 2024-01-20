@@ -13,13 +13,8 @@ export const serverSchema = z.object({
   SENTRY_DSN: z.string(),
   SENTRY_AUTH_TOKEN: z.string(),
   VERCEL_ENV: z.enum(['development', 'preview', 'production']),
-  SENDGRID_API_KEY: z.string(),
-  SENDGRID_FROM_EMAIL: z.string().email(),
-  EMAIL_SERVER_HOST: z.string(),
-  EMAIL_SERVER_PORT: z.string(),
-  EMAIL_SERVER_USER: z.string(),
-  EMAIL_SERVER_PASSWORD: z.string(),
-  EMAIL_FROM: z.string().email(),
+  RESEND_API_KEY: z.string(),
+  RESEND_FROM: z.string().email(),
 });
 
 /**

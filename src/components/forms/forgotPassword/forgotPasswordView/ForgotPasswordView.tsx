@@ -10,9 +10,10 @@ export interface ForgotPasswordViewProps {
     email?: string[];
     forgotPasswordError?: string[];
   };
+  isLoading?: boolean;
 }
 
-const ForgotPasswordView = ({ registerEmail, errors }: ForgotPasswordViewProps) => {
+const ForgotPasswordView = ({ registerEmail, errors, isLoading = false }: ForgotPasswordViewProps) => {
   const { LL } = useI18nContext();
 
   return (
@@ -41,6 +42,7 @@ const ForgotPasswordView = ({ registerEmail, errors }: ForgotPasswordViewProps) 
         }
         submitButtonLabel={LL.forgotPassword.form.submitButton()}
         errors={errors?.forgotPasswordError || []}
+        isLoading={isLoading}
       />
     </div>
   );

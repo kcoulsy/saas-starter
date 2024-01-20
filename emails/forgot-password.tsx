@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {
   Body,
   Button,
@@ -14,7 +15,6 @@ import {
 } from '@react-email/components';
 import { pageRoutes } from '../src/constants/routes';
 import L from '../src/i18n/i18n-node';
-import * as React from 'react';
 import type { Locales } from '../src/i18n/i18n-types';
 
 interface ForgotPasswordEmailProps {

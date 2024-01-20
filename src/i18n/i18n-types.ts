@@ -240,6 +240,10 @@ type RootTranslation = {
 			 */
 			emailValid: string
 			/**
+			 * U​n​a​b​l​e​ ​t​o​ ​r​e​s​e​t​ ​p​a​s​s​w​o​r​d
+			 */
+			errorGeneric: string
+			/**
 			 * I​f​ ​t​h​e​ ​e​m​a​i​l​ ​y​o​u​ ​e​n​t​e​r​e​d​ ​i​s​ ​a​s​s​o​c​i​a​t​e​d​ ​w​i​t​h​ ​a​n​ ​a​c​c​o​u​n​t​,​ ​y​o​u​ ​w​i​l​l​ ​r​e​c​e​i​v​e​ ​a​n​ ​e​m​a​i​l​ ​w​i​t​h​ ​a​ ​l​i​n​k​ ​t​o​ ​r​e​s​e​t​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d​.
 			 */
 			success: string
@@ -668,6 +672,10 @@ export type TranslationFunctions = {
 			 * Please enter a valid email
 			 */
 			emailValid: () => LocalizedString
+			/**
+			 * Unable to reset password
+			 */
+			errorGeneric: () => LocalizedString
 			/**
 			 * If the email you entered is associated with an account, you will receive an email with a link to reset your password.
 			 */

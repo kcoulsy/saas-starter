@@ -1,4 +1,4 @@
-import sendGridMail from '@sendgrid/mail';
+// import { Resend } from 'resend';
 import { env } from '@src/env/server.mjs';
 
 interface SendEmailArgs {
@@ -7,17 +7,14 @@ interface SendEmailArgs {
   text: string;
   html: string;
 }
+// const resend = new Resend(env.RESEND_API_KEY);
 
 export const sendEmail = async ({ email, subject, text, html }: SendEmailArgs) => {
-  sendGridMail.setApiKey(env.SENDGRID_API_KEY);
-
-  const msg = {
-    from: env.SENDGRID_FROM_EMAIL,
-    to: email,
-    subject,
-    text,
-    html,
-  };
-
-  await sendGridMail.send(msg);
+  // await resend.emails.send({
+  //   from: env.RESEND_FROM,
+  //   to: email,
+  //   subject,
+  //   html,
+  //   text,
+  // });
 };
