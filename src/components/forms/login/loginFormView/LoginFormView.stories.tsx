@@ -27,6 +27,18 @@ Default.args = {
   ...mockLoginFormViewProps.base,
 };
 
+export const EmailVerified = Template.bind({});
+
+EmailVerified.args = {
+  ...mockLoginFormViewProps.emailVerified,
+};
+
+export const EmailUnverified = Template.bind({});
+
+EmailUnverified.args = {
+  ...mockLoginFormViewProps.emailUnverified,
+};
+
 export const Errors = Template.bind({});
 
 Errors.args = {

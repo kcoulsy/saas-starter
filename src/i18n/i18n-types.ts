@@ -34,23 +34,15 @@ type RootTranslation = {
 	login: {
 		meta: {
 			/**
-			 * L​o​g​i​n​ ​o​r​ ​S​i​g​n​ ​u​p​ ​P​a​g​e
+			 * L​o​g​i​n​ ​P​a​g​e
 			 */
 			title: string
 			/**
-			 * L​o​g​i​n​ ​o​r​ ​S​i​g​n​ ​u​p​ ​f​o​r​ ​a​n​ ​a​c​c​o​u​n​t
+			 * L​o​g​ ​i​n​ ​t​o​ ​y​o​u​r​ ​a​c​c​o​u​n​t
 			 */
 			description: string
 		}
 		form: {
-			/**
-			 * A​n​ ​e​m​a​i​l​ ​h​a​s​ ​b​e​e​n​ ​s​e​n​t​ ​t​o​ ​y​o​u​r​ ​i​n​b​o​x
-			 */
-			emailSuccess: string
-			/**
-			 * P​l​e​a​s​e​ ​v​i​s​i​t​ ​t​h​e​ ​l​i​n​k​ ​i​n​ ​t​h​e​ ​e​m​a​i​l​ ​t​o​ ​s​i​g​n​ ​i​n
-			 */
-			emailSuccessSubcopy: string
 			/**
 			 * L​o​g​i​n​ ​w​i​t​h​ ​G​i​t​h​u​b
 			 */
@@ -64,9 +56,21 @@ type RootTranslation = {
 			 */
 			socialLoginTwitter: string
 			/**
-			 * L​o​g​i​n​ ​o​r​ ​S​i​g​n​ ​u​p
+			 * L​o​g​i​n​ ​t​o​ ​y​o​u​r​ ​a​c​c​o​u​n​t
 			 */
 			title: string
+			/**
+			 * D​o​n​t​ ​h​a​v​e​ ​a​c​c​o​u​n​t​?
+			 */
+			registerLabel: string
+			/**
+			 * S​i​g​n​ ​u​p​ ​h​e​r​e
+			 */
+			registerLink: string
+			/**
+			 * F​o​r​g​o​t​ ​p​a​s​s​w​o​r​d​?
+			 */
+			forgotPasswordLabel: string
 			/**
 			 * E​m​a​i​l
 			 */
@@ -76,7 +80,15 @@ type RootTranslation = {
 			 */
 			emailPlaceholder: string
 			/**
-			 * L​o​g​i​n​ ​o​r​ ​S​i​g​n​ ​u​p
+			 * P​a​s​s​w​o​r​d
+			 */
+			passwordLabel: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d
+			 */
+			passwordPlaceholder: string
+			/**
+			 * L​o​g​i​n
 			 */
 			submitButton: string
 			/**
@@ -99,6 +111,264 @@ type RootTranslation = {
 			 * I​n​v​a​l​i​d​ ​L​o​g​i​n
 			 */
 			loginError: string
+			/**
+			 * E​m​a​i​l​ ​n​o​t​ ​v​e​r​i​f​i​e​d
+			 */
+			emailNotVerified: string
+			/**
+			 * C​l​i​c​k​ ​h​e​r​e​ ​t​o​ ​r​e​s​e​n​d​ ​v​e​r​i​f​i​c​a​t​i​o​n​ ​e​m​a​i​l
+			 */
+			emailNotVerifiedLink: string
+			/**
+			 * E​m​a​i​l​ ​s​u​c​c​e​s​s​f​u​l​l​y​ ​v​e​r​i​f​i​e​d​,​ ​y​o​u​ ​m​a​y​ ​n​o​w​ ​l​o​g​i​n
+			 */
+			emailVerified: string
+		}
+	}
+	register: {
+		meta: {
+			/**
+			 * R​e​g​i​s​t​e​r​ ​P​a​g​e
+			 */
+			title: string
+			/**
+			 * R​e​g​i​s​t​e​r​ ​f​o​r​ ​a​ ​n​e​w​ ​a​c​c​o​u​n​t
+			 */
+			description: string
+		}
+		form: {
+			/**
+			 * C​r​e​a​t​e​ ​a​ ​n​e​w​ ​a​c​c​o​u​n​t
+			 */
+			title: string
+			/**
+			 * A​l​r​e​a​d​y​ ​r​e​g​i​s​t​e​r​e​d​?
+			 */
+			loginLabel: string
+			/**
+			 * L​o​g​ ​i​n​ ​h​e​r​e
+			 */
+			loginLink: string
+			/**
+			 * E​m​a​i​l
+			 */
+			emailLabel: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​e​m​a​i​l
+			 */
+			emailPlaceholder: string
+			/**
+			 * P​a​s​s​w​o​r​d
+			 */
+			passwordLabel: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d
+			 */
+			passwordPlaceholder: string
+			/**
+			 * C​o​n​f​i​r​m​ ​P​a​s​s​w​o​r​d
+			 */
+			passwordConfirmLabel: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d​ ​a​g​a​i​n
+			 */
+			passwordConfirmPlaceholder: string
+			/**
+			 * R​e​g​i​s​t​e​r
+			 */
+			submitButton: string
+			/**
+			 * P​l​e​a​s​e​ ​e​n​t​e​r​ ​y​o​u​r​ ​e​m​a​i​l
+			 */
+			emailRequired: string
+			/**
+			 * P​l​e​a​s​e​ ​e​n​t​e​r​ ​a​ ​v​a​l​i​d​ ​e​m​a​i​l
+			 */
+			emailValid: string
+			/**
+			 * Y​o​u​ ​h​a​v​e​ ​s​u​c​c​e​s​s​f​u​l​l​y​ ​r​e​g​i​s​t​e​r​e​d​.​ ​P​l​e​a​s​e​ ​c​h​e​c​k​ ​y​o​u​r​ ​e​m​a​i​l​ ​t​o​ ​c​o​n​f​i​r​m​ ​y​o​u​r​ ​a​c​c​o​u​n​t​.
+			 */
+			success: string
+			/**
+			 * C​l​i​c​k​ ​h​e​r​e​ ​t​o​ ​r​e​t​u​r​n​ ​t​o​ ​t​h​e​ ​l​o​g​i​n​ ​p​a​g​e
+			 */
+			successReturn: string
+		}
+	}
+	forgotPassword: {
+		meta: {
+			/**
+			 * F​o​r​g​o​t​ ​P​a​s​s​w​o​r​d
+			 */
+			title: string
+			/**
+			 * F​o​r​g​o​t​ ​P​a​s​s​w​o​r​d
+			 */
+			description: string
+		}
+		form: {
+			/**
+			 * F​o​r​g​o​t​ ​P​a​s​s​w​o​r​d
+			 */
+			title: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​e​m​a​i​l​ ​a​d​d​r​e​s​s​ ​b​e​l​o​w​ ​a​n​d​ ​w​e​'​l​l​ ​s​e​n​d​ ​y​o​u​ ​a​ ​l​i​n​k​ ​t​o​ ​r​e​s​e​t​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d​.
+			 */
+			description: string
+			/**
+			 * B​a​c​k​ ​t​o​ ​l​o​g​i​n
+			 */
+			loginLink: string
+			/**
+			 * E​m​a​i​l
+			 */
+			emailLabel: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​e​m​a​i​l
+			 */
+			emailPlaceholder: string
+			/**
+			 * R​e​s​e​t​ ​P​a​s​s​w​o​r​d
+			 */
+			submitButton: string
+			/**
+			 * P​l​e​a​s​e​ ​e​n​t​e​r​ ​y​o​u​r​ ​e​m​a​i​l
+			 */
+			emailRequired: string
+			/**
+			 * P​l​e​a​s​e​ ​e​n​t​e​r​ ​a​ ​v​a​l​i​d​ ​e​m​a​i​l
+			 */
+			emailValid: string
+			/**
+			 * I​f​ ​t​h​e​ ​e​m​a​i​l​ ​y​o​u​ ​e​n​t​e​r​e​d​ ​i​s​ ​a​s​s​o​c​i​a​t​e​d​ ​w​i​t​h​ ​a​n​ ​a​c​c​o​u​n​t​,​ ​y​o​u​ ​w​i​l​l​ ​r​e​c​e​i​v​e​ ​a​n​ ​e​m​a​i​l​ ​w​i​t​h​ ​a​ ​l​i​n​k​ ​t​o​ ​r​e​s​e​t​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d​.
+			 */
+			success: string
+			/**
+			 * C​l​i​c​k​ ​h​e​r​e​ ​t​o​ ​r​e​t​u​r​n​ ​t​o​ ​t​h​e​ ​l​o​g​i​n​ ​p​a​g​e
+			 */
+			successReturn: string
+		}
+	}
+	resetPassword: {
+		meta: {
+			/**
+			 * R​e​s​e​t​ ​P​a​s​s​w​o​r​d
+			 */
+			title: string
+			/**
+			 * R​e​s​e​t​ ​P​a​s​s​w​o​r​d
+			 */
+			description: string
+		}
+		form: {
+			/**
+			 * R​e​s​e​t​ ​P​a​s​s​w​o​r​d
+			 */
+			title: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​n​e​w​ ​p​a​s​s​w​o​r​d​ ​b​e​l​o​w​.
+			 */
+			description: string
+			/**
+			 * N​e​w​ ​P​a​s​s​w​o​r​d
+			 */
+			passwordLabel: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​n​e​w​ ​p​a​s​s​w​o​r​d
+			 */
+			passwordPlaceholder: string
+			/**
+			 * C​o​n​f​i​r​m​ ​P​a​s​s​w​o​r​d
+			 */
+			passwordConfirmLabel: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​n​e​w​ ​p​a​s​s​w​o​r​d​ ​a​g​a​i​n
+			 */
+			passwordConfirmPlaceholder: string
+			/**
+			 * R​e​s​e​t​ ​P​a​s​s​w​o​r​d
+			 */
+			submitButton: string
+		}
+	}
+	passwordValidation: {
+		/**
+		 * P​l​e​a​s​e​ ​e​n​t​e​r​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d
+		 */
+		required: string
+		/**
+		 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​b​e​ ​a​t​ ​l​e​a​s​t​ ​{​m​i​n​}​ ​c​h​a​r​a​c​t​e​r​s
+		 * @param {number} min
+		 */
+		minError: RequiredParams<'min'>
+		/**
+		 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​b​e​ ​a​t​ ​m​o​s​t​ ​{​m​a​x​}​ ​c​h​a​r​a​c​t​e​r​s
+		 * @param {number} max
+		 */
+		maxError: RequiredParams<'max'>
+		/**
+		 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​c​o​n​t​a​i​n​ ​a​t​ ​l​e​a​s​t​ ​o​n​e​ ​l​o​w​e​r​c​a​s​e​ ​l​e​t​t​e​r
+		 */
+		lowerCaseError: string
+		/**
+		 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​c​o​n​t​a​i​n​ ​a​t​ ​l​e​a​s​t​ ​o​n​e​ ​u​p​p​e​r​c​a​s​e​ ​l​e​t​t​e​r
+		 */
+		uppercaseCaseError: string
+		/**
+		 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​c​o​n​t​a​i​n​ ​a​t​ ​l​e​a​s​t​ ​o​n​e​ ​n​u​m​b​e​r
+		 */
+		numberError: string
+		/**
+		 * P​a​s​s​w​o​r​d​ ​m​u​s​t​ ​c​o​n​t​a​i​n​ ​a​t​ ​l​e​a​s​t​ ​o​n​e​ ​s​p​e​c​i​a​l​ ​c​h​a​r​a​c​t​e​r
+		 */
+		specialError: string
+		/**
+		 * P​l​e​a​s​e​ ​c​o​n​f​i​r​m​ ​y​o​u​r​ ​p​a​s​s​w​o​r​d
+		 */
+		confirmRequired: string
+		/**
+		 * P​a​s​s​w​o​r​d​s​ ​d​o​ ​n​o​t​ ​m​a​t​c​h
+		 */
+		confirmError: string
+	}
+	changePassword: {
+		form: {
+			/**
+			 * C​h​a​n​g​e​ ​P​a​s​s​w​o​r​d
+			 */
+			title: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​c​u​r​r​e​n​t​ ​p​a​s​s​w​o​r​d​ ​a​n​d​ ​n​e​w​ ​p​a​s​s​w​o​r​d​ ​b​e​l​o​w​.
+			 */
+			description: string
+			/**
+			 * C​u​r​r​e​n​t​ ​P​a​s​s​w​o​r​d
+			 */
+			currentPasswordLabel: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​c​u​r​r​e​n​t​ ​p​a​s​s​w​o​r​d
+			 */
+			currentPasswordPlaceholder: string
+			/**
+			 * N​e​w​ ​P​a​s​s​w​o​r​d
+			 */
+			newPasswordLabel: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​n​e​w​ ​p​a​s​s​w​o​r​d
+			 */
+			newPasswordPlacehodler: string
+			/**
+			 * C​o​n​f​i​r​m​ ​N​e​w​ ​P​a​s​s​w​o​r​d
+			 */
+			newPasswordConfirmLabel: string
+			/**
+			 * E​n​t​e​r​ ​y​o​u​r​ ​n​e​w​ ​p​a​s​s​w​o​r​d​ ​a​g​a​i​n
+			 */
+			newPasswordConfirmPlaceholder: string
+			/**
+			 * C​h​a​n​g​e​ ​P​a​s​s​w​o​r​d
+			 */
+			submitButton: string
 		}
 	}
 	emails: {
@@ -193,23 +463,15 @@ export type TranslationFunctions = {
 	login: {
 		meta: {
 			/**
-			 * Login or Sign up Page
+			 * Login Page
 			 */
 			title: () => LocalizedString
 			/**
-			 * Login or Sign up for an account
+			 * Log in to your account
 			 */
 			description: () => LocalizedString
 		}
 		form: {
-			/**
-			 * An email has been sent to your inbox
-			 */
-			emailSuccess: () => LocalizedString
-			/**
-			 * Please visit the link in the email to sign in
-			 */
-			emailSuccessSubcopy: () => LocalizedString
 			/**
 			 * Login with Github
 			 */
@@ -223,9 +485,21 @@ export type TranslationFunctions = {
 			 */
 			socialLoginTwitter: () => LocalizedString
 			/**
-			 * Login or Sign up
+			 * Login to your account
 			 */
 			title: () => LocalizedString
+			/**
+			 * Dont have account?
+			 */
+			registerLabel: () => LocalizedString
+			/**
+			 * Sign up here
+			 */
+			registerLink: () => LocalizedString
+			/**
+			 * Forgot password?
+			 */
+			forgotPasswordLabel: () => LocalizedString
 			/**
 			 * Email
 			 */
@@ -235,7 +509,15 @@ export type TranslationFunctions = {
 			 */
 			emailPlaceholder: () => LocalizedString
 			/**
-			 * Login or Sign up
+			 * Password
+			 */
+			passwordLabel: () => LocalizedString
+			/**
+			 * Enter your password
+			 */
+			passwordPlaceholder: () => LocalizedString
+			/**
+			 * Login
 			 */
 			submitButton: () => LocalizedString
 			/**
@@ -258,6 +540,262 @@ export type TranslationFunctions = {
 			 * Invalid Login
 			 */
 			loginError: () => LocalizedString
+			/**
+			 * Email not verified
+			 */
+			emailNotVerified: () => LocalizedString
+			/**
+			 * Click here to resend verification email
+			 */
+			emailNotVerifiedLink: () => LocalizedString
+			/**
+			 * Email successfully verified, you may now login
+			 */
+			emailVerified: () => LocalizedString
+		}
+	}
+	register: {
+		meta: {
+			/**
+			 * Register Page
+			 */
+			title: () => LocalizedString
+			/**
+			 * Register for a new account
+			 */
+			description: () => LocalizedString
+		}
+		form: {
+			/**
+			 * Create a new account
+			 */
+			title: () => LocalizedString
+			/**
+			 * Already registered?
+			 */
+			loginLabel: () => LocalizedString
+			/**
+			 * Log in here
+			 */
+			loginLink: () => LocalizedString
+			/**
+			 * Email
+			 */
+			emailLabel: () => LocalizedString
+			/**
+			 * Enter your email
+			 */
+			emailPlaceholder: () => LocalizedString
+			/**
+			 * Password
+			 */
+			passwordLabel: () => LocalizedString
+			/**
+			 * Enter your password
+			 */
+			passwordPlaceholder: () => LocalizedString
+			/**
+			 * Confirm Password
+			 */
+			passwordConfirmLabel: () => LocalizedString
+			/**
+			 * Enter your password again
+			 */
+			passwordConfirmPlaceholder: () => LocalizedString
+			/**
+			 * Register
+			 */
+			submitButton: () => LocalizedString
+			/**
+			 * Please enter your email
+			 */
+			emailRequired: () => LocalizedString
+			/**
+			 * Please enter a valid email
+			 */
+			emailValid: () => LocalizedString
+			/**
+			 * You have successfully registered. Please check your email to confirm your account.
+			 */
+			success: () => LocalizedString
+			/**
+			 * Click here to return to the login page
+			 */
+			successReturn: () => LocalizedString
+		}
+	}
+	forgotPassword: {
+		meta: {
+			/**
+			 * Forgot Password
+			 */
+			title: () => LocalizedString
+			/**
+			 * Forgot Password
+			 */
+			description: () => LocalizedString
+		}
+		form: {
+			/**
+			 * Forgot Password
+			 */
+			title: () => LocalizedString
+			/**
+			 * Enter your email address below and we'll send you a link to reset your password.
+			 */
+			description: () => LocalizedString
+			/**
+			 * Back to login
+			 */
+			loginLink: () => LocalizedString
+			/**
+			 * Email
+			 */
+			emailLabel: () => LocalizedString
+			/**
+			 * Enter your email
+			 */
+			emailPlaceholder: () => LocalizedString
+			/**
+			 * Reset Password
+			 */
+			submitButton: () => LocalizedString
+			/**
+			 * Please enter your email
+			 */
+			emailRequired: () => LocalizedString
+			/**
+			 * Please enter a valid email
+			 */
+			emailValid: () => LocalizedString
+			/**
+			 * If the email you entered is associated with an account, you will receive an email with a link to reset your password.
+			 */
+			success: () => LocalizedString
+			/**
+			 * Click here to return to the login page
+			 */
+			successReturn: () => LocalizedString
+		}
+	}
+	resetPassword: {
+		meta: {
+			/**
+			 * Reset Password
+			 */
+			title: () => LocalizedString
+			/**
+			 * Reset Password
+			 */
+			description: () => LocalizedString
+		}
+		form: {
+			/**
+			 * Reset Password
+			 */
+			title: () => LocalizedString
+			/**
+			 * Enter your new password below.
+			 */
+			description: () => LocalizedString
+			/**
+			 * New Password
+			 */
+			passwordLabel: () => LocalizedString
+			/**
+			 * Enter your new password
+			 */
+			passwordPlaceholder: () => LocalizedString
+			/**
+			 * Confirm Password
+			 */
+			passwordConfirmLabel: () => LocalizedString
+			/**
+			 * Enter your new password again
+			 */
+			passwordConfirmPlaceholder: () => LocalizedString
+			/**
+			 * Reset Password
+			 */
+			submitButton: () => LocalizedString
+		}
+	}
+	passwordValidation: {
+		/**
+		 * Please enter your password
+		 */
+		required: () => LocalizedString
+		/**
+		 * Password must be at least {min} characters
+		 */
+		minError: (arg: { min: number }) => LocalizedString
+		/**
+		 * Password must be at most {max} characters
+		 */
+		maxError: (arg: { max: number }) => LocalizedString
+		/**
+		 * Password must contain at least one lowercase letter
+		 */
+		lowerCaseError: () => LocalizedString
+		/**
+		 * Password must contain at least one uppercase letter
+		 */
+		uppercaseCaseError: () => LocalizedString
+		/**
+		 * Password must contain at least one number
+		 */
+		numberError: () => LocalizedString
+		/**
+		 * Password must contain at least one special character
+		 */
+		specialError: () => LocalizedString
+		/**
+		 * Please confirm your password
+		 */
+		confirmRequired: () => LocalizedString
+		/**
+		 * Passwords do not match
+		 */
+		confirmError: () => LocalizedString
+	}
+	changePassword: {
+		form: {
+			/**
+			 * Change Password
+			 */
+			title: () => LocalizedString
+			/**
+			 * Enter your current password and new password below.
+			 */
+			description: () => LocalizedString
+			/**
+			 * Current Password
+			 */
+			currentPasswordLabel: () => LocalizedString
+			/**
+			 * Enter your current password
+			 */
+			currentPasswordPlaceholder: () => LocalizedString
+			/**
+			 * New Password
+			 */
+			newPasswordLabel: () => LocalizedString
+			/**
+			 * Enter your new password
+			 */
+			newPasswordPlacehodler: () => LocalizedString
+			/**
+			 * Confirm New Password
+			 */
+			newPasswordConfirmLabel: () => LocalizedString
+			/**
+			 * Enter your new password again
+			 */
+			newPasswordConfirmPlaceholder: () => LocalizedString
+			/**
+			 * Change Password
+			 */
+			submitButton: () => LocalizedString
 		}
 	}
 	emails: {

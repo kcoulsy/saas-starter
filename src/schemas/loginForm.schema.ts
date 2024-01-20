@@ -8,11 +8,11 @@ const loginFormSchema = (LL: TranslationFunctions) =>
         required_error: LL.login.form.emailRequired(),
       })
       .email(LL.login.form.emailValid()),
-    // password: z
-    //   .string({
-    //     required_error: LL.login.form.passwordRequired(),
-    //   })
-    //   .min(1, { message: LL.login.form.passwordRequired() }),
+    password: z
+      .string({
+        required_error: LL.login.form.passwordRequired(),
+      })
+      .min(1, { message: LL.login.form.passwordRequired() }),
   });
 
 export default loginFormSchema;
