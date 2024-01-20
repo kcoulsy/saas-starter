@@ -1,39 +1,43 @@
-import { CredentialsAuth } from '@prisma/client';
+import { CredentialsAuth, VerificationToken } from '@prisma/client';
+import { v4 as uuidv4 } from 'uuid';
 import { render } from '@react-email/render';
 import ConfirmEmail from '@emails/confirm-email';
 import L from '@src/i18n/i18n-node';
+import { env } from '@src/env/server.mjs';
+import { pageRoutes } from '@src/constants/routes';
 import { prisma } from '../db/client';
 import { sendEmail } from './email.service';
 
-// export const findExistingVerificationTokenForUser = async (user: CredentialsAuth) => {
-//   return prisma.verificationToken.findFirst({
-//     where: {
-//       userId: user.id,
-//     },
-//   });
-// };
+export const findExistingVerificationTokenForUser = async (user: CredentialsAuth) => {
+  return prisma.verificationToken.findFirst({
+    where: {
+      credentialsAuthId: user.id,
+    },
+  });
+};
 
-// export const generateVerificationTokenForUser = async (user: CredentialsAuth): Promise<VerificationToken> => {
-//   const existingToken = await findExistingVerificationTokenForUser(user);
+export const generateVerificationTokenForUser = async (user: CredentialsAuth): Promise<VerificationToken> => {
+  const existingToken = await findExistingVerificationTokenForUser(user);
 
-//   if (existingToken) {
-//     await prisma.verificationToken.delete({
-//       where: {
-//         token: existingToken.token,
-//       },
-//     });
+  if (existingToken) {
+    await prisma.verificationToken.delete({
+      where: {
+        token: existingToken.token,
+      },
+    });
 
-//     return generateVerificationTokenForUser(user);
-//   }
+    return generateVerificationTokenForUser(user);
+  }
 
-//   return prisma.verificationToken.create({
-//     data: {
-//       userId: user.id,
-//       expires: new Date(Date.now() + 1000 * 60 * 15), // 15 minutes
-//       token: uuidv4(),
-//     },
-//   });
-// };
+  return prisma.verificationToken.create({
+    data: {
+      identifier: 'email',
+      credentialsAuthId: user.id,
+      expires: new Date(Date.now() + 1000 * 60 * 15), // 15 minutes
+      token: uuidv4(),
+    },
+  });
+};
 
 export const verifyToken = async (token: string): Promise<CredentialsAuth | null> => {
   const verificationToken = await prisma.verificationToken.findFirst({
@@ -42,6 +46,7 @@ export const verifyToken = async (token: string): Promise<CredentialsAuth | null
     },
   });
 
+  console.log({ verificationToken, token });
   if (!verificationToken) {
     throw new Error('Token not found');
   }
@@ -53,9 +58,13 @@ export const verifyToken = async (token: string): Promise<CredentialsAuth | null
     throw new Error('Token expired');
   }
 
+  if (!verificationToken.credentialsAuthId) {
+    throw new Error('Token error');
+  }
+
   const user = await prisma.credentialsAuth.findFirst({
     where: {
-      id: 'verificationToken.userId',
+      id: verificationToken.credentialsAuthId,
     },
   });
 
@@ -69,18 +78,18 @@ export const verifyToken = async (token: string): Promise<CredentialsAuth | null
     throw new Error('User not found for token');
   }
 
-  await prisma.verificationToken.delete({
-    where: {
-      token,
-    },
-  });
-
   await prisma.credentialsAuth.update({
     where: {
       id: user.id,
     },
     data: {
       emailVerified: new Date(),
+    },
+  });
+
+  await prisma.verificationToken.delete({
+    where: {
+      token,
     },
   });
 
@@ -91,10 +100,10 @@ export const sendVerificationEmail = async (user: CredentialsAuth) => {
   if (user.emailVerified) {
     throw new Error('Email already verified');
   }
-  // const { token } = await generateVerificationTokenForUser(user);
-  // const tokenLink = `${env.NEXTAUTH_URL}${pageRoutes.verify(token)}`;
+  const { token } = await generateVerificationTokenForUser(user);
+  const tokenLink = `${env.NEXTAUTH_URL}${pageRoutes.verify(token)}`;
 
-  const html = render(<ConfirmEmail token="" />);
+  const html = render(<ConfirmEmail tokenLink={tokenLink} />);
   const locale = 'en';
 
   await sendEmail({

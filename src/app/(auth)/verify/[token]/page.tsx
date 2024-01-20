@@ -16,6 +16,7 @@ export default async function VerifyPage({ params }: { params: { token: string }
       success = true;
     }
   } catch (error) {
+    console.log(error);
     // Do nothing, redirect
   }
   if (success) {

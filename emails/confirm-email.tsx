@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Body,
   Button,
@@ -15,12 +13,11 @@ import {
   Text,
 } from '@react-email/components';
 import * as React from 'react';
-import { pageRoutes } from '../src/constants/routes';
 import L from '../src/i18n/i18n-node';
 import type { Locales } from '../src/i18n/i18n-types';
 
 interface ConfirmEmailProps {
-  token?: string;
+  tokenLink?: string;
   locale?: Locales;
 }
 
@@ -73,6 +70,7 @@ const button = {
   textDecoration: 'none',
   textAlign: 'center' as const,
   display: 'block',
+  padding: '11px 23px',
 };
 
 const reportLink = {
@@ -96,7 +94,7 @@ const code = {
   color: '#3c4149',
 };
 
-const ConfirmEmail = ({ token = 'tt226-5398x', locale = 'en' }: ConfirmEmailProps) => (
+const ConfirmEmail = ({ tokenLink = '/', locale = 'en' }: ConfirmEmailProps) => (
   <Html>
     <Head />
     <Preview>{L[locale].emails.confirmEmail.preview()}</Preview>
@@ -105,12 +103,12 @@ const ConfirmEmail = ({ token = 'tt226-5398x', locale = 'en' }: ConfirmEmailProp
         <Img src={`${baseUrl}/static/linear-logo.png`} width="42" height="42" alt="Saas Name" style={logo} />
         <Heading style={heading}>{L[locale].emails.confirmEmail.heading()}</Heading>
         <Section style={buttonContainer}>
-          <Button pY={11} pX={23} style={button} href={`${baseUrl}${pageRoutes.verify(token)}`}>
+          <Button style={button} href={tokenLink}>
             {L[locale].emails.confirmEmail.button()}
           </Button>
         </Section>
         <Text style={paragraph}>{L[locale].emails.confirmEmail.subcopy()}</Text>
-        <code style={code}>{`${baseUrl}${pageRoutes.verify(token)}`}</code>
+        <code style={code}>{tokenLink}</code>
         <Hr style={hr} />
         <Link href={baseUrl} style={reportLink}>
           {L[locale].emails.confirmEmail.footerLink()}

@@ -22,34 +22,7 @@ interface ForgotPasswordEmailProps {
   locale?: Locales;
 }
 
-const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '';
-
-export const ForgotPasswordEmail = ({ token = 'tt226-5398x', locale = 'en' }: ForgotPasswordEmailProps) => (
-  <Html>
-    <Head />
-    <Preview>{L[locale].emails.forgotPassword.preview()}</Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Img src={`${baseUrl}/static/linear-logo.png`} width="42" height="42" alt="Saas Name" style={logo} />
-        <Heading style={heading}>{L[locale].emails.forgotPassword.heading()}</Heading>
-        <Text style={paragraph}>{L[locale].emails.forgotPassword.body()}</Text>
-        <Section style={buttonContainer}>
-          <Button pY={11} pX={23} style={button} href={`${baseUrl}${pageRoutes.resetPassword(token)}`}>
-            {L[locale].emails.forgotPassword.button()}
-          </Button>
-        </Section>
-        <Text style={paragraph}>{L[locale].emails.forgotPassword.subcopy()}</Text>
-        <code style={code}>{`${baseUrl}${pageRoutes.resetPassword(token)}`}</code>
-        <Hr style={hr} />
-        <Link href={baseUrl} style={reportLink}>
-          {L[locale].emails.forgotPassword.footerLink()}
-        </Link>
-      </Container>
-    </Body>
-  </Html>
-);
-
-export default ForgotPasswordEmail;
+const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : process.env.BASE_URL;
 
 const logo = {
   borderRadius: 21,
@@ -98,6 +71,7 @@ const button = {
   textDecoration: 'none',
   textAlign: 'center' as const,
   display: 'block',
+  padding: '11px 23px',
 };
 
 const reportLink = {
@@ -120,3 +94,30 @@ const code = {
   borderRadius: '4px',
   color: '#3c4149',
 };
+
+export const ForgotPasswordEmail = ({ token = 'tt226-5398x', locale = 'en' }: ForgotPasswordEmailProps) => (
+  <Html>
+    <Head />
+    <Preview>{L[locale].emails.forgotPassword.preview()}</Preview>
+    <Body style={main}>
+      <Container style={container}>
+        <Img src={`${baseUrl}/static/linear-logo.png`} width="42" height="42" alt="Saas Name" style={logo} />
+        <Heading style={heading}>{L[locale].emails.forgotPassword.heading()}</Heading>
+        <Text style={paragraph}>{L[locale].emails.forgotPassword.body()}</Text>
+        <Section style={buttonContainer}>
+          <Button style={button} href={`${baseUrl}${pageRoutes.resetPassword(token)}`}>
+            {L[locale].emails.forgotPassword.button()}
+          </Button>
+        </Section>
+        <Text style={paragraph}>{L[locale].emails.forgotPassword.subcopy()}</Text>
+        <code style={code}>{`${baseUrl}${pageRoutes.resetPassword(token)}`}</code>
+        <Hr style={hr} />
+        <Link href={baseUrl} style={reportLink}>
+          {L[locale].emails.forgotPassword.footerLink()}
+        </Link>
+      </Container>
+    </Body>
+  </Html>
+);
+
+export default ForgotPasswordEmail;
