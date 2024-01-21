@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('e2e api routes dont work on production', async ({ request }) => {
   if (process.env.VERCEL_ENV !== 'production') return;
 
-  const response = await request.post('/api/e2e/verifyTestUserEmail');
+  const response = await request.get('/api/e2e/getTestUserVerificationToken');
 
   expect(response.status()).toBe(404);
 

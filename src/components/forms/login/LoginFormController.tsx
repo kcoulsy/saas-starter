@@ -8,7 +8,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
-import { apiRoutes } from '@src/constants/routes';
+import { apiRoutes, pageRoutes } from '@src/constants/routes';
 import loginFormSchema from '@src/schemas/loginForm.schema';
 import { useI18nContext } from '@src/i18n/i18n-react';
 import { notEmpty } from '@src/utils/array';
@@ -50,7 +50,7 @@ const LoginFormController = () => {
 
       if (response?.ok) {
         setLoginError(undefined);
-        router.push('/');
+        router.push(pageRoutes.dashboard);
         return;
       }
 
