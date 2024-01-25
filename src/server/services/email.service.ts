@@ -2,6 +2,7 @@
 
 // import { Resend } from 'resend';
 import { env } from '@src/env/server.mjs';
+import { z } from 'zod';
 
 interface SendEmailArgs {
   email: string;
@@ -30,8 +31,14 @@ export const sendEmail = async ({ email, subject, text, html }: SendEmailArgs) =
 
     const json = await res.json();
 
-    if (json.error) {
-      console.log(json.error);
+    const { error } = z
+      .object({
+        error: z.string().optional(),
+      })
+      .parse(json);
+
+    if (error) {
+      console.log(error);
     }
   } catch (e) {
     console.log(e);

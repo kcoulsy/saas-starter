@@ -1,3 +1,4 @@
+import { z } from 'zod';
 import { NextResponse, type NextRequest } from 'next/server';
 import { prisma } from '@src/server/db/client';
 
@@ -10,7 +11,13 @@ export async function DELETE(request: NextRequest) {
 
   try {
     const res = await request.json();
-    const email = res.email || '';
+
+    const { email } = z
+      .object({
+        email: z.string().email(),
+      })
+      .parse(res);
+
     const user = await prisma.credentialsAuth.findFirst({
       where: { email },
     });
