@@ -10,7 +10,7 @@ module.exports = {
     '@storybook/addon-mdx-gfm',
   ],
   framework: {
-    name: '@storybook/react-vite',
+    name: '@storybook/nextjs',
     options: {},
   },
   typescript: {

@@ -1,8 +1,8 @@
 'use server';
 
 // import { Resend } from 'resend';
-import { env } from '@src/env/server.mjs';
 import { z } from 'zod';
+import { env } from '@src/env/server.mjs';
 
 interface SendEmailArgs {
   email: string;

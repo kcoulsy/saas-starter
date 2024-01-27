@@ -1,12 +1,12 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import Logo from '@src/components/common/logo/Logo';
 import { pageRoutes } from '@src/constants/routes';
-import Logo from '@src/components/common/logo';
 import { cn } from '@src/utils/cn';
 import UserMenu from './UserMenu';
 
-const DashboardNavbar = async () => {
+const DashboardNavbar = () => {
   const pathname = usePathname();
 
   return (

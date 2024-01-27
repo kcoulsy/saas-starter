@@ -104,6 +104,7 @@
     "@storybook/addon-interactions": "7.6.10",
     "@storybook/addon-links": "7.6.10",
     "@storybook/addon-mdx-gfm": "7.6.10",
+    "@storybook/nextjs": "^7.6.10",
     "@storybook/react-vite": "7.6.10",
     "@storybook/testing-library": "0.1.0",
     "@testing-library/dom": "8.19.0",
