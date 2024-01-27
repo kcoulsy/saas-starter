@@ -16,5 +16,9 @@ export default meta;
 type Story = StoryObj<typeof DashboardNavbar>;
 
 export const Primary: Story = {
-  render: () => <DashboardNavbar />,
+  render: () => <DashboardNavbar isFreePlan={false} />,
+};
+
+export const FreePlan: Story = {
+  render: () => <DashboardNavbar isFreePlan />,
 };

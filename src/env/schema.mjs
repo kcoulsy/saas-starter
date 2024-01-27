@@ -15,6 +15,8 @@ export const serverSchema = z.object({
   VERCEL_ENV: z.enum(['development', 'preview', 'production']),
   RESEND_API_KEY: z.string(),
   RESEND_FROM: z.string().email(),
+  STRIPE_SECRET_KEY: z.string(),
+  STRIPE_HOBBY_PLAN_ID: z.string(),
 });
 
 /**

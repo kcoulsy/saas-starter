@@ -21,6 +21,7 @@ model CredentialsAuth {
   password          String
   emailVerified     DateTime?
   verificationToken VerificationToken[]
+  stripeCustomerId  String?
 }
 
 model Account {

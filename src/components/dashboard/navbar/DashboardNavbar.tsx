@@ -4,9 +4,14 @@ import { usePathname } from 'next/navigation';
 import Logo from '@src/components/common/logo/Logo';
 import { pageRoutes } from '@src/constants/routes';
 import { cn } from '@src/utils/cn';
+import Link from '@src/components/common/link/Link';
 import UserMenu from './UserMenu';
 
-const DashboardNavbar = () => {
+interface DashboardNavbarProps {
+  isFreePlan: boolean;
+}
+
+const DashboardNavbar = ({ isFreePlan }: DashboardNavbarProps) => {
   const pathname = usePathname();
 
   return (
@@ -17,7 +22,7 @@ const DashboardNavbar = () => {
         </a>
         <div className="flex flex-row space-x-8 items-center">
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
-            <li>
+            <li className="flex items-center">
               <a
                 href={pageRoutes.dashboard}
                 className={cn(
@@ -28,6 +33,13 @@ const DashboardNavbar = () => {
                 Dashboard
               </a>
             </li>
+            {!isFreePlan && (
+              <li>
+                <Link variant="button-primary" href={pageRoutes.settings.subscription}>
+                  Upgrade
+                </Link>
+              </li>
+            )}
           </ul>
           <UserMenu />
         </div>

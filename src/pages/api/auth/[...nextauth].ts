@@ -11,12 +11,14 @@ export const authOptions: AuthOptions = {
     maxAge: 60 * 60, // 1h
   },
   callbacks: {
-    session({ session, user }) {
-      if (session.user && user) {
-        // eslint-disable-next-line no-param-reassign
-        session.user.id = user.id;
-      }
-      return session;
+    session({ session, token }) {
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: token.sub,
+        },
+      };
     },
   },
   // Configure one or more authentication providers

@@ -18,7 +18,8 @@ const sidebarNavItems = [
   },
   {
     title: 'Subscription',
-    subtitle: 'Manage your subscription and billing information.',
+    subtitle:
+      'Your current subscription details are listed below. You can manage your subscription and payment details by clicking the "Manage" button.',
     href: pageRoutes.settings.subscription,
   },
   {
@@ -39,14 +40,14 @@ export default function SettingsLayout({ children }: SettingsLayoutProps) {
         <h2 className="text-2xl font-bold tracking-tight">Settings</h2>
         <p className="text-muted-foreground">Manage your account settings and set e-mail preferences.</p>
       </div>
-      <div data-orientation="horizontal" role="none" className="shrink-0 bg-gray-300 h-[1px] w-full my-6" />
+      <div data-orientation="horizontal" role="none" className="shrink-0 bg-gray-300 h-[1px] w-full my-3" />
       <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
         <aside className="-mx-4 lg:w-1/5">
           <SidebarNav items={sidebarNavItems} />
         </aside>
-        <div className="flex-1 rounded-md border shadow space-y-6 p-4">
+        <div className="flex-1 rounded-md border shadow p-4">
           <SettingsHeading items={sidebarNavItems} />
-          <div data-orientation="horizontal" role="none" className="shrink-0 bg-gray-300 h-[1px] w-full my-6" />
+          <div data-orientation="horizontal" role="none" className="shrink-0 bg-gray-300 h-[1px] w-full my-3" />
           {children}
         </div>
       </div>

@@ -1,7 +1,7 @@
 'use client';
 
-import Footer from '@src/components/common/footer';
-import Hero from '@src/components/homepage/hero';
+import Footer from '@src/components/homepage/Footer/Footer';
+import Hero from '@src/components/homepage/Hero/Hero';
 import HomepageNav from '../../components/homepage/HomepageNav/HomepageNav';
 
 const HomepageContainer = () => {
