@@ -4,6 +4,12 @@ export const pageRoutes = {
   register: '/register',
   forgotPassword: '/forgot-password',
   dashboard: '/dashboard',
+  privacy: '/privacy',
+  terms: '/terms',
+  pricing: '/pricing',
+  about: '/about',
+  company: '/company',
+  features: '/features',
   settings: {
     account: '/settings/account',
     subscription: '/settings/subscription',

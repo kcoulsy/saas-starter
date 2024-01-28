@@ -71,6 +71,18 @@ const RegisterFormView = ({
             errors: errors?.confirm || [],
           },
         ]}
+        footer={
+          <div className="leading-5">
+            By Signing up you agree to our{' '}
+            <Link href={pageRoutes.terms} className="underline" target="_blank">
+              Terms of Service
+            </Link>{' '}
+            and{' '}
+            <Link href={pageRoutes.privacy} className="underline" target="_blank">
+              Privacy Policy
+            </Link>
+          </div>
+        }
         submitButtonLabel={LL.register.form.submitButton()}
         errors={errors?.register ? [errors?.register] : []}
         isLoading={isRegistering}

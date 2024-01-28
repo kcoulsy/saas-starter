@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import Link from 'next/link';
 import { pageRoutes } from '@src/constants/routes';
 import Button from '@src/components/common/button/Button';
 import Logo from '@src/components/common/logo/Logo';
@@ -64,18 +65,30 @@ const HomepageNav = () => {
               </svg>
             </button>
             <ul className="flex text-3xl md:text-base items-center py-10 md:flex flex-col md:flex-row justify-center fixed md:relative top-0 bottom-0 left-0 right-0 bg-white md:bg-transparent z-20">
-              <li className="text-gray-700 hover:text-gray-900 cursor-pointer text-base lg:text-lg pt-10 md:pt-0">
+              <Link
+                className="text-gray-700 hover:text-gray-900 cursor-pointer text-base lg:text-lg pt-10 md:pt-0 md:ml-5 lg:ml-10"
+                href={pageRoutes.features}
+              >
                 Features
-              </li>
-              <li className="text-gray-700 hover:text-gray-900 cursor-pointer text-base lg:text-lg pt-10 md:pt-0 md:ml-5 lg:ml-10">
+              </Link>
+              <Link
+                className="text-gray-700 hover:text-gray-900 cursor-pointer text-base lg:text-lg pt-10 md:pt-0 md:ml-5 lg:ml-10"
+                href={pageRoutes.about}
+              >
                 About
-              </li>
-              <li className="text-gray-700 hover:text-gray-900 cursor-pointer text-base lg:text-lg pt-10 md:pt-0 md:ml-5 lg:ml-10">
+              </Link>
+              <Link
+                className="text-gray-700 hover:text-gray-900 cursor-pointer text-base lg:text-lg pt-10 md:pt-0 md:ml-5 lg:ml-10"
+                href={pageRoutes.company}
+              >
                 Company
-              </li>
-              <li className="text-gray-700 hover:text-gray-900 cursor-pointer text-base lg:text-lg pt-10 md:pt-0 md:ml-5 lg:ml-10">
+              </Link>
+              <Link
+                className="text-gray-700 hover:text-gray-900 cursor-pointer text-base lg:text-lg pt-10 md:pt-0 md:ml-5 lg:ml-10"
+                href={pageRoutes.pricing}
+              >
                 Pricing
-              </li>
+              </Link>
             </ul>
           </div>
         </div>
