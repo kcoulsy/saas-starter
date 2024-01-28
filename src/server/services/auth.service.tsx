@@ -6,6 +6,7 @@ import { env } from '@src/env/server.mjs';
 import { pageRoutes } from '@src/constants/routes';
 import ForgotPasswordEmail from '@emails/forgot-password';
 import L from '@src/i18n/i18n-node';
+import passwordSchema from '@src/schemas/passwordSchema';
 import { LoginUser, loginUserSchema, RegisterUser, registerUserSchema } from '../schemas/auth.schema';
 import { prisma } from '../db/client';
 import { hash, verify } from '../utils/password';
@@ -119,3 +120,46 @@ export const forgotPassword = async (email: string) => {
     throw new Error('Unable to send email');
   }
 };
+
+interface ChangePassword {
+  userId: string;
+  currentPassword: string;
+  newPassword: string;
+  confirmNewPassword: string;
+}
+
+export async function changePassword({ userId, currentPassword, newPassword, confirmNewPassword }: ChangePassword) {
+  const user = await prisma.user.findFirst({ where: { id: userId } });
+
+  if (!user) throw new Error('User not found');
+
+  const result = await verify(currentPassword, user.password);
+  if (!result) throw new Error('Password is incorrect');
+
+  if (newPassword !== confirmNewPassword) throw new Error('Passwords do not match');
+
+  const locale = 'en';
+  let parsedPassword = '';
+  try {
+    parsedPassword = passwordSchema(L[locale]).parse(newPassword);
+  } catch (error) {
+    throw new Error('Unable to change password');
+  }
+
+  let hashedPassword: string;
+
+  try {
+    hashedPassword = await hash(parsedPassword);
+  } catch (error) {
+    throw new Error('Unable to change password');
+  }
+
+  await prisma.user.update({
+    where: { id: userId },
+    data: {
+      password: hashedPassword,
+    },
+  });
+
+  return { success: true };
+}

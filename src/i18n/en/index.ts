@@ -117,6 +117,7 @@ const en: BaseTranslation = {
       newPasswordConfirmLabel: 'Confirm New Password',
       newPasswordConfirmPlaceholder: 'Enter your new password again',
       submitButton: 'Change Password',
+      successMessage: 'Password successfully changed',
     },
   },
   emails: {

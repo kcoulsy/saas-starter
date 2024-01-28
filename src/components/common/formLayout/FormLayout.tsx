@@ -1,4 +1,5 @@
 import React from 'react';
+import { cn } from '@src/utils/cn';
 import Button from '../button/Button';
 import FormInput, { FormInputProps } from '../formInput/FormInput';
 
@@ -10,6 +11,8 @@ export interface FormLayoutProps {
   submitButtonLabel?: string;
   errors: string[];
   isLoading?: boolean;
+  buttonClasses?: string;
+  successMessage?: string;
 }
 
 const FormLayout = ({
@@ -20,6 +23,8 @@ const FormLayout = ({
   footer,
   errors,
   isLoading = false,
+  buttonClasses,
+  successMessage,
 }: FormLayoutProps) => {
   return (
     <div className="">
@@ -45,7 +50,10 @@ const FormLayout = ({
           </ul>
         )}
         {footer && <div className="mt-4  text-sm font-medium leading-none text-gray-500">{footer}</div>}
-        {submitButtonLabel && <Button label={submitButtonLabel} type="submit" classes="mt-4" isLoading={isLoading} />}
+        {submitButtonLabel && (
+          <Button label={submitButtonLabel} type="submit" classes={cn('mt-4', buttonClasses)} isLoading={isLoading} />
+        )}
+        {successMessage && <div className="mt-4">{successMessage}</div>}
       </div>
     </div>
   );

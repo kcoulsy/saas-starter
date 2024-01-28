@@ -373,6 +373,10 @@ type RootTranslation = {
 			 * C​h​a​n​g​e​ ​P​a​s​s​w​o​r​d
 			 */
 			submitButton: string
+			/**
+			 * P​a​s​s​w​o​r​d​ ​s​u​c​c​e​s​s​f​u​l​l​y​ ​c​h​a​n​g​e​d
+			 */
+			successMessage: string
 		}
 	}
 	emails: {
@@ -804,6 +808,10 @@ export type TranslationFunctions = {
 			 * Change Password
 			 */
 			submitButton: () => LocalizedString
+			/**
+			 * Password successfully changed
+			 */
+			successMessage: () => LocalizedString
 		}
 	}
 	emails: {
