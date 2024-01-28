@@ -6,7 +6,7 @@ import {
   getUserSubscriptions,
 } from '@src/server/services/stripe.service';
 import { env } from '@src/env/server.mjs';
-import { authOptions } from '@src/pages/api/auth/[...nextauth]';
+import { authOptions } from '@src/app/api/auth/[...nextauth]/route';
 import { redirectIfNotLoggedIn } from '../utils';
 
 const Dashboard = async () => {

@@ -1,5 +1,5 @@
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@src/pages/api/auth/[...nextauth]';
+import { authOptions } from '@src/app/api/auth/[...nextauth]/route';
 import {
   createCheckoutLink,
   findOrCreateStripeCustomer,

@@ -1,5 +1,5 @@
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@src/pages/api/auth/[...nextauth]';
+import { authOptions } from '@src/app/api/auth/[...nextauth]/route';
 import { redirectIfNotLoggedIn } from '../../utils';
 import ChangePasswordForm from './_components/ChangePasswordForm/ChangePasswordForm';
 import AccountForm from './_components/AccountForm/AccountForm';
