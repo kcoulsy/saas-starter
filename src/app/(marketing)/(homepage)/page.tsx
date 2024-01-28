@@ -1,4 +1,4 @@
-import Hero from '@src/components/homepage/Hero/Hero';
+import Hero from '@src/app/(marketing)/(homepage)/_components/Hero/Hero';
 
 export async function generateMetadata() {
   return {

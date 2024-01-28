@@ -1,6 +1,6 @@
 import { UseFormRegisterReturn } from 'react-hook-form';
 import { useI18nContext } from '@src/i18n/i18n-react';
-import FormLayout from '@src/components/common/formLayout/FormLayout';
+import FormLayout from '@src/ui/formLayout/FormLayout';
 
 export interface ChangePasswordViewProps {
   registerCurrentPassword: UseFormRegisterReturn<'currentPassword'>;

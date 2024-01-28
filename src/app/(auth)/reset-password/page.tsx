@@ -1,5 +1,5 @@
 import React from 'react';
-import ResetPasswordController from '@src/components/forms/resetPassword/ResetPasswordController';
+import ResetPasswordController from '@src/components/forms/ResetPassword/ResetPasswordController';
 import L from '@src/i18n/i18n-node';
 import { redirectIfLoggedIn } from '../utils';
 

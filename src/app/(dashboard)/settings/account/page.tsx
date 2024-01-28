@@ -1,8 +1,8 @@
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@src/pages/api/auth/[...nextauth]';
-import AccountForm from '@src/components/dashboard/settings/account-form';
 import { redirectIfNotLoggedIn } from '../../utils';
 import ChangePasswordForm from './_components/ChangePasswordForm/ChangePasswordForm';
+import AccountForm from './_components/AccountForm/AccountForm';
 
 const SettingsAccount = async () => {
   await redirectIfNotLoggedIn();

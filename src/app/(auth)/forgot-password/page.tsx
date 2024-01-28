@@ -1,5 +1,5 @@
 import React from 'react';
-import ForgotPasswordController from '@src/components/forms/forgotPassword/ForgotPasswordController';
+import ForgotPasswordController from '@src/app/(auth)/forgot-password/_components/ForgotPassword/ForgotPasswordController';
 import L from '@src/i18n/i18n-node';
 import { redirectIfLoggedIn } from '../utils';
 

@@ -1,4 +1,4 @@
-import PlanCard from '@src/components/pricing/PlanCard/PlanCard';
+import PlanCard from './_components/PlanCard/PlanCard';
 
 export default function Component() {
   return (

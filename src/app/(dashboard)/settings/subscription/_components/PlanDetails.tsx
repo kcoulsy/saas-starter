@@ -1,5 +1,5 @@
 import { capitalize } from '@src/utils/capitalize';
-import Link from '@src/components/common/link/Link';
+import Link from '@src/ui/link/Link';
 
 interface PlanDetailsProps {
   portalUrl: string;

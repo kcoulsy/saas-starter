@@ -1,5 +1,5 @@
 import React from 'react';
-import RegisterFormController from '@src/components/forms/register/RegisterFormController';
+import RegisterFormController from '@src/app/(auth)/register/_components/register/RegisterFormController';
 import L from '@src/i18n/i18n-node';
 import { redirectIfLoggedIn } from '../utils';
 

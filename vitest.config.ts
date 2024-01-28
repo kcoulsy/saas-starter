@@ -10,7 +10,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: { alias: { '@src': '/src' } },
   test: {
-    setupFiles: ['dotenv/config', 'src/config/setupTests.ts'],
+    setupFiles: ['dotenv/config', 'src/testing/setupTests.ts'],
     globals: true,
     environment: 'jsdom',
     dir: 'src',

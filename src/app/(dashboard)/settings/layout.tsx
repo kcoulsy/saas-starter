@@ -1,9 +1,9 @@
 import React from 'react';
 import { Metadata } from 'next';
 
-import { SidebarNav } from '@src/components/dashboard/settings/sidebar-nav';
 import { pageRoutes } from '@src/constants/routes';
-import { SettingsHeading } from '@src/components/dashboard/settings/settings-heading';
+import { SidebarNav } from './_components/SidebarNav';
+import { SettingsHeading } from './_components/SettingsHeading';
 
 export const metadata: Metadata = {
   title: 'Forms',

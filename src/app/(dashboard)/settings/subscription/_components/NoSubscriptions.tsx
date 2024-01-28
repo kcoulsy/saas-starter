@@ -1,4 +1,4 @@
-import Link from '@src/components/common/link/Link';
+import Link from '@src/ui/link/Link';
 
 interface NoSubscriptionsProps {
   subscribeLink: string;

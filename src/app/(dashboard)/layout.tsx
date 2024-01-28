@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 import { getServerSession } from 'next-auth';
-import DashboardNavbar from '@src/components/dashboard/navbar/DashboardNavbar';
+import DashboardNavbar from '@src/app/(dashboard)/_components/navbar/DashboardNavbar';
 import { authOptions } from '@src/pages/api/auth/[...nextauth]';
 import { findOrCreateStripeCustomer, getUserHasActiveSubscription } from '@src/server/services/stripe.service';
 

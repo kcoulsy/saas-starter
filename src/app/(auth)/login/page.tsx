@@ -1,7 +1,7 @@
 import React from 'react';
-import LoginFormController from '@src/components/forms/login/LoginFormController';
 import L from '@src/i18n/i18n-node';
 import { redirectIfLoggedIn } from '../utils';
+import LoginFormController from './_components/login/LoginFormController';
 
 export async function generateMetadata() {
   return {
