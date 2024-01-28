@@ -1,7 +1,7 @@
 import React from 'react';
-import ResetPasswordController from '@src/components/forms/ResetPassword/ResetPasswordController';
 import L from '@src/i18n/i18n-node';
 import { redirectIfLoggedIn } from '../utils';
+import ResetPasswordController from './_components/ResetPassword/ResetPasswordController';
 
 export async function generateMetadata() {
   return {

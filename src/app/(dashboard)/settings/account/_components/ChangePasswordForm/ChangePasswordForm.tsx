@@ -40,7 +40,11 @@ const ChangePasswordForm = () => {
       setHasUpdated(true);
       reset();
     } catch (error) {
-      setChangePasswordError(error?.message ?? LL.forgotPassword.form.errorGeneric());
+      if (error instanceof Error) {
+        setChangePasswordError(error.message);
+        return;
+      }
+      setChangePasswordError(LL.forgotPassword.form.errorGeneric());
     }
     setIsLoading(false);
   };
