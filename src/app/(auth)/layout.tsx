@@ -1,10 +1,10 @@
 import { PropsWithChildren } from 'react';
 import Link from 'next/link';
 import { pageRoutes } from '@src/constants/routes';
-import { redirectIfLoggedIn } from './utils';
+// import { redirectIfLoggedIn } from './utils';
 
-async function Layout({ children }: PropsWithChildren) {
-  await redirectIfLoggedIn();
+function Layout({ children }: PropsWithChildren) {
+  // await redirectIfLoggedIn();
 
   return (
     <div className="h-full bg-gradient-to-tl from-green-400 to-indigo-900 w-full py-16 px-4 overflow-auto">
