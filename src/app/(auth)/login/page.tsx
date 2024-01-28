@@ -1,6 +1,5 @@
 import React from 'react';
 import L from '@src/i18n/i18n-node';
-import { redirectIfLoggedIn } from '../utils';
 import LoginFormController from './_components/login/LoginFormController';
 
 export async function generateMetadata() {
@@ -10,9 +9,7 @@ export async function generateMetadata() {
   };
 }
 
-async function LoginPage() {
-  await redirectIfLoggedIn();
-
+function LoginPage() {
   return <LoginFormController />;
 }
 

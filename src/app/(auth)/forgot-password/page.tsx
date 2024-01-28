@@ -1,18 +1,15 @@
 import React from 'react';
 import ForgotPasswordController from '@src/app/(auth)/forgot-password/_components/ForgotPassword/ForgotPasswordController';
 import L from '@src/i18n/i18n-node';
-import { redirectIfLoggedIn } from '../utils';
 
-export async function generateMetadata() {
+export function generateMetadata() {
   return {
     title: L.en.forgotPassword.meta.title(),
     description: L.en.forgotPassword.meta.description(),
   };
 }
 
-async function ForgotPasswordPage() {
-  await redirectIfLoggedIn();
-
+function ForgotPasswordPage() {
   return <ForgotPasswordController />;
 }
 

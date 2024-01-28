@@ -1,8 +1,11 @@
 import { PropsWithChildren } from 'react';
 import Link from 'next/link';
 import { pageRoutes } from '@src/constants/routes';
+import { redirectIfLoggedIn } from './utils';
 
-const Layout = ({ children }: PropsWithChildren) => {
+async function Layout({ children }: PropsWithChildren) {
+  await redirectIfLoggedIn();
+
   return (
     <div className="h-full bg-gradient-to-tl from-green-400 to-indigo-900 w-full py-16 px-4 overflow-auto">
       <div className="flex flex-col items-center justify-center">
@@ -22,6 +25,6 @@ const Layout = ({ children }: PropsWithChildren) => {
       </div>
     </div>
   );
-};
+}
 
 export default Layout;

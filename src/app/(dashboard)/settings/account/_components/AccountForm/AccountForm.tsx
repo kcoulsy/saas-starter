@@ -1,12 +1,10 @@
 'use client';
 
+import { useSession } from 'next-auth/react';
 import FormLayout from '@src/ui/formLayout/FormLayout';
 
-interface AccountFormProps {
-  email: string;
-}
-
-const AccountForm = ({ email }: AccountFormProps) => {
+const AccountForm = () => {
+  const session = useSession();
   return (
     <FormLayout
       formFields={[
@@ -15,7 +13,7 @@ const AccountForm = ({ email }: AccountFormProps) => {
           subLabel: 'Your email address cannot be changed.',
           errors: [],
           id: 'email',
-          placeholder: email,
+          placeholder: session.data?.user?.email || '',
           register: {
             name: 'name',
             onBlur: async () => false,
