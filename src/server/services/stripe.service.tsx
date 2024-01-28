@@ -68,7 +68,7 @@ export async function createCheckoutLink(customerId: string, priceId: string) {
 }
 
 export async function findOrCreateStripeCustomer(userId: string) {
-  const user = await prisma.credentialsAuth.findUnique({
+  const user = await prisma.user.findUnique({
     where: {
       id: userId,
     },
@@ -83,7 +83,7 @@ export async function findOrCreateStripeCustomer(userId: string) {
 
   const customer = await createCustomer(user.email);
 
-  await prisma.credentialsAuth.update({
+  await prisma.user.update({
     where: {
       id: userId,
     },

@@ -23,7 +23,7 @@ export const loginUser = async ({ email, password }: LoginUser) => {
   try {
     loginUserSchema.parse({ email, password });
 
-    const user = await prisma.credentialsAuth.findFirst({
+    const user = await prisma.user.findFirst({
       where: { email },
     });
     if (!user) throw new Error('User not found');
@@ -56,7 +56,7 @@ export const registerUser = async ({ email, password }: RegisterUser) => {
   try {
     registerUserSchema.parse({ email, password });
 
-    const existingEmail = await prisma.credentialsAuth.findFirst({ where: { email } });
+    const existingEmail = await prisma.user.findFirst({ where: { email } });
 
     if (existingEmail) throw new Error('Email Exists');
     // TODO vaidat password with schema
@@ -69,7 +69,7 @@ export const registerUser = async ({ email, password }: RegisterUser) => {
       throw new Error('Password Error');
     }
 
-    const user = await prisma.credentialsAuth.create({
+    const user = await prisma.user.create({
       data: {
         email,
         password: hashedPassword,
@@ -93,7 +93,7 @@ export const registerUser = async ({ email, password }: RegisterUser) => {
  */
 export const forgotPassword = async (email: string) => {
   try {
-    const user = await prisma.credentialsAuth.findFirst({ where: { email } });
+    const user = await prisma.user.findFirst({ where: { email } });
 
     if (!user) throw new Error('Email not found');
 

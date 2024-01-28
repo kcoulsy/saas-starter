@@ -1,11 +1,8 @@
 import NextAuth, { type AuthOptions } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
-import { PrismaAdapter } from '@auth/prisma-adapter';
-import { prisma } from '@src/server/db/client';
 import { loginUser } from '@src/server/services/auth.service';
 
 export const authOptions: AuthOptions = {
-  // Include user.id on session
   session: {
     strategy: 'jwt',
     maxAge: 60 * 60, // 1h
@@ -21,10 +18,6 @@ export const authOptions: AuthOptions = {
       };
     },
   },
-  // Configure one or more authentication providers
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  adapter: PrismaAdapter(prisma),
   providers: [
     Credentials({
       name: 'Credentials',

@@ -1,4 +1,4 @@
-import { CredentialsAuth, VerificationToken } from '@prisma/client';
+import { User, VerificationToken } from '@prisma/client';
 import { v4 as uuidv4 } from 'uuid';
 import { render } from '@react-email/render';
 import ConfirmEmail from '@emails/confirm-email';
@@ -8,15 +8,15 @@ import { pageRoutes } from '@src/constants/routes';
 import { prisma } from '../db/client';
 import { sendEmail } from './email.service';
 
-export const findExistingVerificationTokenForUser = async (user: CredentialsAuth) => {
+export const findExistingVerificationTokenForUser = async (user: User) => {
   return prisma.verificationToken.findFirst({
     where: {
-      credentialsAuthId: user.id,
+      userId: user.id,
     },
   });
 };
 
-export const generateVerificationTokenForUser = async (user: CredentialsAuth): Promise<VerificationToken> => {
+export const generateVerificationTokenForUser = async (user: User): Promise<VerificationToken> => {
   const existingToken = await findExistingVerificationTokenForUser(user);
 
   if (existingToken) {
@@ -32,21 +32,20 @@ export const generateVerificationTokenForUser = async (user: CredentialsAuth): P
   return prisma.verificationToken.create({
     data: {
       identifier: 'email',
-      credentialsAuthId: user.id,
+      userId: user.id,
       expires: new Date(Date.now() + 1000 * 60 * 15), // 15 minutes
       token: uuidv4(),
     },
   });
 };
 
-export const verifyToken = async (token: string): Promise<CredentialsAuth | null> => {
+export const verifyToken = async (token: string): Promise<User | null> => {
   const verificationToken = await prisma.verificationToken.findFirst({
     where: {
       token,
     },
   });
 
-  console.log({ verificationToken, token });
   if (!verificationToken) {
     throw new Error('Token not found');
   }
@@ -58,13 +57,13 @@ export const verifyToken = async (token: string): Promise<CredentialsAuth | null
     throw new Error('Token expired');
   }
 
-  if (!verificationToken.credentialsAuthId) {
+  if (!verificationToken.userId) {
     throw new Error('Token error');
   }
 
-  const user = await prisma.credentialsAuth.findFirst({
+  const user = await prisma.user.findFirst({
     where: {
-      id: verificationToken.credentialsAuthId,
+      id: verificationToken.userId,
     },
   });
 
@@ -78,7 +77,7 @@ export const verifyToken = async (token: string): Promise<CredentialsAuth | null
     throw new Error('User not found for token');
   }
 
-  await prisma.credentialsAuth.update({
+  await prisma.user.update({
     where: {
       id: user.id,
     },
@@ -96,7 +95,7 @@ export const verifyToken = async (token: string): Promise<CredentialsAuth | null
   return user;
 };
 
-export const sendVerificationEmail = async (user: CredentialsAuth) => {
+export const sendVerificationEmail = async (user: User) => {
   if (user.emailVerified) {
     throw new Error('Email already verified');
   }
@@ -115,7 +114,7 @@ export const sendVerificationEmail = async (user: CredentialsAuth) => {
 };
 
 export const resendVerificationEmail = async (email: string) => {
-  const user = await prisma.credentialsAuth.findFirst({
+  const user = await prisma.user.findFirst({
     where: {
       email,
     },

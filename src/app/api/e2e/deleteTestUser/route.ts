@@ -18,7 +18,7 @@ export async function DELETE(request: NextRequest) {
       })
       .parse(res);
 
-    const user = await prisma.credentialsAuth.findFirst({
+    const user = await prisma.user.findFirst({
       where: { email },
     });
 
@@ -26,7 +26,7 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: 'User is not found' }, { status: 404 });
     }
 
-    const result = await prisma.credentialsAuth.delete({
+    const result = await prisma.user.delete({
       where: { id: user.id },
     });
 
