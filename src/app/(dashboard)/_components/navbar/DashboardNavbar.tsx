@@ -17,7 +17,7 @@ const DashboardNavbar = ({ isFreePlan }: DashboardNavbarProps) => {
   return (
     <nav className="w-full border-b">
       <div className="py-5 md:py-3 container mx-auto px-6 flex items-center justify-between">
-        <a href={pageRoutes.home} className="flex items-center">
+        <a href={pageRoutes.home} className="flex items-center" aria-label="Homepage">
           <Logo />
         </a>
         <div className="flex flex-row space-x-8 items-center">

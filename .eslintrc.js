@@ -16,6 +16,7 @@ module.exports = {
   ignorePatterns: [
     'node_modules/',
     'dist/',
+    'data/',
     'build/',
     'coverage/',
     'next.config.js',

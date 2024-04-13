@@ -14,7 +14,7 @@ const Nav = () => {
   return (
     <nav className="w-full border-b">
       <div className="py-5 md:py-0 container mx-auto px-6 flex items-center justify-between">
-        <a href={pageRoutes.home} className="flex items-center">
+        <a href={pageRoutes.home} className="flex items-center" aria-label="Home">
           <Logo />
         </a>
         <div>
