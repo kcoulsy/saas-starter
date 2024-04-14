@@ -20,7 +20,7 @@ jobs:
       SENDGRID_FROM_EMAIL: test@test.com
       FORGOT_PASSWORD_JWT_SECRET: 123
       RESEND_API_KEY: test
-      RESEND_FROM: test
+      RESEND_FROM: test@test.com
       STRIPE_SECRET_KEY: test
       STRIPE_HOBBY_PLAN_ID: test
     steps:
