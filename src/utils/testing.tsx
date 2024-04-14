@@ -3,14 +3,7 @@ import { render } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { loadAllLocales } from '@src/i18n/i18n-util.sync';
 import TypesafeI18n from '@src/i18n/i18n-react';
-// import TypesafeI18n from '@src/i18n/i18n-react';
-// import { loadAllLocales } from '@src/i18n/i18n-util.sync';
-// import Providers from '@src/app/providers';
-//
-// const wrapper = ({ children }: { children: React.ReactNode }) => {
-//   // loadAllLocales();
-//   return <TypesafeI18n locale="en">{children}</TypesafeI18n>;
-// };
+
 const queryClient = new QueryClient();
 
 const Providers = ({ children }: PropsWithChildren) => {

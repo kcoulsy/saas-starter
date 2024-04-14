@@ -1,7 +1,6 @@
 import { fetch } from 'cross-fetch';
 import dotenv from 'dotenv';
-// import matchers from '@testing-library/jest-dom/matchers';
-import { expect, beforeAll, afterAll, afterEach, vi } from 'vitest';
+import { beforeAll, afterAll, afterEach, vi } from 'vitest';
 import '@testing-library/jest-dom/vitest';
 import { server } from '@src/testing/mocks/server';
 

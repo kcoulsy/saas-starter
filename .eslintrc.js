@@ -27,6 +27,8 @@ module.exports = {
     '.vscode',
     '**/*.test.ts',
     '**/*.test.tsx',
+    'src/utils/testing.tsx',
+    'src/testing/setupTests.ts',
   ],
   rules: {
     'prettier/prettier': 'error',
