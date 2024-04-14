@@ -13,6 +13,7 @@ jobs:
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       BASE_URL: ${{ github.event.deployment_status.target_url }}
       VERCEL_ENV: ${{ github.event.deployment_status.environment }}
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2

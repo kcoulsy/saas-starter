@@ -16,6 +16,13 @@ jobs:
       SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       VERCEL_ENV: preview
+      SENDGRID_API_KEY: 123
+      SENDGRID_FROM_EMAIL: test@test.com
+      FORGOT_PASSWORD_JWT_SECRET: 123
+      RESEND_API_KEY: test
+      RESEND_FROM: test
+      STRIPE_SECRET_KEY: test
+      STRIPE_HOBBY_PLAN_ID: test
     steps:
       - uses: actions/checkout@v2
       - name: Create Sentry release
