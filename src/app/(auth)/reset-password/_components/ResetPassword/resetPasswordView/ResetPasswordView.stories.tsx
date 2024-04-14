@@ -1,5 +1,5 @@
-import { ComponentStory, Meta } from '@storybook/react';
-import ResetPasswordView from './ResetPasswordView';
+import { Meta, StoryObj } from '@storybook/react';
+import ResetPasswordView, { ResetPasswordViewProps } from './ResetPasswordView';
 import { mockResetPasswordViewProps } from './ResetPasswordView.mocks';
 
 const meta: Meta = {
@@ -15,21 +15,27 @@ const meta: Meta = {
   },
 };
 
+type Story = StoryObj<typeof ResetPasswordView>;
+
 export default meta;
 
-const Template: ComponentStory<typeof ResetPasswordView> = (args) => (
+const Template = (args: ResetPasswordViewProps) => (
   <div className="lg:w-1/3 md:w-1/2 w-full">
     <ResetPasswordView {...args} />;
   </div>
 );
 
-export const Default = Template.bind({});
+export const Default: Story = {
+  render: Template,
+};
 
 Default.args = {
   ...mockResetPasswordViewProps.base,
 };
 
-export const WithErrors = Template.bind({});
+export const WithErrors: Story = {
+  render: Template,
+};
 
 WithErrors.args = {
   ...mockResetPasswordViewProps.errors,

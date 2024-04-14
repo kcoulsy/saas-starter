@@ -4,7 +4,7 @@ import { env } from '@src/env/server.mjs';
 import { prisma } from '../db/client';
 
 export const stripe = new Stripe(env.STRIPE_SECRET_KEY, {
-  apiVersion: '2023-10-16',
+  apiVersion: '2024-04-10',
 });
 
 export async function createCustomer(email: string) {

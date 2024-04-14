@@ -1,5 +1,5 @@
-import { ComponentStory, Meta } from '@storybook/react';
-import Tabs from './Tabs';
+import { Meta, StoryObj } from '@storybook/react';
+import Tabs, { TabsProps } from './Tabs';
 import { mockTabsProps } from './Tabs.mocks';
 
 const meta: Meta = {
@@ -15,15 +15,19 @@ const meta: Meta = {
   },
 };
 
+type Story = StoryObj<typeof Tabs>;
+
 export default meta;
 
-const Template: ComponentStory<typeof Tabs> = (args) => (
+const Template = (args: TabsProps) => (
   <div className="lg:w-1/3 md:w-1/2 w-full">
     <Tabs {...args} />
   </div>
 );
 
-export const Default = Template.bind({});
+export const Default: Story = {
+  render: Template,
+};
 
 Default.args = {
   ...mockTabsProps.base,

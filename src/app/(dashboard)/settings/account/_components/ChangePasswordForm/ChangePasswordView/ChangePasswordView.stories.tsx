@@ -1,6 +1,6 @@
-import { ComponentStory, Meta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { mockChangePasswordViewProps } from './ChangePassword.mocks';
-import ChangePasswordView from './ChangePasswordView';
+import ChangePasswordView, { ChangePasswordViewProps } from './ChangePasswordView';
 
 const meta: Meta = {
   title: 'forms/changePassword/ChangePasswordView',
@@ -15,21 +15,27 @@ const meta: Meta = {
   },
 };
 
+type Story = StoryObj<typeof ChangePasswordView>;
+
 export default meta;
 
-const Template: ComponentStory<typeof ChangePasswordView> = (args) => (
+const Template = (args: ChangePasswordViewProps) => (
   <div className="lg:w-1/3 md:w-1/2 w-full">
     <ChangePasswordView {...args} />;
   </div>
 );
 
-export const Default = Template.bind({});
+export const Default: Story = {
+  render: Template,
+};
 
 Default.args = {
   ...mockChangePasswordViewProps.base,
 };
 
-export const WithErrors = Template.bind({});
+export const WithErrors: Story = {
+  render: Template,
+};
 
 WithErrors.args = {
   ...mockChangePasswordViewProps.errors,

@@ -1,5 +1,5 @@
-import { Meta, ComponentStory } from '@storybook/react';
-import LoginFormView from './LoginFormView';
+import { Meta, StoryObj } from '@storybook/react';
+import LoginFormView, { LoginFormViewProps } from './LoginFormView';
 import { mockLoginFormViewProps } from './LoginFormView.mocks';
 
 const meta: Meta = {
@@ -15,31 +15,41 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: ComponentStory<typeof LoginFormView> = (args) => (
+type Story = StoryObj<typeof LoginFormView>;
+
+const Template = (args: LoginFormViewProps) => (
   <div className="lg:w-1/3 md:w-1/2 w-full">
     <LoginFormView {...args} />
   </div>
 );
 
-export const Default = Template.bind({});
+export const Default: Story = {
+  render: Template,
+};
 
 Default.args = {
   ...mockLoginFormViewProps.base,
 };
 
-export const EmailVerified = Template.bind({});
+export const EmailVerified: Story = {
+  render: Template,
+};
 
 EmailVerified.args = {
   ...mockLoginFormViewProps.emailVerified,
 };
 
-export const EmailUnverified = Template.bind({});
+export const EmailUnverified: Story = {
+  render: Template,
+};
 
 EmailUnverified.args = {
   ...mockLoginFormViewProps.emailUnverified,
 };
 
-export const Errors = Template.bind({});
+export const Errors: Story = {
+  render: Template,
+};
 
 Errors.args = {
   ...mockLoginFormViewProps.errors,

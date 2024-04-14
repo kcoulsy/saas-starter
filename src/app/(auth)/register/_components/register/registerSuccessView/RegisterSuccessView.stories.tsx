@@ -1,7 +1,7 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import RegisterSuccessView from './RegisterSuccessView';
 
-export default {
+const meta: Meta<typeof RegisterSuccessView> = {
   title: 'forms/register/RegisterSuccessView',
   component: RegisterSuccessView,
   // https://storybook.js.org/docs/react/api/argtypes
@@ -12,8 +12,14 @@ export default {
       values: [{ name: 'dark', value: '#3E3E3E' }],
     },
   },
-} as ComponentMeta<typeof RegisterSuccessView>;
+};
 
-const Template: ComponentStory<typeof RegisterSuccessView> = () => <RegisterSuccessView />;
+export default meta;
 
-export const Default = Template.bind({});
+type Story = StoryObj<typeof RegisterSuccessView>;
+
+const Template = () => <RegisterSuccessView />;
+
+export const Default: Story = {
+  render: Template,
+};

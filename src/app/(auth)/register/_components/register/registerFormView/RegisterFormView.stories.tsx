@@ -1,8 +1,8 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import RegisterFormView from './RegisterFormView';
+import { Meta, StoryObj } from '@storybook/react';
+import RegisterFormView, { RegisterFormViewProps } from './RegisterFormView';
 import { mockRegisterFormViewProps } from './RegisterFormView.mocks';
 
-export default {
+const meta: Meta<typeof RegisterFormView> = {
   title: 'forms/register/RegisterFormView',
   component: RegisterFormView,
   // https://storybook.js.org/docs/react/api/argtypes
@@ -13,21 +13,29 @@ export default {
       values: [{ name: 'dark', value: '#3E3E3E' }],
     },
   },
-} as ComponentMeta<typeof RegisterFormView>;
+};
 
-const Template: ComponentStory<typeof RegisterFormView> = (args) => (
+export default meta;
+
+type Story = StoryObj<typeof RegisterFormView>;
+
+const Template = (args: RegisterFormViewProps) => (
   <div className="lg:w-1/3 md:w-1/2 w-full">
     <RegisterFormView {...args} />
   </div>
 );
 
-export const Default = Template.bind({});
+export const Default: Story = {
+  render: Template,
+};
 
 Default.args = {
   ...mockRegisterFormViewProps.base,
 };
 
-export const Errors = Template.bind({});
+export const Errors: Story = {
+  render: Template,
+};
 
 Errors.args = {
   ...mockRegisterFormViewProps.errors,

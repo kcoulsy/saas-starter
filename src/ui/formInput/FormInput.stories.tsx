@@ -1,29 +1,37 @@
-import { ComponentStory, Meta } from '@storybook/react';
-import FormInput from './FormInput';
+import { Meta, StoryObj } from '@storybook/react';
+import FormInput, { FormInputProps } from './FormInput';
 import { mockFormInputProps } from './FormInput.mocks';
 
-const meta: Meta = {
+const meta: Meta<typeof FormInput> = {
   title: 'common/FormInput',
   component: FormInput,
 };
 
 export default meta;
 
-const Template: ComponentStory<typeof FormInput> = (args) => <FormInput {...args} />;
+type Story = StoryObj<typeof FormInput>;
 
-export const Default = Template.bind({});
+const Template = (args: FormInputProps) => <FormInput {...args} />;
+
+export const Default: Story = {
+  render: Template,
+};
 
 Default.args = {
   ...mockFormInputProps.base,
 };
 
-export const WithError = Template.bind({});
+export const WithError: Story = {
+  render: Template,
+};
 
 WithError.args = {
   ...mockFormInputProps.withError,
 };
 
-export const Password = Template.bind({});
+export const Password: Story = {
+  render: Template,
+};
 
 Password.args = {
   ...mockFormInputProps.password,

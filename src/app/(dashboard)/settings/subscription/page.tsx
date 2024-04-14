@@ -1,11 +1,12 @@
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@src/app/api/auth/[...nextauth]/route';
+
 import {
   createCheckoutLink,
   findOrCreateStripeCustomer,
   getCustomerPortalLink,
   getUserSubscriptions,
 } from '@src/server/services/stripe.service';
+import { authOptions } from '@src/server/auth';
 import { env } from '@src/env/server.mjs';
 import { redirectIfNotLoggedIn } from '../../utils';
 import { PlanDetails } from './_components/PlanDetails';

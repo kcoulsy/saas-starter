@@ -1,33 +1,41 @@
-import { ComponentStory, Meta } from '@storybook/react';
-import Button from './Button';
+import { Meta, StoryObj } from '@storybook/react';
+import Button, { ButtonProps } from './Button';
 import { mockButtonProps } from './Button.mocks';
 
-const meta: Meta = {
+const meta: Meta<typeof Button> = {
   title: 'common/Button',
   component: Button,
 };
 
 export default meta;
 
-const Template: ComponentStory<typeof Button> = (args) => (
+type Story = StoryObj<typeof Button>;
+
+const Template = (args: ButtonProps) => (
   <div className="w-40">
     <Button {...args} />
   </div>
 );
 
-export const Default = Template.bind({});
+export const Default: Story = {
+  render: Template,
+};
 
 Default.args = {
   ...mockButtonProps.base,
 };
 
-export const Disabled = Template.bind({});
+export const Disabled: Story = {
+  render: Template,
+};
 
 Disabled.args = {
   ...mockButtonProps.disabled,
 };
 
-export const Loading = Template.bind({});
+export const Loading: Story = {
+  render: Template,
+};
 
 Loading.args = {
   ...mockButtonProps.loading,
