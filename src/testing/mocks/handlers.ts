@@ -1,46 +1,44 @@
 // src/mocks/handlers.js
-import { rest } from 'msw';
+import { HttpResponse, http } from 'msw';
 
 export const handlers = {
-  signIn: rest.post<{ email: string }>('/api/auth/callback/credentials*', async (req, res, ctx) => {
+  signIn: http.post<{ email: string }>('/api/auth/callback/credentials', async ({ request }) => {
     // node-fetch sends as URLSeachParams but msw doesn't accept very well
     // so we need to convert it to a string then parse it
-    const x = await req.text();
-    const params = new URLSearchParams(x);
+    const url = await request.text();
+    const params = new URLSearchParams(url);
+
     if (params.get('email') === 'valid@email.com') {
-      return res(ctx.status(200), ctx.json({ url: 'http://localhost:3000/' }));
+      return HttpResponse.json({ url: 'http://localhost:3000/' });
     }
 
     if (params.get('email') === 'unverfied@email.com') {
-      return res(
-        ctx.status(401),
-        ctx.json({ url: 'http://localhost:3000/api/auth/error?error=Email%20not%20verified' }),
+      return HttpResponse.json(
+        { url: 'http://localhost:3000/api/auth/error?error=Email%20not%20verified' },
+        { status: 401 },
       );
     }
 
-    return res(ctx.status(401), ctx.json({ url: 'http://localhost:3000/api/auth/error?error=Invalid%20Login' }));
+    return HttpResponse.json({ url: 'http://localhost:3000/api/auth/error?error=Invalid%20Login' }, { status: 401 });
   }),
-  session: rest.get('/api/auth/session', (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json({}));
+  session: http.get('/api/auth/session', () => {
+    return HttpResponse.json({});
   }),
-  providers: rest.get('/api/auth/providers', (req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json({
-        credentials: {
-          id: 'credentials',
-          name: 'Credentials',
-          type: 'credentials',
-          signinUrl: 'http://localhost:3000/api/auth/signin/credentials',
-          callbackUrl: 'http://localhost:3000/api/auth/callback/credentials',
-        },
-      }),
-    );
+  providers: http.get('/api/auth/providers', () => {
+    return HttpResponse.json({
+      credentials: {
+        id: 'credentials',
+        name: 'Credentials',
+        type: 'credentials',
+        signinUrl: 'http://localhost:3000/api/auth/signin/credentials',
+        callbackUrl: 'http://localhost:3000/api/auth/callback/credentials',
+      },
+    });
   }),
-  csrf: rest.get('/api/auth/csrf', (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json({ csrfToken: 'csrfToken' }));
+  csrf: http.get('/api/auth/csrf', () => {
+    return HttpResponse.json({ csrfToken: 'csrfToken' });
   }),
-  authLog: rest.post('/api/auth/_log', (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json({}));
+  authLog: http.post('/api/auth/_log', () => {
+    return HttpResponse.json({});
   }),
 };

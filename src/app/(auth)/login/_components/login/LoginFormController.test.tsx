@@ -32,7 +32,7 @@ describe('LoginFormController', () => {
 
     await userEvent.click(loginButton);
 
-    expect(spy).toHaveBeenCalledWith('/');
+    expect(spy).toHaveBeenCalledWith('/dashboard');
   });
 
   it('redirects if email is not verified', async () => {

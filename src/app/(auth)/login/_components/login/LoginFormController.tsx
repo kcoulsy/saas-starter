@@ -42,11 +42,6 @@ const LoginFormController = () => {
         callbackUrl: '/',
         redirect: false,
       });
-      // const response = await signIn('email', {
-      //   email: data.email,
-      //   callbackUrl: '/dashboard',
-      //   redirect: false,
-      // });
 
       if (response?.ok) {
         setLoginError(undefined);

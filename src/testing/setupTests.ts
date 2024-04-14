@@ -1,9 +1,13 @@
 import { fetch } from 'cross-fetch';
-import matchers from '@testing-library/jest-dom/matchers';
+import dotenv from 'dotenv';
+// import matchers from '@testing-library/jest-dom/matchers';
 import { expect, beforeAll, afterAll, afterEach, vi } from 'vitest';
+import '@testing-library/jest-dom/vitest';
 import { server } from '@src/testing/mocks/server';
 
-expect.extend(matchers);
+dotenv.config({
+  path: '.env',
+});
 
 const mockResponse = vi.fn();
 Object.defineProperty(window, 'location', {
@@ -19,10 +23,16 @@ Object.defineProperty(window, 'location', {
 
 const baseURL = 'http://localhost:3000';
 
-global.fetch = (...args) => fetch(new URL(args[0] as string, baseURL), args[1]);
-
-// Establish API mocking before all tests.
-beforeAll(() => server.listen({ onUnhandledRequest: 'warn' }));
+beforeAll(() => {
+  server.listen({
+    onUnhandledRequest: 'error',
+  });
+  global.fetch = function (...args) {
+    // MSW hijacks the fetch requests, so we need to modify AFTER we start listening.
+    // This modification is so that next auth requests have the base url attached
+    return fetch(new URL(args[0] as string, baseURL), args[1]);
+  };
+});
 
 // Reset any request handlers that we may add during the tests,
 // so they don't affect other tests.
@@ -30,3 +40,7 @@ afterEach(() => server.resetHandlers());
 
 // Clean up after the tests are finished.
 afterAll(() => server.close());
+
+// server.events.on('request:start', ({ request }) => {
+//   console.log('MSW intercepted:', request.method, request.url, request.body);
+// });
