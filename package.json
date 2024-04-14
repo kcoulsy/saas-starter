@@ -50,14 +50,14 @@
     "@react-email/html": "0.0.4",
     "@react-email/render": "npx 0.0.7",
     "@sentry/integrations": "^7.110.0",
-    "@sentry/nextjs": "^7.63.0",
+    "@sentry/nextjs": "^7.110.0",
     "@sentry/rrweb": "0.3.3",
     "@storybook/preset-scss": "1.0.3",
     "@storybook/react": "^8.0.8",
-    "@testing-library/react": "15.0.1",
-    "@testing-library/jest-dom": "6.4.2",
     "@storybook/test": "^8.0.8",
     "@tanstack/react-query": "4.19.1",
+    "@testing-library/jest-dom": "6.4.2",
+    "@testing-library/react": "15.0.1",
     "@trpc/client": "10.4.3",
     "@trpc/next": "10.4.3",
     "@trpc/react": "9.27.2",
@@ -84,8 +84,8 @@
     "tailwind-merge": "2.2.2",
     "typesafe-i18n": "5.18.0",
     "uuid": "9.0.0",
-    "zod": "3.22.4",
-    "vitest": "1.5.0"
+    "vitest": "1.5.0",
+    "zod": "3.22.4"
   },
   "devDependencies": {
     "@babel/core": "7.20.5",

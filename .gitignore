@@ -48,3 +48,5 @@ yarn-error.log*
 .sentryclirc
 
 build-storybook.log
+# Sentry Config File
+.sentryclirc
