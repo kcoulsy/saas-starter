@@ -72,7 +72,7 @@ export default withSentryConfig(
         }),
       ),
     ),
-    sentryWebpackPluginOptions,
+    // sentryWebpackPluginOptions,
   ),
   {
     // For all available options, see:
