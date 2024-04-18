@@ -138,7 +138,7 @@
     "playwright": "1.43.1",
     "postcss": "8.4.38",
     "prettier": "3.2.5",
-    "prisma": "5.8.1",
+    "prisma": "5.12.1",
     "sass": "1.75.0",
     "storybook": "8.0.8",
     "storybook-addon-sass-postcss": "0.2.0",
