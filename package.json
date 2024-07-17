@@ -79,7 +79,7 @@
     "typesafe-i18n": "5.26.2",
     "uuid": "9.0.1",
     "vitest": "1.5.0",
-    "zod": "3.22.4"
+    "zod": "3.23.8"
   },
   "devDependencies": {
     "@babel/core": "7.24.4",
