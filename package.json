@@ -64,7 +64,7 @@
     "dotenv": "16.4.5",
     "jsonwebtoken": "9.0.2",
     "msw": "2.2.14",
-    "next": "14.2.2",
+    "next": "14.2.7",
     "next-auth": "4.24.7",
     "next-axiom": "1.1.1",
     "next-seo": "6.5.0",
